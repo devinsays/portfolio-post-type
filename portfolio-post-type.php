@@ -76,7 +76,7 @@ function portfolioposttype() {
 		'query_var' => true
 	);
 	
-	register_taxonomy( 'portfolio_tag', array('portfolio'), $args );
+	register_taxonomy( 'portfolio_tag', array('portfolio'), $taxonomy_portfolio_tag_args );
 	
 	/**
 	 * Register a taxonomy for Portfolio Categories
