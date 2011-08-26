@@ -5,7 +5,7 @@ Plugin URI: http://www.wptheming.com
 Description: Enables a portfolio post type and taxonomies.
 Version: 0.1
 Author: Devin Price
-Author URI: http://www.wptheming.com
+Author URI: http://wptheming.com/portfolio-post-type/
 License: GPLv2
 */
 
