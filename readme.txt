@@ -1,4 +1,4 @@
-=== Options Framework ===
+=== Portfolio Post Type ===
 Contributors: Devin Price
 Tags: portfolio, post type
 Requires at least: 3.1
