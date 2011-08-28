@@ -132,7 +132,7 @@ function portfolioposttype_edit_columns($portfolio_columns){
 		"cb" => "<input type=\"checkbox\" />",
 		"title" => _x('Title', 'column name'),
 		"thumbnail" => __('Thumbnail', 'portfolioposttype'),
-		"portfolio-tags" => __('Tags', 'portfolioposttype'),
+		"portfolio_tag" => __('Tags', 'portfolioposttype'),
 		"author" => __('Author', 'portfolioposttype'),
 		"comments" => __('Comments', 'portfolioposttype'),
 		"date" => __('Date', 'portfolioposttype'),
@@ -140,6 +140,8 @@ function portfolioposttype_edit_columns($portfolio_columns){
 	$portfolio_columns['comments'] = '<div class="vers"><img alt="Comments" src="' . esc_url( admin_url( 'images/comment-grey-bubble.png' ) ) . '" /></div>';
 	return $portfolio_columns;
 }
+
+add_filter('manage_edit-portfolio_columns', 'portfolioposttype_edit_columns');
  
 function portfolioposttype_columns_display($portfolio_columns, $post_id){
 
@@ -165,9 +167,9 @@ function portfolioposttype_columns_display($portfolio_columns, $post_id){
 			break;	
 			
 			// Display the portfolio tags in the column view
-			case "portfolio-tags":
+			case "portfolio_tag":
 			
-			if ( $tag_list = get_the_term_list( $post_id, 'portfolio-tags', '', ', ', '' ) ) {
+			if ( $tag_list = get_the_term_list( $post_id, 'portfolio_tag', '', ', ', '' ) ) {
 				echo $tag_list;
 			} else {
 				echo __('None', 'portfolioposttype');
@@ -175,8 +177,6 @@ function portfolioposttype_columns_display($portfolio_columns, $post_id){
 			break;			
 	}
 }
-
-add_filter('manage_edit-portfolio_columns', 'portfolioposttype_edit_columns');
 
 add_action('manage_posts_custom_column',  'portfolioposttype_columns_display', 10, 2);
 
