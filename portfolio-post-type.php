@@ -3,7 +3,7 @@
 Plugin Name: Portfolio Post Type
 Plugin URI: http://www.wptheming.com
 Description: Enables a portfolio post type and taxonomies.
-Version: 0.1
+Version: 0.2
 Author: Devin Price
 Author URI: http://wptheming.com/portfolio-post-type/
 License: GPLv2
