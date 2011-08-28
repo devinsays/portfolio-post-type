@@ -62,11 +62,11 @@ function portfolioposttype() {
 		'separate_items_with_commas' => _x( 'Separate portfolio tags with commas', 'portfolioposttype' ),
 		'add_or_remove_items' => _x( 'Add or remove portfolio tags', 'portfolioposttype' ),
 		'choose_from_most_used' => _x( 'Choose from the most used portfolio tags', 'portfolioposttype' ),
-		'menu_name' => _x( 'Portfolio Tags', 'portfolioposttype' ),
+		'menu_name' => _x( 'Portfolio Tags', 'portfolioposttype' )
 	);
 	
 	$taxonomy_portfolio_tag_args = array(
-		'labels' => $labels,
+		'labels' => $taxonomy_portfolio_tag_labels,
 		'public' => true,
 		'show_in_nav_menus' => true,
 		'show_ui' => true,
