@@ -28,6 +28,10 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 
 == Changelog ==
 
+= 0.3 =
+
+* Added category to column view
+
 = 0.2 =
 
 * Fixes for portfolio tag label

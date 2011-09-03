@@ -132,6 +132,7 @@ function portfolioposttype_edit_columns($portfolio_columns){
 		"cb" => "<input type=\"checkbox\" />",
 		"title" => _x('Title', 'column name'),
 		"thumbnail" => __('Thumbnail', 'portfolioposttype'),
+		"portfolio_category" => __('Category', 'portfolioposttype'),
 		"portfolio_tag" => __('Tags', 'portfolioposttype'),
 		"author" => __('Author', 'portfolioposttype'),
 		"comments" => __('Comments', 'portfolioposttype'),
@@ -161,6 +162,16 @@ function portfolioposttype_columns_display($portfolio_columns, $post_id){
 			}
 			if ( isset($thumb) ) {
 				echo $thumb;
+			} else {
+				echo __('None', 'portfolioposttype');
+			}
+			break;	
+			
+			// Display the portfolio tags in the column view
+			case "portfolio_category":
+			
+			if ( $category_list = get_the_term_list( $post_id, 'portfolio_category', '', ', ', '' ) ) {
+				echo $category_list;
 			} else {
 				echo __('None', 'portfolioposttype');
 			}
