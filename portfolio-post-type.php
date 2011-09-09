@@ -9,6 +9,26 @@ Author URI: http://wptheming.com/portfolio-post-type/
 License: GPLv2
 */
 
+/**
+ * Flushes rewrite rules on plugin activation to ensure portfolio posts don't 404
+ * http://codex.wordpress.org/Function_Reference/flush_rewrite_rules
+ */
+
+function portfolioposttype_activation() {
+	portfolioposttype();
+	flush_rewrite_rules();
+}
+
+register_activation_hook( __FILE__, 'portfolioposttype_activation' );
+
+// Flushes rewrite rules on plugin deactivation to remove all custom object rewrites from the database
+
+function portfolioposttype_deactivation() {
+	flush_rewrite_rules();
+}
+
+register_deactivation_hook( __FILE__, 'portfolioposttype_deactivation' );
+
 function portfolioposttype() {
 
 	/**
