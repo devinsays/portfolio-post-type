@@ -3,7 +3,7 @@ Contributors: Devin Price
 Tags: portfolio, post type
 Requires at least: 3.1
 Tested up to: 3.2
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2
 
 == Description ==
@@ -31,6 +31,9 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 = 0.3 =
 
 * Added category to column view
+* Added portfolio count to "right now" dashboard widget (props @nickhamze)
+* Added contextual help on portfolio edit screen (props @nickhamze)
+* Now flushes rewrite rules on plugin activation
 
 = 0.2 =
 

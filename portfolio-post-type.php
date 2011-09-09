@@ -204,7 +204,7 @@ function portfolioposttype_columns_display($portfolio_columns, $post_id){
 add_action( 'manage_posts_custom_column',  'portfolioposttype_columns_display', 10, 2 );
 
 /**
- * Add Postfolio count to "Right Now" Dashboard Widget
+ * Add Portfolio count to "Right Now" Dashboard Widget
  */
 
 function add_portfolio_counts() {
