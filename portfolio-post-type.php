@@ -84,7 +84,7 @@ function portfolioposttype() {
 		'show_ui' => true,
 		'show_tagcloud' => true,
 		'hierarchical' => false,
-		'rewrite' => true,
+		'rewrite' => array( 'slug' => 'portfolio-tag' ),
 		'query_var' => true
 	);
 	
@@ -120,7 +120,7 @@ function portfolioposttype() {
 		'show_ui' => true,
 		'show_tagcloud' => true,
 		'hierarchical' => true,
-		'rewrite' => true,
+		'rewrite' => array( 'slug' => 'portfolio-category' ),
 		'query_var' => true
     );
 	

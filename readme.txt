@@ -28,6 +28,10 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 
 == Changelog ==
 
+= 0.4 =
+
+* Update taxonomy rewrites to use dashes instead of underscores
+
 = 0.3 =
 
 * Added category to column view
