@@ -44,7 +44,7 @@ function portfolioposttype() {
 	$args = array(
     	'labels' => $labels,
     	'public' => true,
-		'supports' => array( 'title', 'editor', 'thumbnail', 'comments' ),
+		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'custom-fields', 'revisions' ),
 		'capability_type' => 'post',
 		'rewrite' => array("slug" => "portfolio"), // Permalinks format
 		'menu_position' => 5,
