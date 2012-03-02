@@ -21,6 +21,9 @@ function portfolioposttype_activation() {
 
 register_activation_hook( __FILE__, 'portfolioposttype_activation' );
 
+if ( ! defined( 'PPT_URL' ) )
+	define( 'PPT_URL', plugin_dir_url( __FILE__ ) );
+
 function portfolioposttype() {
 
 	/**
@@ -291,12 +294,12 @@ add_action( 'contextual_help', 'portfolioposttype_add_help_text', 10, 3 );
 function portfolioposttype_portfolio_icons() { ?>
     <style type="text/css" media="screen">
         #menu-posts-portfolio .wp-menu-image {
-            background: url(<?php echo plugin_dir_url( __FILE__ ); ?>images/portfolio-icon.png) no-repeat 6px 6px !important;
+            background: url(<?php echo PPT_URL; ?>images/portfolio-icon.png) no-repeat 6px 6px !important;
         }
 		#menu-posts-portfolio:hover .wp-menu-image, #menu-posts-portfolio.wp-has-current-submenu .wp-menu-image {
             background-position:6px -16px !important;
         }
-		#icon-edit.icon32-posts-portfolio {background: url(<?php echo plugin_dir_url( __FILE__ ); ?>images/portfolio-32x32.png) no-repeat;}
+		#icon-edit.icon32-posts-portfolio {background: url(<?php echo PPT_URL; ?>images/portfolio-32x32.png) no-repeat;}
     </style>
 <?php }
 
