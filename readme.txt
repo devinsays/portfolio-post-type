@@ -26,6 +26,13 @@ You will need to get your hands dirty with a little code and create a archive-po
 
 To allow users of Portfolio Press to more easily migrate to a new theme.  And hopefully, to save some work for other folks trying to set a portfolio.
 
+= How can I include this in a theme? =
+
+All you need to do is add the following lines of code to your functions.php file (assuming it's in the root directory of your theme):
+
+//Define Portfolio Post Type URL
+define( 'PPT_URL', trailingslashit( get_stylesheet_directory_uri().'/portfolio-post-type' ) );
+
 == Changelog ==
 
 = 0.4 =
