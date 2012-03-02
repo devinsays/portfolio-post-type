@@ -51,7 +51,7 @@ function portfolioposttype() {
 		'capability_type' => 'post',
 		'rewrite' => array("slug" => "portfolio"), // Permalinks format
 		'menu_position' => 5,
-		'has_archive' => true
+		'has_archive' => 'portolio-archive'
 	); 
 
 	register_post_type( 'portfolio', $args );
