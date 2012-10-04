@@ -22,7 +22,7 @@ class Portfolio_Post_Type {
 		register_activation_hook( __FILE__, array( &$this, 'plugin_activation' ) );
 		
 		// Add support for translations
-		load_plugin_textdomain( 'portfolioposttype', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'portfolioposttype', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		
 		// Adds the portfolio post type and taxonomies
 		add_action( 'init', array( &$this, 'portfolio_init' ) );
