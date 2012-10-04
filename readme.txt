@@ -10,7 +10,7 @@ License: GPLv2
 
 This plugin registers a custom post type for portfolio items.  It also registers separate portfolio taxonomies for tags and categories.  If featured images are selected, they will be displayed in the column view.  The portfolio image used in the dashboard was designed by Ben Dunkle, who also did the other UI icons in WordPress.
 
-It doesn't change how portfolio items are displayed in your theme however.  You'll need to add templates for archive-portfolio.php and single.php if you want to customize the display of portfolio items.
+It doesn't change how portfolio items are displayed in your theme however.  You'll need to add templates for archive-portfolio.php and single-portfolio.php if you want to customize the display of portfolio items.
 
 == Installation ==
 

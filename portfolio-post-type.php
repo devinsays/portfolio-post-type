@@ -13,15 +13,16 @@ if ( ! class_exists( 'Portfolio_Post_Type' ) ) :
 
 class Portfolio_Post_Type {
 
-	/**
-	 * Current plugin version
-	 */
+	// Current plugin version
 	var $version = 0.4;
 	
 	function __construct() {
 	
 		// Runs when the plugin is activated
 		register_activation_hook( __FILE__, array( &$this, 'plugin_activation' ) );
+		
+		// Add support for translations
+		load_plugin_textdomain( 'portfolioposttype', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 		
 		// Adds the portfolio post type and taxonomies
 		add_action( 'init', array( &$this, 'portfolio_init' ) );
@@ -38,9 +39,6 @@ class Portfolio_Post_Type {
 		
 		// Show portfolio post counts in the dashboard
 		add_action( 'right_now_content_table_end', array( &$this, 'add_portfolio_counts' ) );
-		
-		// Adds contextual help to the portfolio admin screen
-		add_action( 'contextual_help', array( &$this, 'portfolio_add_help_text' ), 10, 3 );
 		
 		// Give the portfolio menu item a unique icon
 		add_action( 'admin_head', array( &$this, 'portfolio_icon' ) );
@@ -290,51 +288,6 @@ class Portfolio_Post_Type {
 	
 	            echo '</tr>';
 	        }
-	}
-	
-	/**
-	 * Add contextual help menu
-	 */
-	 
-	function portfolio_add_help_text( $contextual_help, $screen_id, $screen ) { 
-		if ( 'portfolio' == $screen->id ) {
-			$contextual_help =
-			'<p>' . __('The title field and the big Post Editing Area are fixed in place, but you can reposition all the other boxes using drag and drop, and can minimize or expand them by clicking the title bar of each box. Use the Screen Options tab to unhide more boxes (Excerpt, Send Trackbacks, Custom Fields, Discussion, Slug, Author) or to choose a 1- or 2-column layout for this screen.') . '</p>' .
-			'<p>' . __('<strong>Title</strong> - Enter a title for your post. After you enter a title, you&#8217;ll see the permalink below, which you can edit.') . '</p>' .
-			'<p>' . __('<strong>Post editor</strong> - Enter the text for your post. There are two modes of editing: Visual and HTML. Choose the mode by clicking on the appropriate tab. Visual mode gives you a WYSIWYG editor. Click the last icon in the row to get a second row of controls. The HTML mode allows you to enter raw HTML along with your post text. You can insert media files by clicking the icons above the post editor and following the directions. You can go the distraction-free writing screen, new in 3.2, via the Fullscreen icon in Visual mode (second to last in the top row) or the Fullscreen button in HTML mode (last in the row). Once there, you can make buttons visible by hovering over the top area. Exit Fullscreen back to the regular post editor.') . '</p>' .
-			'<p>' . __('<strong>Publish</strong> - You can set the terms of publishing your post in the Publish box. For Status, Visibility, and Publish (immediately), click on the Edit link to reveal more options. Visibility includes options for password-protecting a post or making it stay at the top of your blog indefinitely (sticky). Publish (immediately) allows you to set a future or past date and time, so you can schedule a post to be published in the future or backdate a post.') . '</p>' .
-			( ( current_theme_supports( 'post-formats' ) && post_type_supports( 'post', 'post-formats' ) ) ? '<p>' . __( '<strong>Post Format</strong> - This designates how your theme will display a specific post. For example, you could have a <em>standard</em> blog post with a title and paragraphs, or a short <em>aside</em> that omits the title and contains a short text blurb. Please refer to the Codex for <a href="http://codex.wordpress.org/Post_Formats#Supported_Formats">descriptions of each post format</a>. Your theme could enable all or some of 10 possible formats.' ) . '</p>' : '' ) .
-			'<p>' . __('<strong>Featured Image</strong> - This allows you to associate an image with your post without inserting it. This is usually useful only if your theme makes use of the featured image as a post thumbnail on the home page, a custom header, etc.') . '</p>' .
-			'<p>' . __('<strong>Send Trackbacks</strong> - Trackbacks are a way to notify legacy blog systems that you&#8217;ve linked to them. Enter the URL(s) you want to send trackbacks. If you link to other WordPress sites they&#8217;ll be notified automatically using pingbacks, and this field is unnecessary.') . '</p>' .
-			'<p>' . __('<strong>Discussion</strong> - You can turn comments and pings on or off, and if there are comments on the post, you can see them here and moderate them.') . '</p>' .
-			'<p><strong>' . __('For more information:') . '</strong></p>' .
-			'<p>' . __('<a href="http://codex.wordpress.org/Posts_Add_New_Screen" target="_blank">Documentation on Writing and Editing Posts</a>') . '</p>' .
-			'<p>' . __('<a href="http://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>';
-	  } elseif ( 'edit-portfolio' == $screen->id ) {
-	    $contextual_help = 
-		    '<p>' . __('You can customize the display of this screen in a number of ways:') . '</p>' .
-			'<ul>' .
-			'<li>' . __('You can hide/display columns based on your needs and decide how many posts to list per screen using the Screen Options tab.') . '</li>' .
-			'<li>' . __('You can filter the list of posts by post status using the text links in the upper left to show All, Published, Draft, or Trashed posts. The default view is to show all posts.') . '</li>' .
-			'<li>' . __('You can view posts in a simple title list or with an excerpt. Choose the view you prefer by clicking on the icons at the top of the list on the right.') . '</li>' .
-			'<li>' . __('You can refine the list to show only posts in a specific category or from a specific month by using the dropdown menus above the posts list. Click the Filter button after making your selection. You also can refine the list by clicking on the post author, category or tag in the posts list.') . '</li>' .
-			'</ul>' .
-			'<p>' . __('Hovering over a row in the posts list will display action links that allow you to manage your post. You can perform the following actions:') . '</p>' .
-			'<ul>' .
-			'<li>' . __('Edit takes you to the editing screen for that post. You can also reach that screen by clicking on the post title.') . '</li>' .
-			'<li>' . __('Quick Edit provides inline access to the metadata of your post, allowing you to update post details without leaving this screen.') . '</li>' .
-			'<li>' . __('Trash removes your post from this list and places it in the trash, from which you can permanently delete it.') . '</li>' .
-			'<li>' . __('Preview will show you what your draft post will look like if you publish it. View will take you to your live site to view the post. Which link is available depends on your post&#8217;s status.') . '</li>' .
-			'</ul>' .
-			'<p>' . __('You can also edit multiple posts at once. Select the posts you want to edit using the checkboxes, select Edit from the Bulk Actions menu and click Apply. You will be able to change the metadata (categories, author, etc.) for all selected posts at once. To remove a post from the grouping, just click the x next to its name in the Bulk Edit area that appears.') . '</p>' .
-			'<p><strong>' . __('For more information:') . '</strong></p>' .
-			'<p>' . __('<a href="http://codex.wordpress.org/Posts_Screen" target="_blank">Documentation on Managing Posts</a>') . '</p>' .
-			'<p>' . __('<a href="http://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>';
-	
-	  }
-	  
-	  return $contextual_help;
-	  
 	}
 	
 	/**
