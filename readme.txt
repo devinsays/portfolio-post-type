@@ -2,8 +2,8 @@
 Contributors: Devin Price
 Tags: portfolio, post type
 Requires at least: 3.1
-Tested up to: 3.2
-Stable tag: 0.3
+Tested up to: 3.3
+Stable tag: 0.4
 License: GPLv2
 
 == Description ==
@@ -30,6 +30,7 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 
 = 0.4 =
 
+* Update to use classes
 * Update taxonomy rewrites to use dashes instead of underscores
 * Update supports to include custom fields and excerpts
 
