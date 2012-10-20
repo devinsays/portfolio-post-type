@@ -31,7 +31,6 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 = 0.4 =
 
 * Update to use classes
-* Update taxonomy rewrites to use dashes instead of underscores
 * Update supports to include custom fields and excerpts
 
 = 0.3 =
