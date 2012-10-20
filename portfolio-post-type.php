@@ -116,7 +116,7 @@ class Portfolio_Post_Type {
 			'show_ui' => true,
 			'show_tagcloud' => true,
 			'hierarchical' => false,
-			'rewrite' => array( 'slug' => 'portfolio-tag' ),
+			'rewrite' => array( 'slug' => 'portfolio_tag' ),
 			'query_var' => true
 		);
 		
@@ -152,7 +152,7 @@ class Portfolio_Post_Type {
 			'show_ui' => true,
 			'show_tagcloud' => true,
 			'hierarchical' => true,
-			'rewrite' => array( 'slug' => 'portfolio-category' ),
+			'rewrite' => array( 'slug' => 'portfolio_category' ),
 			'query_var' => true
 	    );
 		
@@ -293,7 +293,7 @@ class Portfolio_Post_Type {
 	/**
 	 * Displays the custom post type icon in the dashboard
 	 */
-	
+	 
 	function portfolio_icon() { ?>
 	    <style type="text/css" media="screen">
 	        #menu-posts-portfolio .wp-menu-image {
