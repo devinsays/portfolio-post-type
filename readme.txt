@@ -1,9 +1,9 @@
 === Portfolio Post Type ===
 Contributors: Devin Price
 Tags: portfolio, post type
-Requires at least: 3.1
-Tested up to: 3.3
-Stable tag: 0.4
+Requires at least: 3.3
+Tested up to: 3.5
+Stable tag: 0.5
 License: GPLv2
 
 == Description ==
@@ -27,6 +27,11 @@ You will need to get your hands dirty with a little code and create a archive-po
 To allow users of Portfolio Press to more easily migrate to a new theme.  And hopefully, to save some work for other folks trying to set a portfolio.
 
 == Changelog ==
+
+= 0.5 =
+
+* Use show_admin_column for taxonomies (http://make.wordpress.org/core/2012/12/11/wordpress-3-5-admin-columns-for-custom-taxonomies/) rather than a custom function
+* Add author field custom post type
 
 = 0.4 =
 

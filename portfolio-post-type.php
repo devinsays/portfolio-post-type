@@ -3,7 +3,7 @@
 Plugin Name: Portfolio Post Type
 Plugin URI: http://www.wptheming.com
 Description: Enables a portfolio post type and taxonomies.
-Version: 0.4
+Version: 0.5
 Author: Devin Price
 Author URI: http://wptheming.com/portfolio-post-type/
 License: GPLv2
@@ -30,12 +30,12 @@ class Portfolio_Post_Type {
 		// Thumbnail support for portfolio posts
 		add_theme_support( 'post-thumbnails', array( 'portfolio' ) );
 		
-		// Adds columns in the admin view for thumbnail and taxonomies
-		add_filter( 'manage_edit-portfolio_columns', array( &$this, 'portfolio_edit_columns' ) );
-		add_action( 'manage_posts_custom_column', array( &$this, 'portfolio_column_display' ), 10, 2 );
+		// Adds thumbnails to column view
+		add_filter( 'manage_edit-portfolio_columns', array( &$this, 'add_thumbnail_column'), 10, 1 );
+		add_action( 'manage_posts_custom_column', array( &$this, 'display_thumbnail' ), 10, 1 );
 		
 		// Allows filtering of posts by taxonomy in the admin view
-		add_action( 'restrict_manage_posts', array( &$this, 'portfolio_add_taxonomy_filters' ) );
+		add_action( 'restrict_manage_posts', array( &$this, 'add_taxonomy_filters' ) );
 		
 		// Show portfolio post counts in the dashboard
 		add_action( 'right_now_content_table_end', array( &$this, 'add_portfolio_counts' ) );
@@ -117,6 +117,7 @@ class Portfolio_Post_Type {
 			'show_tagcloud' => true,
 			'hierarchical' => false,
 			'rewrite' => array( 'slug' => 'portfolio_tag' ),
+			'show_admin_column' => true,
 			'query_var' => true
 		);
 		
@@ -150,6 +151,7 @@ class Portfolio_Post_Type {
 			'public' => true,
 			'show_in_nav_menus' => true,
 			'show_ui' => true,
+			'show_admin_column' => true,
 			'show_tagcloud' => true,
 			'hierarchical' => true,
 			'rewrite' => array( 'slug' => 'portfolio_category' ),
@@ -164,64 +166,20 @@ class Portfolio_Post_Type {
 	 * Add Columns to Portfolio Edit Screen
 	 * http://wptheming.com/2010/07/column-edit-pages/
 	 */
-	 
-	function portfolio_edit_columns( $portfolio_columns ) {
-		$portfolio_columns = array(
-			"cb" => "<input type=\"checkbox\" />",
-			"title" => _x('Title', 'column name'),
-			"thumbnail" => __('Thumbnail', 'portfolioposttype'),
-			"portfolio_category" => __('Category', 'portfolioposttype'),
-			"portfolio_tag" => __('Tags', 'portfolioposttype'),
-			"author" => __('Author', 'portfolioposttype'),
-			"comments" => __('Comments', 'portfolioposttype'),
-			"date" => __('Date', 'portfolioposttype'),
-		);
-		$portfolio_columns['comments'] = '<div class="vers"><img alt="Comments" src="' . esc_url( admin_url( 'images/comment-grey-bubble.png' ) ) . '" /></div>';
-		return $portfolio_columns;
+	
+	function add_thumbnail_column( $columns ) {
+	
+		$column_thumbnail = array( 'thumbnail' => __('Thumbnail','portfolioposttype' ) );
+		$columns = array_slice( $columns, 0, 2, true ) + $column_thumbnail + array_slice( $columns, 1, NULL, true );
+		return $columns;
 	}
 	
-	function portfolio_column_display( $portfolio_columns, $post_id ) {
-	
-		// Code from: http://wpengineer.com/display-post-thumbnail-post-page-overview
-		
-		switch ( $portfolio_columns ) {
-			
-			// Display the thumbnail in the column view
-			case "thumbnail":
-				$width = (int) 35;
-				$height = (int) 35;
-				$thumbnail_id = get_post_meta( $post_id, '_thumbnail_id', true );
-				
-				// Display the featured image in the column view if possible
-				if ( $thumbnail_id ) {
-					$thumb = wp_get_attachment_image( $thumbnail_id, array($width, $height), true );
-				}
-				if ( isset( $thumb ) ) {
-					echo $thumb;
-				} else {
-					echo __('None', 'portfolioposttype');
-				}
-				break;	
-				
-			// Display the portfolio tags in the column view
-			case "portfolio_category":
-			
-			if ( $category_list = get_the_term_list( $post_id, 'portfolio_category', '', ', ', '' ) ) {
-				echo $category_list;
-			} else {
-				echo __('None', 'portfolioposttype');
-			}
-			break;	
-				
-			// Display the portfolio tags in the column view
-			case "portfolio_tag":
-			
-			if ( $tag_list = get_the_term_list( $post_id, 'portfolio_tag', '', ', ', '' ) ) {
-				echo $tag_list;
-			} else {
-				echo __('None', 'portfolioposttype');
-			}
-			break;			
+	function display_thumbnail( $column ) {
+		global $post;
+		switch ( $column ) {
+			case 'thumbnail':
+				echo get_the_post_thumbnail( $post->ID, array(35, 35) );
+				break;
 		}
 	}
 	
@@ -230,7 +188,7 @@ class Portfolio_Post_Type {
 	 * Code artfully lifed from http://pippinsplugins.com
 	 */
 	 
-	function portfolio_add_taxonomy_filters() {
+	function add_taxonomy_filters() {
 		global $typenow;
 		
 		// An array of all the taxonomyies you want to display. Use the taxonomy name or slug
