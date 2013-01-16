@@ -14,7 +14,7 @@ if ( ! class_exists( 'Portfolio_Post_Type' ) ) :
 class Portfolio_Post_Type {
 
 	// Current plugin version
-	var $version = 0.4;
+	var $version = 0.5;
 	
 	function __construct() {
 	
