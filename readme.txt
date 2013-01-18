@@ -32,6 +32,7 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 
 * Use show_admin_column for taxonomies (http://make.wordpress.org/core/2012/12/11/wordpress-3-5-admin-columns-for-custom-taxonomies/) rather than a custom function
 * Add author field custom post type
+* Allows $args to be filtered (https://github.com/devinsays/portfolio-post-type/issues/8)
 
 = 0.4 =
 
