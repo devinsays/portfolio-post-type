@@ -73,7 +73,7 @@ class Portfolio_Post_Type {
 			'not_found' => __( 'No portfolio items found', 'portfolioposttype' ),
 			'not_found_in_trash' => __( 'No portfolio items found in trash', 'portfolioposttype' )
 		);
-	
+		
 		$args = array(
 	    	'labels' => $labels,
 	    	'public' => true,
@@ -82,7 +82,9 @@ class Portfolio_Post_Type {
 			'rewrite' => array("slug" => "portfolio"), // Permalinks format
 			'menu_position' => 5,
 			'has_archive' => true
-		); 
+		);
+		
+		$args = apply_filters('portfolioposttype_args', $args);
 	
 		register_post_type( 'portfolio', $args );
 		
