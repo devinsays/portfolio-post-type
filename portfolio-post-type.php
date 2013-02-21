@@ -15,52 +15,52 @@ class Portfolio_Post_Type {
 
 	// Current plugin version
 	var $version = 0.5;
-	
+
 	function __construct() {
-	
+
 		// Runs when the plugin is activated
 		register_activation_hook( __FILE__, array( &$this, 'plugin_activation' ) );
-		
+
 		// Add support for translations
 		load_plugin_textdomain( 'portfolioposttype', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-		
+
 		// Adds the portfolio post type and taxonomies
 		add_action( 'init', array( &$this, 'portfolio_init' ) );
-		
+
 		// Thumbnail support for portfolio posts
 		add_theme_support( 'post-thumbnails', array( 'portfolio' ) );
-		
+
 		// Adds thumbnails to column view
 		add_filter( 'manage_edit-portfolio_columns', array( &$this, 'add_thumbnail_column'), 10, 1 );
 		add_action( 'manage_posts_custom_column', array( &$this, 'display_thumbnail' ), 10, 1 );
-		
+
 		// Allows filtering of posts by taxonomy in the admin view
 		add_action( 'restrict_manage_posts', array( &$this, 'add_taxonomy_filters' ) );
-		
+
 		// Show portfolio post counts in the dashboard
 		add_action( 'right_now_content_table_end', array( &$this, 'add_portfolio_counts' ) );
-		
+
 		// Give the portfolio menu item a unique icon
 		add_action( 'admin_head', array( &$this, 'portfolio_icon' ) );
 	}
-	
+
 	/**
 	 * Flushes rewrite rules on plugin activation to ensure portfolio posts don't 404
 	 * http://codex.wordpress.org/Function_Reference/flush_rewrite_rules
 	 */
-	
+
 	function plugin_activation() {
 		$this->portfolio_init();
 		flush_rewrite_rules();
 	}
-	
+
 	function portfolio_init() {
-	
+
 		/**
 		 * Enable the Portfolio custom post type
 		 * http://codex.wordpress.org/Function_Reference/register_post_type
 		 */
-	
+
 		$labels = array(
 			'name' => __( 'Portfolio', 'portfolioposttype' ),
 			'singular_name' => __( 'Portfolio Item', 'portfolioposttype' ),
@@ -73,7 +73,7 @@ class Portfolio_Post_Type {
 			'not_found' => __( 'No portfolio items found', 'portfolioposttype' ),
 			'not_found_in_trash' => __( 'No portfolio items found in trash', 'portfolioposttype' )
 		);
-		
+
 		$args = array(
 	    	'labels' => $labels,
 	    	'public' => true,
@@ -83,34 +83,34 @@ class Portfolio_Post_Type {
 			'menu_position' => 5,
 			'has_archive' => true
 		);
-		
+
 		$args = apply_filters('portfolioposttype_args', $args);
-	
+
 		register_post_type( 'portfolio', $args );
-		
+
 		/**
 		 * Register a taxonomy for Portfolio Tags
 		 * http://codex.wordpress.org/Function_Reference/register_taxonomy
 		 */
-		
+
 		$taxonomy_portfolio_tag_labels = array(
-			'name' => _x( 'Portfolio Tags', 'portfolioposttype' ),
-			'singular_name' => _x( 'Portfolio Tag', 'portfolioposttype' ),
-			'search_items' => _x( 'Search Portfolio Tags', 'portfolioposttype' ),
-			'popular_items' => _x( 'Popular Portfolio Tags', 'portfolioposttype' ),
-			'all_items' => _x( 'All Portfolio Tags', 'portfolioposttype' ),
-			'parent_item' => _x( 'Parent Portfolio Tag', 'portfolioposttype' ),
-			'parent_item_colon' => _x( 'Parent Portfolio Tag:', 'portfolioposttype' ),
-			'edit_item' => _x( 'Edit Portfolio Tag', 'portfolioposttype' ),
-			'update_item' => _x( 'Update Portfolio Tag', 'portfolioposttype' ),
-			'add_new_item' => _x( 'Add New Portfolio Tag', 'portfolioposttype' ),
-			'new_item_name' => _x( 'New Portfolio Tag Name', 'portfolioposttype' ),
-			'separate_items_with_commas' => _x( 'Separate portfolio tags with commas', 'portfolioposttype' ),
-			'add_or_remove_items' => _x( 'Add or remove portfolio tags', 'portfolioposttype' ),
-			'choose_from_most_used' => _x( 'Choose from the most used portfolio tags', 'portfolioposttype' ),
-			'menu_name' => _x( 'Portfolio Tags', 'portfolioposttype' )
+			'name' => __( 'Portfolio Tags', 'portfolioposttype' ),
+			'singular_name' => __( 'Portfolio Tag', 'portfolioposttype' ),
+			'search_items' => __( 'Search Portfolio Tags', 'portfolioposttype' ),
+			'popular_items' => __( 'Popular Portfolio Tags', 'portfolioposttype' ),
+			'all_items' => __( 'All Portfolio Tags', 'portfolioposttype' ),
+			'parent_item' => __( 'Parent Portfolio Tag', 'portfolioposttype' ),
+			'parent_item_colon' => __( 'Parent Portfolio Tag:', 'portfolioposttype' ),
+			'edit_item' => __( 'Edit Portfolio Tag', 'portfolioposttype' ),
+			'update_item' => __( 'Update Portfolio Tag', 'portfolioposttype' ),
+			'add_new_item' => __( 'Add New Portfolio Tag', 'portfolioposttype' ),
+			'new_item_name' => __( 'New Portfolio Tag Name', 'portfolioposttype' ),
+			'separate_items_with_commas' => __( 'Separate portfolio tags with commas', 'portfolioposttype' ),
+			'add_or_remove_items' => __( 'Add or remove portfolio tags', 'portfolioposttype' ),
+			'choose_from_most_used' => __( 'Choose from the most used portfolio tags', 'portfolioposttype' ),
+			'menu_name' => __( 'Portfolio Tags', 'portfolioposttype' )
 		);
-		
+
 		$taxonomy_portfolio_tag_args = array(
 			'labels' => $taxonomy_portfolio_tag_labels,
 			'public' => true,
@@ -122,32 +122,32 @@ class Portfolio_Post_Type {
 			'show_admin_column' => true,
 			'query_var' => true
 		);
-		
+
 		register_taxonomy( 'portfolio_tag', array( 'portfolio' ), $taxonomy_portfolio_tag_args );
-		
+
 		/**
 		 * Register a taxonomy for Portfolio Categories
 		 * http://codex.wordpress.org/Function_Reference/register_taxonomy
 		 */
-	
+
 	    $taxonomy_portfolio_category_labels = array(
-			'name' => _x( 'Portfolio Categories', 'portfolioposttype' ),
-			'singular_name' => _x( 'Portfolio Category', 'portfolioposttype' ),
-			'search_items' => _x( 'Search Portfolio Categories', 'portfolioposttype' ),
-			'popular_items' => _x( 'Popular Portfolio Categories', 'portfolioposttype' ),
-			'all_items' => _x( 'All Portfolio Categories', 'portfolioposttype' ),
-			'parent_item' => _x( 'Parent Portfolio Category', 'portfolioposttype' ),
-			'parent_item_colon' => _x( 'Parent Portfolio Category:', 'portfolioposttype' ),
-			'edit_item' => _x( 'Edit Portfolio Category', 'portfolioposttype' ),
-			'update_item' => _x( 'Update Portfolio Category', 'portfolioposttype' ),
-			'add_new_item' => _x( 'Add New Portfolio Category', 'portfolioposttype' ),
-			'new_item_name' => _x( 'New Portfolio Category Name', 'portfolioposttype' ),
-			'separate_items_with_commas' => _x( 'Separate portfolio categories with commas', 'portfolioposttype' ),
-			'add_or_remove_items' => _x( 'Add or remove portfolio categories', 'portfolioposttype' ),
-			'choose_from_most_used' => _x( 'Choose from the most used portfolio categories', 'portfolioposttype' ),
-			'menu_name' => _x( 'Portfolio Categories', 'portfolioposttype' ),
+			'name' => __( 'Portfolio Categories', 'portfolioposttype' ),
+			'singular_name' => __( 'Portfolio Category', 'portfolioposttype' ),
+			'search_items' => __( 'Search Portfolio Categories', 'portfolioposttype' ),
+			'popular_items' => __( 'Popular Portfolio Categories', 'portfolioposttype' ),
+			'all_items' => __( 'All Portfolio Categories', 'portfolioposttype' ),
+			'parent_item' => __( 'Parent Portfolio Category', 'portfolioposttype' ),
+			'parent_item_colon' => __( 'Parent Portfolio Category:', 'portfolioposttype' ),
+			'edit_item' => __( 'Edit Portfolio Category', 'portfolioposttype' ),
+			'update_item' => __( 'Update Portfolio Category', 'portfolioposttype' ),
+			'add_new_item' => __( 'Add New Portfolio Category', 'portfolioposttype' ),
+			'new_item_name' => __( 'New Portfolio Category Name', 'portfolioposttype' ),
+			'separate_items_with_commas' => __( 'Separate portfolio categories with commas', 'portfolioposttype' ),
+			'add_or_remove_items' => __( 'Add or remove portfolio categories', 'portfolioposttype' ),
+			'choose_from_most_used' => __( 'Choose from the most used portfolio categories', 'portfolioposttype' ),
+			'menu_name' => __( 'Portfolio Categories', 'portfolioposttype' ),
 	    );
-		
+
 	    $taxonomy_portfolio_category_args = array(
 			'labels' => $taxonomy_portfolio_category_labels,
 			'public' => true,
@@ -159,23 +159,23 @@ class Portfolio_Post_Type {
 			'rewrite' => array( 'slug' => 'portfolio_category' ),
 			'query_var' => true
 	    );
-		
+
 	    register_taxonomy( 'portfolio_category', array( 'portfolio' ), $taxonomy_portfolio_category_args );
-		
+
 	}
-	 
+
 	/**
 	 * Add Columns to Portfolio Edit Screen
 	 * http://wptheming.com/2010/07/column-edit-pages/
 	 */
-	
+
 	function add_thumbnail_column( $columns ) {
-	
+
 		$column_thumbnail = array( 'thumbnail' => __('Thumbnail','portfolioposttype' ) );
 		$columns = array_slice( $columns, 0, 2, true ) + $column_thumbnail + array_slice( $columns, 1, NULL, true );
 		return $columns;
 	}
-	
+
 	function display_thumbnail( $column ) {
 		global $post;
 		switch ( $column ) {
@@ -184,21 +184,21 @@ class Portfolio_Post_Type {
 				break;
 		}
 	}
-	
+
 	/**
 	 * Adds taxonomy filters to the portfolio admin page
 	 * Code artfully lifed from http://pippinsplugins.com
 	 */
-	 
+
 	function add_taxonomy_filters() {
 		global $typenow;
-		
+
 		// An array of all the taxonomyies you want to display. Use the taxonomy name or slug
 		$taxonomies = array( 'portfolio_category', 'portfolio_tag' );
-	 
+
 		// must set this to the post type you want the filter(s) displayed on
 		if ( $typenow == 'portfolio' ) {
-	 
+
 			foreach ( $taxonomies as $tax_slug ) {
 				$current_tax_slug = isset( $_GET[$tax_slug] ) ? $_GET[$tax_slug] : false;
 				$tax_obj = get_taxonomy( $tax_slug );
@@ -215,16 +215,16 @@ class Portfolio_Post_Type {
 			}
 		}
 	}
-	
+
 	/**
 	 * Add Portfolio count to "Right Now" Dashboard Widget
 	 */
-	
+
 	function add_portfolio_counts() {
 	        if ( ! post_type_exists( 'portfolio' ) ) {
 	             return;
 	        }
-	
+
 	        $num_posts = wp_count_posts( 'portfolio' );
 	        $num = number_format_i18n( $num_posts->publish );
 	        $text = _n( 'Portfolio Item', 'Portfolio Items', intval($num_posts->publish) );
@@ -235,7 +235,7 @@ class Portfolio_Post_Type {
 	        echo '<td class="first b b-portfolio">' . $num . '</td>';
 	        echo '<td class="t portfolio">' . $text . '</td>';
 	        echo '</tr>';
-	
+
 	        if ($num_posts->pending > 0) {
 	            $num = number_format_i18n( $num_posts->pending );
 	            $text = _n( 'Portfolio Item Pending', 'Portfolio Items Pending', intval($num_posts->pending) );
@@ -245,15 +245,15 @@ class Portfolio_Post_Type {
 	            }
 	            echo '<td class="first b b-portfolio">' . $num . '</td>';
 	            echo '<td class="t portfolio">' . $text . '</td>';
-	
+
 	            echo '</tr>';
 	        }
 	}
-	
+
 	/**
 	 * Displays the custom post type icon in the dashboard
 	 */
-	 
+
 	function portfolio_icon() { ?>
 	    <style type="text/css" media="screen">
 	        #menu-posts-portfolio .wp-menu-image {
@@ -265,7 +265,7 @@ class Portfolio_Post_Type {
 			#icon-edit.icon32-posts-portfolio {background: url(<?php echo plugin_dir_url( __FILE__ ); ?>images/portfolio-32x32.png) no-repeat;}
 	    </style>
 	<?php }
-	
+
 }
 
 new Portfolio_Post_Type;

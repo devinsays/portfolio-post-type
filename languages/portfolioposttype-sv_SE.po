@@ -1,0 +1,171 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Portfolio Post Type\n"
+"POT-Creation-Date: 2013-02-19 11:32+0100\n"
+"PO-Revision-Date: 2013-02-19 11:46+0100\n"
+"Last-Translator: Andréas Lundgren <adevade@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: portfolio-post-type.php:65
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: portfolio-post-type.php:66 portfolio-post-type.php:230
+msgid "Portfolio Item"
+msgstr "Portfolioobjekt"
+
+#: portfolio-post-type.php:67
+msgid "Add New Item"
+msgstr "Lägg till nytt objekt"
+
+#: portfolio-post-type.php:68 portfolio-post-type.php:70
+msgid "Add New Portfolio Item"
+msgstr "Lägg till nytt objekt i portfolion"
+
+#: portfolio-post-type.php:69
+msgid "Edit Portfolio Item"
+msgstr "Redigera portfolioobjekt"
+
+#: portfolio-post-type.php:71
+msgid "View Item"
+msgstr "Visa objekt"
+
+#: portfolio-post-type.php:72
+msgid "Search Portfolio"
+msgstr "Sök i portfolio"
+
+#: portfolio-post-type.php:73
+msgid "No portfolio items found"
+msgstr "Inga objekt hittades."
+
+#: portfolio-post-type.php:74
+msgid "No portfolio items found in trash"
+msgstr "Inga objekt hittades i papperskorgen."
+
+#: portfolio-post-type.php:97 portfolio-post-type.php:111
+msgid "Portfolio Tags"
+msgstr "Portfolioetiketter"
+
+#: portfolio-post-type.php:98
+msgid "Portfolio Tag"
+msgstr "Portfolioetikett"
+
+#: portfolio-post-type.php:99
+msgid "Search Portfolio Tags"
+msgstr "Sök bland portfolioetiketter"
+
+#: portfolio-post-type.php:100
+msgid "Popular Portfolio Tags"
+msgstr "Populära portfolioetiketter"
+
+#: portfolio-post-type.php:101
+msgid "All Portfolio Tags"
+msgstr "Alla portfolioetiketter"
+
+#: portfolio-post-type.php:102
+msgid "Parent Portfolio Tag"
+msgstr "Förälder till portfolioetikett"
+
+#: portfolio-post-type.php:103
+msgid "Parent Portfolio Tag:"
+msgstr "Förälder till portfolioetikett:"
+
+#: portfolio-post-type.php:104
+msgid "Edit Portfolio Tag"
+msgstr "Redigera portfolioetikett"
+
+#: portfolio-post-type.php:105
+msgid "Update Portfolio Tag"
+msgstr "Uppdatera portfolioetikett"
+
+#: portfolio-post-type.php:106
+msgid "Add New Portfolio Tag"
+msgstr "Lägg till ny portfolioetikett"
+
+#: portfolio-post-type.php:107
+msgid "New Portfolio Tag Name"
+msgstr "Nytt namn på portfolioetikett"
+
+#: portfolio-post-type.php:108
+msgid "Separate portfolio tags with commas"
+msgstr "Separera flera portfolioetiketter med komma"
+
+#: portfolio-post-type.php:109
+msgid "Add or remove portfolio tags"
+msgstr "Lägg till eller ta bort portfolioetiketter"
+
+#: portfolio-post-type.php:110
+msgid "Choose from the most used portfolio tags"
+msgstr "Välj från de populäraste portfolioetiketterna"
+
+#: portfolio-post-type.php:134 portfolio-post-type.php:148
+msgid "Portfolio Categories"
+msgstr "Portfoliokategorier"
+
+#: portfolio-post-type.php:135
+msgid "Portfolio Category"
+msgstr "Portfoliokategori"
+
+#: portfolio-post-type.php:136
+msgid "Search Portfolio Categories"
+msgstr "Sök bland portfoliokategorier"
+
+#: portfolio-post-type.php:137
+msgid "Popular Portfolio Categories"
+msgstr "Populära portfoliokategorier"
+
+#: portfolio-post-type.php:138
+msgid "All Portfolio Categories"
+msgstr "Alla portfoliokategorier"
+
+#: portfolio-post-type.php:139
+msgid "Parent Portfolio Category"
+msgstr "Förälder till portfoliokategori"
+
+#: portfolio-post-type.php:140
+msgid "Parent Portfolio Category:"
+msgstr "Förälder till portfoliokategori:"
+
+#: portfolio-post-type.php:141
+msgid "Edit Portfolio Category"
+msgstr "Redigera portfoliokategori"
+
+#: portfolio-post-type.php:142
+msgid "Update Portfolio Category"
+msgstr "Uppdatera portfoliokategori"
+
+#: portfolio-post-type.php:143
+msgid "Add New Portfolio Category"
+msgstr "Lägg till ny portfoliokategori"
+
+#: portfolio-post-type.php:144
+msgid "New Portfolio Category Name"
+msgstr "Nytt namn på portfoliokategori"
+
+#: portfolio-post-type.php:145
+msgid "Separate portfolio categories with commas"
+msgstr "Separera flera portfoliokategorier med komma"
+
+#: portfolio-post-type.php:146
+msgid "Add or remove portfolio categories"
+msgstr "Lägg till eller ta bort portfoliokategorier"
+
+#: portfolio-post-type.php:147
+msgid "Choose from the most used portfolio categories"
+msgstr "Välj från de populäraste portfoliokategorierna"
+
+#: portfolio-post-type.php:174
+msgid "Thumbnail"
+msgstr "Miniatyrbild"
+
+#: portfolio-post-type.php:241
+msgid "Portfolio Item Pending"
+msgstr "Portfolioobjekt väntar på granskning"
