@@ -12,7 +12,7 @@
  * Plugin Name: Portfolio Post Type
  * Plugin URI:  http://wptheming.com/portfolio-post-type/
  * Description: Enables a portfolio post type and taxonomies.
- * Version:     0.5.0
+ * Version:     0.6.0
  * Author:      Devin Price
  * Author URI:  http://www.wptheming.com/
  * Text Domain: portfolioposttype
@@ -24,13 +24,6 @@
 if ( ! class_exists( 'Portfolio_Post_Type' ) ) :
 
 class Portfolio_Post_Type {
-
-	/**
-	 * Plugin version
-	 *
-	 * @var string
-	 */
-	public $version = '0.5';
 
 	public function __construct() {
 
@@ -298,10 +291,11 @@ class Portfolio_Post_Type {
 			$num  = '<a href="edit.php?post_type=portfolio">' . $num . '</a>';
 			$text = '<a href="edit.php?post_type=portfolio">' . $text. '</a>';
 		}
+		echo '<tr>';
 		echo '<td class="first b b-portfolio">' . $num . '</td>';
 		echo '<td class="t portfolio">' . $text . '</td>';
 		echo '</tr>';
-
+		
 		if ( 0 == $num_posts->pending ) {
 			return;
 		}
@@ -312,6 +306,7 @@ class Portfolio_Post_Type {
 			$num  = '<a href="edit.php?post_status=pending&amp;post_type=portfolio">' . $num . '</a>';
 			$text = '<a href="edit.php?post_status=pending&amp;post_type=portfolio">' . $text . '</a>';
 		}
+		echo '<tr>';
 		echo '<td class="first b b-portfolio">' . $num . '</td>';
 		echo '<td class="t portfolio">' . $text . '</td>';
 		echo '</tr>';
