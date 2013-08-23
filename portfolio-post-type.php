@@ -160,6 +160,21 @@ class Portfolio_Post_Type {
 		$args = apply_filters( 'portfolioposttype_tag_args', $args );
 
 		register_taxonomy( 'portfolio_tag', array( 'portfolio' ), $args );
+		
+		add_filter( 'body_class', array( $this, 'portfolio_tag_class' ) );
+	}
+	
+	/**
+	 * Add body classes for portfolio_tag terms
+	 * 
+	 * @link http://codex.wordpress.org/Function_Reference/body_class
+	 */
+	function portfolio_tag_class( $classes ) {
+		global $post;
+		$ID = $post->ID;
+		$taxonomy = 'portfolio_tag';
+		$classes = $this->get_taxonomy_body_classes( $ID, $taxonomy, $classes);
+		return $classes;
 	}
 
 	/**
@@ -201,6 +216,44 @@ class Portfolio_Post_Type {
 		$args = apply_filters( 'portfolioposttype_category_args', $args );
 
 		register_taxonomy( 'portfolio_category', array( 'portfolio' ), $args );
+		
+		add_filter( 'body_class', array( $this, 'portfolio_category_class' ) );
+	}
+	
+	/**
+	 * Add body classes for portfolio_category terms
+	 * 
+	 * @link http://codex.wordpress.org/Function_Reference/body_class
+	 */
+	function portfolio_category_class( $classes ) {
+		global $post;
+		$ID = $post->ID;
+		$taxonomy = 'portfolio_category';
+		$classes = $this->get_taxonomy_body_classes( $ID, $taxonomy, $classes);
+		return $classes;
+	}
+	
+	/**
+	 * Adds custom taxonomy terms an array of body classes.
+	 *
+	 * @param int $ID Post ID
+	 * @param string $taxonomy Name of taxonomy to get terms from
+	 * @param array $classes Existing body classes
+	 *
+	 * @return array $classes with additional taxonomy terms
+	 */
+	function get_taxonomy_body_classes( $ID, $taxonomy, $classes ) {
+	
+		$terms = get_the_terms( (int) $ID, $taxonomy );
+		if ( !empty( $terms ) ) {
+			foreach( (array) $terms as $order => $term ) {
+				if ( !in_array( $term->slug, $classes ) ) {
+					$classes[] = $term->slug;
+				}
+			}
+		}
+		
+		return $classes;
 	}
 
 	/**

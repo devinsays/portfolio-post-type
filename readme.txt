@@ -3,7 +3,7 @@ Contributors: downstairsdev, garyj
 Tags: portfolio, post type
 Requires at least: 3.4
 Tested up to: 3.6
-Stable tag: 0.6
+Stable tag: 0.6.0
 License: GPLv2 or later
 
 == Description ==
@@ -37,6 +37,7 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 * Use proper coding standards
 * Updated inline documentation
 * New filters for taxonomy arguments
+* Adds body classes for custom taxonomy terms
 
 = 0.5 =
 
