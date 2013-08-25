@@ -77,8 +77,8 @@ class Portfolio_Post_Type {
 	 */
 	public function portfolio_init() {
 		$this->register_post_type();
-		$this->register_taxonomy_tag();
 		$this->register_taxonomy_category();
+		$this->register_taxonomy_tag();
 	}
 
 	/**
@@ -134,47 +134,6 @@ class Portfolio_Post_Type {
 	}
 
 	/**
-	 * Register a taxonomy for Portfolio Categories.
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/register_taxonomy
-	 */
-	protected function register_taxonomy_category() {
-		$labels = array(
-			'name'                       => __( 'Portfolio Categories', 'portfolioposttype' ),
-			'singular_name'              => __( 'Portfolio Category', 'portfolioposttype' ),
-			'search_items'               => __( 'Search Portfolio Categories', 'portfolioposttype' ),
-			'popular_items'              => __( 'Popular Portfolio Categories', 'portfolioposttype' ),
-			'all_items'                  => __( 'All Portfolio Categories', 'portfolioposttype' ),
-			'parent_item'                => __( 'Parent Portfolio Category', 'portfolioposttype' ),
-			'parent_item_colon'          => __( 'Parent Portfolio Category:', 'portfolioposttype' ),
-			'edit_item'                  => __( 'Edit Portfolio Category', 'portfolioposttype' ),
-			'update_item'                => __( 'Update Portfolio Category', 'portfolioposttype' ),
-			'add_new_item'               => __( 'Add New Portfolio Category', 'portfolioposttype' ),
-			'new_item_name'              => __( 'New Portfolio Category Name', 'portfolioposttype' ),
-			'separate_items_with_commas' => __( 'Separate portfolio categories with commas', 'portfolioposttype' ),
-			'add_or_remove_items'        => __( 'Add or remove portfolio categories', 'portfolioposttype' ),
-			'choose_from_most_used'      => __( 'Choose from the most used portfolio categories', 'portfolioposttype' ),
-			'menu_name'                  => __( 'Portfolio Categories', 'portfolioposttype' ),
-		);
-
-		$args = array(
-			'labels'            => $labels,
-			'public'            => true,
-			'show_in_nav_menus' => true,
-			'show_ui'           => true,
-			'show_tagcloud'     => true,
-			'hierarchical'      => true,
-			'rewrite'           => array( 'slug' => 'portfolio_category' ),
-			'show_admin_column' => true,
-			'query_var'         => true,
-		);
-
-		$args = apply_filters( 'portfolioposttype_category_args', $args );
-
-		register_taxonomy( 'portfolio_category', array( 'portfolio' ), $args );
-	}
-
-	/**
 	 * Register a taxonomy for Portfolio Tags.
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/register_taxonomy
@@ -214,6 +173,47 @@ class Portfolio_Post_Type {
 
 		register_taxonomy( 'portfolio_tag', array( 'portfolio' ), $args );
 
+	}
+
+	/**
+	 * Register a taxonomy for Portfolio Categories.
+	 *
+	 * @link http://codex.wordpress.org/Function_Reference/register_taxonomy
+	 */
+	protected function register_taxonomy_category() {
+		$labels = array(
+			'name'                       => __( 'Portfolio Categories', 'portfolioposttype' ),
+			'singular_name'              => __( 'Portfolio Category', 'portfolioposttype' ),
+			'search_items'               => __( 'Search Portfolio Categories', 'portfolioposttype' ),
+			'popular_items'              => __( 'Popular Portfolio Categories', 'portfolioposttype' ),
+			'all_items'                  => __( 'All Portfolio Categories', 'portfolioposttype' ),
+			'parent_item'                => __( 'Parent Portfolio Category', 'portfolioposttype' ),
+			'parent_item_colon'          => __( 'Parent Portfolio Category:', 'portfolioposttype' ),
+			'edit_item'                  => __( 'Edit Portfolio Category', 'portfolioposttype' ),
+			'update_item'                => __( 'Update Portfolio Category', 'portfolioposttype' ),
+			'add_new_item'               => __( 'Add New Portfolio Category', 'portfolioposttype' ),
+			'new_item_name'              => __( 'New Portfolio Category Name', 'portfolioposttype' ),
+			'separate_items_with_commas' => __( 'Separate portfolio categories with commas', 'portfolioposttype' ),
+			'add_or_remove_items'        => __( 'Add or remove portfolio categories', 'portfolioposttype' ),
+			'choose_from_most_used'      => __( 'Choose from the most used portfolio categories', 'portfolioposttype' ),
+			'menu_name'                  => __( 'Portfolio Categories', 'portfolioposttype' ),
+		);
+
+		$args = array(
+			'labels'            => $labels,
+			'public'            => true,
+			'show_in_nav_menus' => true,
+			'show_ui'           => true,
+			'show_tagcloud'     => true,
+			'hierarchical'      => true,
+			'rewrite'           => array( 'slug' => 'portfolio_category' ),
+			'show_admin_column' => true,
+			'query_var'         => true,
+		);
+
+		$args = apply_filters( 'portfolioposttype_category_args', $args );
+
+		register_taxonomy( 'portfolio_category', array( 'portfolio' ), $args );
 	}
 
 	/**
