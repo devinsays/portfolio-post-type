@@ -51,11 +51,14 @@ class Portfolio_Post_Type {
 
 		// Give the portfolio menu item a unique icon
 		add_action( 'admin_head', array( $this, 'portfolio_icon' ) );
+
+		// Add taxonomy terms as body classes
+		add_filter( 'body_class', array( $this, 'add_body_classes' ) );
 	}
 
 	/**
 	 * Flushes rewrite rules on plugin activation to ensure portfolio posts don't 404.
-	 * 
+	 *
 	 * @link http://codex.wordpress.org/Function_Reference/flush_rewrite_rules
 	 *
 	 * @uses Portfolio_Post_Type::portfolio_init()
@@ -80,7 +83,7 @@ class Portfolio_Post_Type {
 
 	/**
 	 * Enable the Portfolio custom post type.
-	 * 
+	 *
 	 * @link http://codex.wordpress.org/Function_Reference/register_post_type
 	 */
 	protected function register_post_type() {
@@ -123,7 +126,7 @@ class Portfolio_Post_Type {
 
 	/**
 	 * Register a taxonomy for Portfolio Tags.
-	 * 
+	 *
 	 * @link http://codex.wordpress.org/Function_Reference/register_taxonomy
 	 */
 	protected function register_taxonomy_tag() {
@@ -160,26 +163,12 @@ class Portfolio_Post_Type {
 		$args = apply_filters( 'portfolioposttype_tag_args', $args );
 
 		register_taxonomy( 'portfolio_tag', array( 'portfolio' ), $args );
-		
-		add_filter( 'body_class', array( $this, 'portfolio_tag_class' ) );
-	}
-	
-	/**
-	 * Add body classes for portfolio_tag terms
-	 * 
-	 * @link http://codex.wordpress.org/Function_Reference/body_class
-	 */
-	function portfolio_tag_class( $classes ) {
-		global $post;
-		$ID = $post->ID;
-		$taxonomy = 'portfolio_tag';
-		$classes = $this->get_taxonomy_body_classes( $ID, $taxonomy, $classes);
-		return $classes;
+
 	}
 
 	/**
 	 * Register a taxonomy for Portfolio Categories.
-	 * 
+	 *
 	 * @link http://codex.wordpress.org/Function_Reference/register_taxonomy
 	 */
 	protected function register_taxonomy_category() {
@@ -216,49 +205,36 @@ class Portfolio_Post_Type {
 		$args = apply_filters( 'portfolioposttype_category_args', $args );
 
 		register_taxonomy( 'portfolio_category', array( 'portfolio' ), $args );
-		
-		add_filter( 'body_class', array( $this, 'portfolio_category_class' ) );
 	}
-	
+
 	/**
-	 * Add body classes for portfolio_category terms
-	 * 
-	 * @link http://codex.wordpress.org/Function_Reference/body_class
-	 */
-	function portfolio_category_class( $classes ) {
-		global $post;
-		$ID = $post->ID;
-		$taxonomy = 'portfolio_category';
-		$classes = $this->get_taxonomy_body_classes( $ID, $taxonomy, $classes);
-		return $classes;
-	}
-	
-	/**
-	 * Adds custom taxonomy terms an array of body classes.
+	 * Add taxonomy terms as body classes.
 	 *
-	 * @param int $ID Post ID
-	 * @param string $taxonomy Name of taxonomy to get terms from
-	 * @param array $classes Existing body classes
+	 * If the taxonomy doesn't exist (has been unregistered), then get_the_terms() returns WP_Error, which is checked
+	 * for before adding classes.
 	 *
-	 * @return array $classes with additional taxonomy terms
+	 * @param array $classes Existing body classes.
+	 *
+	 * @return array Amended body classes.
 	 */
-	function get_taxonomy_body_classes( $ID, $taxonomy, $classes ) {
-	
-		$terms = get_the_terms( (int) $ID, $taxonomy );
-		if ( !empty( $terms ) ) {
-			foreach( (array) $terms as $order => $term ) {
-				if ( !in_array( $term->slug, $classes ) ) {
-					$classes[] = $term->slug;
+	public function add_body_classes( $classes ) {
+		$taxonomies = array( 'portfolio_tag', 'portfolio_category' );
+
+		foreach( $taxonomies as $taxonomy ) {
+			$terms = get_the_terms( get_the_ID(), $taxonomy );
+			if ( $terms && ! is_wp_error( $terms ) ) {
+				foreach( $terms as $term ) {
+					$classes[] = sanitize_html_class( str_replace( '_', '-', $taxonomy ) . '-' . $term->slug );
 				}
 			}
 		}
-		
+
 		return $classes;
 	}
 
 	/**
 	 * Add columns to Portfolio list screen.
-	 * 
+	 *
 	 * @link http://wptheming.com/2010/07/column-edit-pages/
 	 *
 	 * @param array $columns Existing columns.
@@ -275,7 +251,7 @@ class Portfolio_Post_Type {
 	 * Custom column callback
 	 *
 	 * @global stdClass $post Post object.
-	 * 
+	 *
 	 * @param string $column Column ID.
 	 */
 	public function display_thumbnail( $column ) {
@@ -289,7 +265,7 @@ class Portfolio_Post_Type {
 
 	/**
 	 * Add taxonomy filters to the portfolio admin page.
-	 * 
+	 *
 	 * Code artfully lifted from http://pippinsplugins.com/
 	 *
 	 * @global string $typenow
@@ -348,7 +324,7 @@ class Portfolio_Post_Type {
 		echo '<td class="first b b-portfolio">' . $num . '</td>';
 		echo '<td class="t portfolio">' . $text . '</td>';
 		echo '</tr>';
-		
+
 		if ( 0 == $num_posts->pending ) {
 			return;
 		}
