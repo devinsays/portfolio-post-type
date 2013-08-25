@@ -82,6 +82,15 @@ class Portfolio_Post_Type {
 	}
 
 	/**
+	 * Get an array of all taxonomies this plugin handles.
+	 *
+	 * @return array Taxonomy slugs.
+	 */
+	protected function get_taxonomies() {
+		return array( 'portfolio_category', 'portfolio_tag' );
+	}
+
+	/**
 	 * Enable the Portfolio custom post type.
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/register_post_type
@@ -122,6 +131,47 @@ class Portfolio_Post_Type {
 		$args = apply_filters( 'portfolioposttype_args', $args );
 
 		register_post_type( 'portfolio', $args );
+	}
+
+	/**
+	 * Register a taxonomy for Portfolio Categories.
+	 *
+	 * @link http://codex.wordpress.org/Function_Reference/register_taxonomy
+	 */
+	protected function register_taxonomy_category() {
+		$labels = array(
+			'name'                       => __( 'Portfolio Categories', 'portfolioposttype' ),
+			'singular_name'              => __( 'Portfolio Category', 'portfolioposttype' ),
+			'search_items'               => __( 'Search Portfolio Categories', 'portfolioposttype' ),
+			'popular_items'              => __( 'Popular Portfolio Categories', 'portfolioposttype' ),
+			'all_items'                  => __( 'All Portfolio Categories', 'portfolioposttype' ),
+			'parent_item'                => __( 'Parent Portfolio Category', 'portfolioposttype' ),
+			'parent_item_colon'          => __( 'Parent Portfolio Category:', 'portfolioposttype' ),
+			'edit_item'                  => __( 'Edit Portfolio Category', 'portfolioposttype' ),
+			'update_item'                => __( 'Update Portfolio Category', 'portfolioposttype' ),
+			'add_new_item'               => __( 'Add New Portfolio Category', 'portfolioposttype' ),
+			'new_item_name'              => __( 'New Portfolio Category Name', 'portfolioposttype' ),
+			'separate_items_with_commas' => __( 'Separate portfolio categories with commas', 'portfolioposttype' ),
+			'add_or_remove_items'        => __( 'Add or remove portfolio categories', 'portfolioposttype' ),
+			'choose_from_most_used'      => __( 'Choose from the most used portfolio categories', 'portfolioposttype' ),
+			'menu_name'                  => __( 'Portfolio Categories', 'portfolioposttype' ),
+		);
+
+		$args = array(
+			'labels'            => $labels,
+			'public'            => true,
+			'show_in_nav_menus' => true,
+			'show_ui'           => true,
+			'show_tagcloud'     => true,
+			'hierarchical'      => true,
+			'rewrite'           => array( 'slug' => 'portfolio_category' ),
+			'show_admin_column' => true,
+			'query_var'         => true,
+		);
+
+		$args = apply_filters( 'portfolioposttype_category_args', $args );
+
+		register_taxonomy( 'portfolio_category', array( 'portfolio' ), $args );
 	}
 
 	/**
@@ -167,47 +217,6 @@ class Portfolio_Post_Type {
 	}
 
 	/**
-	 * Register a taxonomy for Portfolio Categories.
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/register_taxonomy
-	 */
-	protected function register_taxonomy_category() {
-		$labels = array(
-			'name'                       => __( 'Portfolio Categories', 'portfolioposttype' ),
-			'singular_name'              => __( 'Portfolio Category', 'portfolioposttype' ),
-			'search_items'               => __( 'Search Portfolio Categories', 'portfolioposttype' ),
-			'popular_items'              => __( 'Popular Portfolio Categories', 'portfolioposttype' ),
-			'all_items'                  => __( 'All Portfolio Categories', 'portfolioposttype' ),
-			'parent_item'                => __( 'Parent Portfolio Category', 'portfolioposttype' ),
-			'parent_item_colon'          => __( 'Parent Portfolio Category:', 'portfolioposttype' ),
-			'edit_item'                  => __( 'Edit Portfolio Category', 'portfolioposttype' ),
-			'update_item'                => __( 'Update Portfolio Category', 'portfolioposttype' ),
-			'add_new_item'               => __( 'Add New Portfolio Category', 'portfolioposttype' ),
-			'new_item_name'              => __( 'New Portfolio Category Name', 'portfolioposttype' ),
-			'separate_items_with_commas' => __( 'Separate portfolio categories with commas', 'portfolioposttype' ),
-			'add_or_remove_items'        => __( 'Add or remove portfolio categories', 'portfolioposttype' ),
-			'choose_from_most_used'      => __( 'Choose from the most used portfolio categories', 'portfolioposttype' ),
-			'menu_name'                  => __( 'Portfolio Categories', 'portfolioposttype' ),
-		);
-
-		$args = array(
-			'labels'            => $labels,
-			'public'            => true,
-			'show_in_nav_menus' => true,
-			'show_ui'           => true,
-			'show_tagcloud'     => true,
-			'hierarchical'      => true,
-			'rewrite'           => array( 'slug' => 'portfolio_category' ),
-			'show_admin_column' => true,
-			'query_var'         => true,
-		);
-
-		$args = apply_filters( 'portfolioposttype_category_args', $args );
-
-		register_taxonomy( 'portfolio_category', array( 'portfolio' ), $args );
-	}
-
-	/**
 	 * Add taxonomy terms as body classes.
 	 *
 	 * If the taxonomy doesn't exist (has been unregistered), then get_the_terms() returns WP_Error, which is checked
@@ -218,7 +227,7 @@ class Portfolio_Post_Type {
 	 * @return array Amended body classes.
 	 */
 	public function add_body_classes( $classes ) {
-		$taxonomies = array( 'portfolio_tag', 'portfolio_category' );
+		$taxonomies = $this->get_taxonomies();
 
 		foreach( $taxonomies as $taxonomy ) {
 			$terms = get_the_terms( get_the_ID(), $taxonomy );
@@ -243,8 +252,7 @@ class Portfolio_Post_Type {
 	 */
 	public function add_thumbnail_column( $columns ) {
 		$column_thumbnail = array( 'thumbnail' => __( 'Thumbnail', 'portfolioposttype' ) );
-		$columns = array_slice( $columns, 0, 2, true ) + $column_thumbnail + array_slice( $columns, 1, null, true );
-		return $columns;
+		return array_slice( $columns, 0, 2, true ) + $column_thumbnail + array_slice( $columns, 1, null, true );
 	}
 
 	/**
@@ -274,7 +282,7 @@ class Portfolio_Post_Type {
 		global $typenow;
 
 		// An array of all the taxonomies you want to display. Use the taxonomy name or slug
-		$taxonomies = array( 'portfolio_category', 'portfolio_tag' );
+		$taxonomies = $this->get_taxonomies();
 
 		// Must set this to the post type you want the filter(s) displayed on
 		if ( 'portfolio' != $typenow ) {
@@ -314,47 +322,73 @@ class Portfolio_Post_Type {
 		}
 
 		$num_posts = wp_count_posts( 'portfolio' );
-		$num = number_format_i18n( $num_posts->publish );
+
+		// Published items
+		$href = 'edit.php?post_type=portfolio';
+		$num  = number_format_i18n( $num_posts->publish );
+		$num  = $this->link_if_can_edit_posts( $num, $href );
 		$text = _n( 'Portfolio Item', 'Portfolio Items', intval( $num_posts->publish ) );
-		if ( current_user_can( 'edit_posts' ) ) {
-			$num  = '<a href="edit.php?post_type=portfolio">' . $num . '</a>';
-			$text = '<a href="edit.php?post_type=portfolio">' . $text. '</a>';
-		}
-		echo '<tr>';
-		echo '<td class="first b b-portfolio">' . $num . '</td>';
-		echo '<td class="t portfolio">' . $text . '</td>';
-		echo '</tr>';
+		$text = $this->link_if_can_edit_posts( $text, $href );
+		$this->display_dashboard_count( $num, $text );
 
 		if ( 0 == $num_posts->pending ) {
 			return;
 		}
 
-		$num = number_format_i18n( $num_posts->pending );
+		// Pending items
+		$href = 'edit.php?post_status=pending&amp;post_type=portfolio';
+		$num  = number_format_i18n( $num_posts->pending );
+		$num  = $this->link_if_can_edit_posts( $num, $href );
 		$text = _n( 'Portfolio Item Pending', 'Portfolio Items Pending', intval( $num_posts->pending ) );
+		$text = $this->link_if_can_edit_posts( $text, $href );
+		$this->display_dashboard_count( $num, $text );
+	}
+
+	/**
+	 * Wrap a dashboard number or text value in a link, if the current user can edit posts.
+	 *
+	 * @param  string $value Value to potentially wrap in a link.
+	 * @param  string $href  Link target.
+	 *
+	 * @return string        Value wrapped in a link if current user can edit posts, or original value otherwise.
+	 */
+	protected function link_if_can_edit_posts( $value, $href ) {
 		if ( current_user_can( 'edit_posts' ) ) {
-			$num  = '<a href="edit.php?post_status=pending&amp;post_type=portfolio">' . $num . '</a>';
-			$text = '<a href="edit.php?post_status=pending&amp;post_type=portfolio">' . $text . '</a>';
+			return '<a href="' . esc_url( $href ) . '">' . $value . '</a>';
 		}
-		echo '<tr>';
-		echo '<td class="first b b-portfolio">' . $num . '</td>';
-		echo '<td class="t portfolio">' . $text . '</td>';
-		echo '</tr>';
+		return $value;
+	}
+
+	/**
+	 * Display a number and text with table row and cell markup for the dashboard counters.
+	 *
+	 * @param  string $number Number to display. May be wrapped in a link.
+	 * @param  string $label  Text to display. May be wrapped in a link.
+	 */
+	protected function display_dashboard_count( $number, $label ) {
+		?>
+		<tr>
+			<td class="first b b-portfolio"><?php echo $number; ?></td>
+			<td class="t portfolio"><?php echo $label; ?></td>
+		</tr>
+		<?php
 	}
 
 	/**
 	 * Display the custom post type icon in the dashboard.
 	 */
 	public function portfolio_icon() {
+		$plugin_dir_url = plugin_dir_url( __FILE__ );
 		?>
 		<style>
 			#menu-posts-portfolio .wp-menu-image {
-				background: url(<?php echo plugin_dir_url( __FILE__ ); ?>images/portfolio-icon.png) no-repeat 6px 6px !important;
+				background: url(<?php echo $plugin_dir_url; ?>images/portfolio-icon.png) no-repeat 6px 6px !important;
 			}
 			#menu-posts-portfolio:hover .wp-menu-image, #menu-posts-portfolio.wp-has-current-submenu .wp-menu-image {
 				background-position: 6px -16px !important;
 			}
 			#icon-edit.icon32-posts-portfolio {
-				background: url(<?php echo plugin_dir_url( __FILE__ ); ?>images/portfolio-32x32.png) no-repeat;
+				background: url(<?php echo $plugin_dir_url; ?>images/portfolio-32x32.png) no-repeat;
 			}
 		</style>
 		<?php
