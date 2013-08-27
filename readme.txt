@@ -39,8 +39,9 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 * Updated inline documentation
 * New filters for taxonomy arguments
 * Added body classes for custom taxonomy terms
-* Added not_found label to portfolio tag taxonomy
 * Refactored code to be more DRY
+* Added not_found label to portfolio tag taxonomy
+* Updated translations.pot
 
 = 0.5 =
 
