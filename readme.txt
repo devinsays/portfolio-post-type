@@ -34,10 +34,13 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 
 = 0.6 =
 
-* Use proper coding standards
+* Added @garyj as a contributor (Welcome!)
+* Updated to proper coding standards
 * Updated inline documentation
 * New filters for taxonomy arguments
-* Adds body classes for custom taxonomy terms
+* Added body classes for custom taxonomy terms
+* Added not_found label to portfolio tag taxonomy
+* Refactored code to be more DRY
 
 = 0.5 =
 
