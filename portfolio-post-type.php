@@ -133,19 +133,20 @@ class Portfolio_Post_Type {
 		$labels = array(
 			'name'                       => __( 'Portfolio Tags', 'portfolioposttype' ),
 			'singular_name'              => __( 'Portfolio Tag', 'portfolioposttype' ),
-			'search_items'               => __( 'Search Portfolio Tags', 'portfolioposttype' ),
-			'popular_items'              => __( 'Popular Portfolio Tags', 'portfolioposttype' ),
-			'all_items'                  => __( 'All Portfolio Tags', 'portfolioposttype' ),
-			'parent_item'                => __( 'Parent Portfolio Tag', 'portfolioposttype' ),
-			'parent_item_colon'          => __( 'Parent Portfolio Tag:', 'portfolioposttype' ),
+			'menu_name'                  => __( 'Portfolio Tags', 'portfolioposttype' ),
 			'edit_item'                  => __( 'Edit Portfolio Tag', 'portfolioposttype' ),
 			'update_item'                => __( 'Update Portfolio Tag', 'portfolioposttype' ),
 			'add_new_item'               => __( 'Add New Portfolio Tag', 'portfolioposttype' ),
 			'new_item_name'              => __( 'New Portfolio Tag Name', 'portfolioposttype' ),
+			'parent_item'                => __( 'Parent Portfolio Tag', 'portfolioposttype' ),
+			'parent_item_colon'          => __( 'Parent Portfolio Tag:', 'portfolioposttype' ),
+			'all_items'                  => __( 'All Portfolio Tags', 'portfolioposttype' ),
+			'search_items'               => __( 'Search Portfolio Tags', 'portfolioposttype' ),
+			'popular_items'              => __( 'Popular Portfolio Tags', 'portfolioposttype' ),
 			'separate_items_with_commas' => __( 'Separate portfolio tags with commas', 'portfolioposttype' ),
 			'add_or_remove_items'        => __( 'Add or remove portfolio tags', 'portfolioposttype' ),
 			'choose_from_most_used'      => __( 'Choose from the most used portfolio tags', 'portfolioposttype' ),
-			'menu_name'                  => __( 'Portfolio Tags', 'portfolioposttype' ),
+			'not_found'                  => __( 'No portfolio tags found.', 'portfolioposttype' ),
 		);
 
 		$args = array(
@@ -175,19 +176,20 @@ class Portfolio_Post_Type {
 		$labels = array(
 			'name'                       => __( 'Portfolio Categories', 'portfolioposttype' ),
 			'singular_name'              => __( 'Portfolio Category', 'portfolioposttype' ),
-			'search_items'               => __( 'Search Portfolio Categories', 'portfolioposttype' ),
-			'popular_items'              => __( 'Popular Portfolio Categories', 'portfolioposttype' ),
-			'all_items'                  => __( 'All Portfolio Categories', 'portfolioposttype' ),
-			'parent_item'                => __( 'Parent Portfolio Category', 'portfolioposttype' ),
-			'parent_item_colon'          => __( 'Parent Portfolio Category:', 'portfolioposttype' ),
+			'menu_name'                  => __( 'Portfolio Categories', 'portfolioposttype' ),
 			'edit_item'                  => __( 'Edit Portfolio Category', 'portfolioposttype' ),
 			'update_item'                => __( 'Update Portfolio Category', 'portfolioposttype' ),
 			'add_new_item'               => __( 'Add New Portfolio Category', 'portfolioposttype' ),
 			'new_item_name'              => __( 'New Portfolio Category Name', 'portfolioposttype' ),
+			'parent_item'                => __( 'Parent Portfolio Category', 'portfolioposttype' ),
+			'parent_item_colon'          => __( 'Parent Portfolio Category:', 'portfolioposttype' ),
+			'all_items'                  => __( 'All Portfolio Categories', 'portfolioposttype' ),
+			'search_items'               => __( 'Search Portfolio Categories', 'portfolioposttype' ),
+			'popular_items'              => __( 'Popular Portfolio Categories', 'portfolioposttype' ),
 			'separate_items_with_commas' => __( 'Separate portfolio categories with commas', 'portfolioposttype' ),
 			'add_or_remove_items'        => __( 'Add or remove portfolio categories', 'portfolioposttype' ),
 			'choose_from_most_used'      => __( 'Choose from the most used portfolio categories', 'portfolioposttype' ),
-			'menu_name'                  => __( 'Portfolio Categories', 'portfolioposttype' ),
+			'not_found'                  => __( 'No portfolio categories found.', 'portfolioposttype' ),
 		);
 
 		$args = array(
@@ -205,6 +207,7 @@ class Portfolio_Post_Type {
 		$args = apply_filters( 'portfolioposttype_category_args', $args );
 
 		register_taxonomy( 'portfolio_category', array( 'portfolio' ), $args );
+
 	}
 
 	/**
