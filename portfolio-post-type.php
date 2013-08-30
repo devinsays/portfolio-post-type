@@ -27,11 +27,11 @@ class Portfolio_Post_Type {
 
 	public function __construct() {
 
+		// Load plugin text domain
+		add_action( 'init', array( $this, 'load_textdomain' ) );
+
 		// Run when the plugin is activated
 		register_activation_hook( __FILE__, array( $this, 'plugin_activation' ) );
-
-		// Add support for translations
-		load_plugin_textdomain( 'portfolioposttype', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 		// Add the portfolio post type and taxonomies
 		add_action( 'init', array( $this, 'portfolio_init' ) );
@@ -57,6 +57,18 @@ class Portfolio_Post_Type {
 	}
 
 	/**
+	 * Load the plugin text domain for translation.
+	 */
+	public function load_textdomain() {
+
+		$domain = 'portfolioposttype';
+		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+
+		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
+		load_plugin_textdomain( $domain, FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+	}
+
+	/**
 	 * Flushes rewrite rules on plugin activation to ensure portfolio posts don't 404.
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/flush_rewrite_rules
@@ -64,6 +76,7 @@ class Portfolio_Post_Type {
 	 * @uses Portfolio_Post_Type::portfolio_init()
 	 */
 	public function plugin_activation() {
+		$this->load_plugin_textdomain();
 		$this->portfolio_init();
 		flush_rewrite_rules();
 	}
@@ -216,7 +229,6 @@ class Portfolio_Post_Type {
 		$args = apply_filters( 'portfolioposttype_category_args', $args );
 
 		register_taxonomy( 'portfolio_category', array( 'portfolio' ), $args );
-
 	}
 
 	/**
