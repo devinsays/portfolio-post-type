@@ -76,7 +76,7 @@ class Portfolio_Post_Type {
 	 * @uses Portfolio_Post_Type::portfolio_init()
 	 */
 	public function plugin_activation() {
-		$this->load_plugin_textdomain();
+		$this->load_textdomain();
 		$this->portfolio_init();
 		flush_rewrite_rules();
 	}
