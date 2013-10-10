@@ -12,7 +12,7 @@
  * Plugin Name: Portfolio Post Type
  * Plugin URI:  http://wptheming.com/portfolio-post-type/
  * Description: Enables a portfolio post type and taxonomies.
- * Version:     0.6.0
+ * Version:     0.6.1
  * Author:      Devin Price
  * Author URI:  http://www.wptheming.com/
  * Text Domain: portfolioposttype
@@ -242,13 +242,16 @@ class Portfolio_Post_Type {
 	 * @return array Amended body classes.
 	 */
 	public function add_body_classes( $classes ) {
-		$taxonomies = $this->get_taxonomies();
 
-		foreach( $taxonomies as $taxonomy ) {
-			$terms = get_the_terms( get_the_ID(), $taxonomy );
-			if ( $terms && ! is_wp_error( $terms ) ) {
-				foreach( $terms as $term ) {
-					$classes[] = sanitize_html_class( str_replace( '_', '-', $taxonomy ) . '-' . $term->slug );
+		// Only single posts should have the taxonomy body classes
+		if ( is_single() ) {
+			$taxonomies = $this->get_taxonomies();
+			foreach( $taxonomies as $taxonomy ) {
+				$terms = get_the_terms( get_the_ID(), $taxonomy );
+				if ( $terms && ! is_wp_error( $terms ) ) {
+					foreach( $terms as $term ) {
+						$classes[] = sanitize_html_class( str_replace( '_', '-', $taxonomy ) . '-' . $term->slug );
+					}
 				}
 			}
 		}
