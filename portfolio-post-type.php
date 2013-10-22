@@ -31,7 +31,7 @@ if ( ! class_exists( 'Portfolio_Post_Type' ) ) {
 }
 
 // Register callback that is fired when the plugin is activated.
-//register_activation_hook( __FILE__, array( 'Portfolio_Post_Type', 'activate' ) );
+register_activation_hook( __FILE__, array( 'Portfolio_Post_Type', 'activate' ) );
 
 add_action( 'plugins_loaded', 'portfolio_post_type' );
 /**
