@@ -3,7 +3,7 @@ Contributors: downstairsdev, garyj
 Tags: portfolio, post type
 Requires at least: 3.4
 Tested up to: 3.6
-Stable tag: 0.6.1
+Stable tag: 0.6.2
 License: GPLv2 or later
 
 == Description ==
@@ -31,6 +31,10 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com/devinsays/portfolio-post-type)
 
 == Changelog ==
+
+= 0.6.2 =
+
+* Minor code improvement for body class function
 
 = 0.6.1 =
 
