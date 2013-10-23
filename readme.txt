@@ -34,7 +34,8 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 
 = 0.6.2 =
 
-* Minor code improvement for body class function
+* Fix for portfolio post type search in the dashboard.  Props @pdme.
+* Minor code improvement for taxonomy body class filter.  Props @garyj.
 
 = 0.6.1 =
 
