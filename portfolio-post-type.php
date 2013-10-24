@@ -26,20 +26,24 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! class_exists( 'Portfolio_Post_Type' ) ) {
-	require plugin_dir_path( __FILE__ ) . 'class-portfolio-post-type.php';
-}
+require plugin_dir_path( __FILE__ ) . 'class-portfolio-post-type.php';
+require plugin_dir_path( __FILE__ ) . 'class-portfolio-post-type-registrations.php';
+
+// Instantiate registration class, so we can add it as a dependency to main plugin class.
+$portfolio_post_type_registrations = new Portfolio_Post_Type_Registrations;
+
+// Instantiate main plugin file, so activation callback does not need to be static.
+$portfolio_post_type = new Portfolio_Post_Type( $portfolio_post_type_registrations );
+
 
 // Register callback that is fired when the plugin is activated.
-register_activation_hook( __FILE__, array( 'Portfolio_Post_Type', 'activate' ) );
+register_activation_hook( __FILE__, array( $portfolio_post_type, 'activate' ) );
 
-add_action( 'plugins_loaded', 'portfolio_post_type' );
-/**
- * Instantiate classes.
- *
- * @since 0.7.0
- */
-function portfolio_post_type() {
-	$portfolio_post_type = new Portfolio_Post_Type;
-	$portfolio_post_type->run();
+// Initialise registrations for post-activation requests.
+$portfolio_post_type_registrations->init();
+
+if ( is_admin() ) {
+	require plugin_dir_path( __FILE__ ) . 'class-portfolio-post-type-admin.php';
+	$portfolio_post_type_admin = new Portfolio_Post_Type_Admin( $portfolio_post_type_registrations );
+	$portfolio_post_type_admin->init();
 }
