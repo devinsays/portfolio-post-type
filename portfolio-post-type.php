@@ -26,8 +26,8 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-require plugin_dir_path( __FILE__ ) . 'class-portfolio-post-type.php';
-require plugin_dir_path( __FILE__ ) . 'class-portfolio-post-type-registrations.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-registrations.php';
 
 // Instantiate registration class, so we can add it as a dependency to main plugin class.
 $portfolio_post_type_registrations = new Portfolio_Post_Type_Registrations;
@@ -43,7 +43,7 @@ register_activation_hook( __FILE__, array( $portfolio_post_type, 'activate' ) );
 $portfolio_post_type_registrations->init();
 
 if ( is_admin() ) {
-	require plugin_dir_path( __FILE__ ) . 'class-portfolio-post-type-admin.php';
+	require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-admin.php';
 	$portfolio_post_type_admin = new Portfolio_Post_Type_Admin( $portfolio_post_type_registrations );
 	$portfolio_post_type_admin->init();
 }
