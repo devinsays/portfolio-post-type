@@ -19,7 +19,7 @@ class Portfolio_Post_Type {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 *
-	 * @since   1.0.0
+	 * @since   0.7.0
 	 *
 	 * @var    string VERSION Plugin version.
 	 */
@@ -31,7 +31,7 @@ class Portfolio_Post_Type {
 	 * Use this value (not the variable name) as the text domain when internationalizing strings of text. It should
 	 * match the Text Domain file header in the main plugin file.
 	 *
-	 * @since    1.0.0
+	 * @since    0.7.0
 	 *
 	 * @var      string
 	 */
@@ -42,7 +42,7 @@ class Portfolio_Post_Type {
 	/**
 	 * Initialize the plugin by setting localization and new site activation hooks.
 	 *
-	 * @since     1.0.0
+	 * @since     0.7.0
 	 */
 	public function __construct( $registration_handler ) {
 
@@ -59,7 +59,7 @@ class Portfolio_Post_Type {
 	/**
 	 * Fired when the plugin is activated.
 	 *
-	 * @since    1.0.0
+	 * @since    0.7.0
 	 *
 	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is
 	 *                                       disabled or plugin is activated on an individual blog.
@@ -86,7 +86,7 @@ class Portfolio_Post_Type {
 	/**
 	 * Fired when the plugin is deactivated.
 	 *
-	 * @since    1.0.0
+	 * @since    0.7.0
 	 *
 	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is
 	 *                                       disabled or plugin is deactivated on an individual blog.
@@ -113,7 +113,7 @@ class Portfolio_Post_Type {
 	/**
 	 * Fired when a new site is activated with a WPMU environment.
 	 *
-	 * @since    1.0.0
+	 * @since    0.7.0
 	 *
 	 * @param	int	$blog_id ID of the new blog.
 	 */
@@ -132,7 +132,7 @@ class Portfolio_Post_Type {
 	 * - not spam
 	 * - not deleted
 	 *
-	 * @since    1.0.0
+	 * @since    0.7.0
 	 *
 	 * @return	array|false	The blog ids, false if no matches.
 	 */
@@ -149,7 +149,7 @@ class Portfolio_Post_Type {
 	/**
 	 * Fired for each blog when the plugin is activated.
 	 *
-	 * @since    1.0.0
+	 * @since    0.7.0
 	 */
 	private function single_activate() {
 		$this->registration_handler->register();
@@ -159,7 +159,7 @@ class Portfolio_Post_Type {
 	/**
 	 * Fired for each blog when the plugin is deactivated.
 	 *
-	 * @since    1.0.0
+	 * @since    0.7.0
 	 */
 	private function single_deactivate() {
 		flush_rewrite_rules();
@@ -168,7 +168,7 @@ class Portfolio_Post_Type {
 	/**
 	 * Load the plugin text domain for translation.
 	 *
-	 * @since    1.0.0
+	 * @since    0.7.0
 	 */
 	public function load_plugin_textdomain() {
 		$domain = self::PLUGIN_SLUG;

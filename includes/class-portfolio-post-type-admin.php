@@ -230,7 +230,7 @@ class Portfolio_Post_Type_Admin {
 	 * Display the custom post type icon in the dashboard.
 	 */
 	public function add_icon() {
-		$plugin_dir_url = plugin_dir_url( __FILE__ );
+		$plugin_dir_url = plugin_dir_url( dirname(__FILE__) );
 		?>
 		<style>
 			#menu-posts-<?php echo $this->registration_handler->post_type; ?> .wp-menu-image {
