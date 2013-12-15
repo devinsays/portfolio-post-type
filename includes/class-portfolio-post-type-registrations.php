@@ -119,6 +119,7 @@ class Portfolio_Post_Type_Registrations {
 			'labels'            => $labels,
 			'public'            => true,
 			'show_in_nav_menus' => true,
+			'menu_icon'         => 'dashicons-portfolio',
 			'show_ui'           => true,
 			'show_tagcloud'     => true,
 			'hierarchical'      => true,
