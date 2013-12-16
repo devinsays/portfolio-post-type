@@ -136,7 +136,8 @@ class Portfolio_Post_Type {
 				'revisions',
 			),
 			'capability_type' => 'post',
-			'rewrite'         => array( 'slug' => 'portfolio', ), // Permalinks format
+			'rewrite'         => array( 'slug' => 'portfolio', ), // Permalinks format,
+      'menu_icon'       => '',
 			'menu_position'   => 5,
 			'has_archive'     => true,
 		);
@@ -400,15 +401,7 @@ class Portfolio_Post_Type {
 		$plugin_dir_url = plugin_dir_url( __FILE__ );
 		?>
 		<style>
-			#menu-posts-portfolio .wp-menu-image {
-				background: url(<?php echo $plugin_dir_url; ?>images/portfolio-icon.png) no-repeat 6px 6px !important;
-			}
-			#menu-posts-portfolio:hover .wp-menu-image, #menu-posts-portfolio.wp-has-current-submenu .wp-menu-image {
-				background-position: 6px -16px !important;
-			}
-			#icon-edit.icon32-posts-portfolio {
-				background: url(<?php echo $plugin_dir_url; ?>images/portfolio-32x32.png) no-repeat;
-			}
+      #adminmenu .menu-icon-portfolio div.wp-menu-image:before { content:'\f322'};
 		</style>
 		<?php
 	}
