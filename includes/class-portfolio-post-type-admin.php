@@ -231,20 +231,26 @@ class Portfolio_Post_Type_Admin {
 	 */
 	public function add_icon() {
 		$plugin_dir_url = plugin_dir_url( dirname(__FILE__) );
-		?>
-		<style>
-			#menu-posts-<?php echo $this->registration_handler->post_type; ?> .wp-menu-image {
-				background: url(<?php echo $plugin_dir_url; ?>images/portfolio-icon.png) no-repeat 6px 6px !important;
-			}
-			#menu-posts-<?php echo $this->registration_handler->post_type; ?>:hover .wp-menu-image,
-			#menu-posts-<?php echo $this->registration_handler->post_type; ?>.wp-has-current-submenu .wp-menu-image {
-				background-position: 6px -16px !important;
-			}
-			#icon-edit.icon32-posts-<?php echo $this->registration_handler->post_type; ?> {
-				background: url(<?php echo $plugin_dir_url; ?>images/portfolio-32x32.png) no-repeat;
-			}
-		</style>
-		<?php
+		if ( version_compare( $GLOBALS['wp_version'], '3.8-alpha', '>' ) ) { ?>
+			<style>
+				#menu-posts-<?php echo $this->registration_handler->post_type; ?> .wp-menu-image {
+					background: url(<?php echo $plugin_dir_url; ?>images/portfolio-icon.png) no-repeat 6px 6px !important;
+				}
+				#menu-posts-<?php echo $this->registration_handler->post_type; ?>:hover .wp-menu-image,
+				#menu-posts-<?php echo $this->registration_handler->post_type; ?>.wp-has-current-submenu .wp-menu-image {
+					background-position: 6px -16px !important;
+				}
+				#icon-edit.icon32-posts-<?php echo $this->registration_handler->post_type; ?> {
+					background: url(<?php echo $plugin_dir_url; ?>images/portfolio-32x32.png) no-repeat;
+				}
+			</style>
+		<?php } else { ?>
+			<style>
+				#adminmenu .menu-icon-portfolio div.wp-menu-image:before {
+					content:'\f322'
+				}
+			</style>
+		<?php }
 	}
 
 }
