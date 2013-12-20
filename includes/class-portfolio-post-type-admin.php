@@ -38,7 +38,8 @@ class Portfolio_Post_Type_Admin {
 		add_action( 'restrict_manage_posts', array( $this, 'add_taxonomy_filters' ) );
 
 		// Show post counts in the dashboard
-		add_action( 'right_now_content_table_end', array( $this, 'add_right_now_counts' ) );
+		add_action( 'right_now_content_table_end', array( $this, 'add_rightnow_counts' ) );
+    add_action( 'dashboard_glance_items', array( $this, 'add_glance_counts') );
 
 		// Give the post type menu item a unique icon
 		add_action( 'admin_head', array( $this, 'add_icon' ) );
@@ -163,7 +164,27 @@ class Portfolio_Post_Type_Admin {
 	 *
 	 * @return null Return early if post type does not exist.
 	 */
-	public function add_right_now_counts() {
+  public function add_rightnow_counts(){
+    return $this->add_counts("table");
+  }
+
+	/**
+	 * Add counts to "At A Glance" dashboard widget.
+	 *
+	 * @return null Return early if post type does not exist.
+	 */
+  public function add_glance_counts(){
+    return $this->add_counts("list");
+  }
+  
+	/**
+	 * Add counts to dashboard widget.
+	 *
+   * @param  string $type The type of count required, either "list" or "table"
+   * 
+	 * @return null         Return early if post type does not exist.
+	 */
+	public function add_counts($type) {
 		if ( ! post_type_exists( $this->registration_handler->post_type ) ) {
 			return;
 		}
@@ -181,7 +202,7 @@ class Portfolio_Post_Type_Admin {
 		$num  = $this->link_if_can_edit_posts( $num, $href );
 		$text = translate_nooped_plural( $labels['published'], intval( $num_posts->publish ) );
 		$text = $this->link_if_can_edit_posts( $text, $href );
-		$this->display_dashboard_count( $num, $text );
+		$result = $this->display_dashboard_count( $num, $text, $type );
 
 		if ( 0 == $num_posts->pending ) {
 			return;
@@ -193,7 +214,10 @@ class Portfolio_Post_Type_Admin {
 		$num  = $this->link_if_can_edit_posts( $num, $href );
 		$text = translate_nooped_plural( $labels['pending'], intval( $num_posts->pending ) );
 		$text = $this->link_if_can_edit_posts( $text, $href );
-		$this->display_dashboard_count( $num, $text );
+		$result .= $this->display_dashboard_count( $num, $text, $type );
+    
+    echo $result;
+    
 	}
 
 	/**
@@ -216,14 +240,20 @@ class Portfolio_Post_Type_Admin {
 	 *
 	 * @param  string $number Number to display. May be wrapped in a link.
 	 * @param  string $label  Text to display. May be wrapped in a link.
+   * @param  string $type   HTML to use for display (< 3.8 table, >= 3.8 list)
 	 */
-	protected function display_dashboard_count( $number, $label ) {
-		?>
-		<tr>
-			<td class="first b <?php echo sanitize_html_class( 'b-' . $this->registration_handler->post_type ); ?>"><?php echo $number; ?></td>
-			<td class="t <?php echo sanitize_html_class( $this->registration_handler->post_type ); ?>"><?php echo $label; ?></td>
-		</tr>
-		<?php
+	protected function display_dashboard_count( $number, $label, $type ) {
+    if($type=="table"){
+      $result  = "<tr>\n";
+			$result .= "<td class=\"first b" . sanitize_html_class( 'b-' . $this->registration_handler->post_type ) . "\">{$number}</td>\n";
+			$result .= "<td class=\"" .        sanitize_html_class( $this->registration_handler->post_type )        . "\">{$label}</td>\n";
+      $result .= "</tr>\n";
+    }else{
+      $result  = "<li class=\"" . sanitize_html_class( $this->registration_handler->post_type ) . "-count\">\n";
+      $result .= "{$number} {$label}\n";
+      $result .= "</li>\n";
+    }
+    return $result;
 	}
 
 	/**
@@ -246,7 +276,7 @@ class Portfolio_Post_Type_Admin {
 			</style>
 		<?php } else { ?>
 			<style>
-				#adminmenu .menu-icon-portfolio div.wp-menu-image:before {
+				#adminmenu .menu-icon-portfolio div.wp-menu-image:before, #dashboard_right_now li.portfolio-count a:before {
 					content:'\f322'
 				}
 			</style>
