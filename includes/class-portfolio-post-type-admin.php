@@ -231,7 +231,7 @@ class Portfolio_Post_Type_Admin {
 	 */
 	public function add_icon() {
 		$plugin_dir_url = plugin_dir_url( dirname(__FILE__) );
-		if ( version_compare( $GLOBALS['wp_version'], '3.8-alpha', '>' ) ) { ?>
+		if ( version_compare( $GLOBALS['wp_version'], '3.8-alpha', '<' ) ) { ?>
 			<style>
 				#menu-posts-<?php echo $this->registration_handler->post_type; ?> .wp-menu-image {
 					background: url(<?php echo $plugin_dir_url; ?>images/portfolio-icon.png) no-repeat 6px 6px !important;
