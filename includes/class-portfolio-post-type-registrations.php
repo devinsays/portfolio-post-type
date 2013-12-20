@@ -81,6 +81,7 @@ class Portfolio_Post_Type_Registrations {
 			'public'          => true,
 			'capability_type' => 'post',
 			'rewrite'         => array( 'slug' => 'portfolio', ), // Permalinks format
+      'menu_icon'       => 'dashicons-portfolio',
 			'menu_position'   => 5,
 			'has_archive'     => true,
 		);
