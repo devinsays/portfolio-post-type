@@ -243,6 +243,9 @@ class Portfolio_Post_Type_Admin {
 			#icon-edit.icon32-posts-<?php echo $this->registration_handler->post_type; ?> {
 				background: url(<?php echo $plugin_dir_url; ?>images/portfolio-32x32.png) no-repeat;
 			}
+			#menu-posts-<?php echo $this->registration_handler->post_type; ?> .wp-menu-image.dashicons {
+				background: none;
+			}
 		</style>
 		<?php
 	}
