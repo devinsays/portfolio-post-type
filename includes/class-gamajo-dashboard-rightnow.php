@@ -51,7 +51,7 @@ class Gamajo_Dashboard_RightNow extends Gamajo_Dashboard_Glancer {
 		$href  = $this->get_link_url( $item );
 		$num   = $this->maybe_link( number_format_i18n( $count ), $href );
 		$text  = $this->maybe_link( $this->get_label( $item, $count ), $href );
-		return $this->get_markup( $num, $text, $item['type'] );
+		return $this->get_markup( $num . '|' . $text, $item['type'] );
 	}
 
 	/**
@@ -59,13 +59,13 @@ class Gamajo_Dashboard_RightNow extends Gamajo_Dashboard_Glancer {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string  $number Number to display. May be wrapped in a link.
 	 * @param string  $text   Text to display. May be wrapped in a link.
 	 */
-	protected function get_markup( $number, $text, $post_type ) {
+	protected function get_markup( $text, $post_type ) {
+		$text_parts = explode( '|', $text);
 		return '<tr>
-			<td class="first b ' . sanitize_html_class( 'b-' . $post_type ) . '">' . $number . '</td>
-			<td class="t ' . sanitize_html_class( $post_type ) . '">' . $text . '</td>
+			<td class="first b ' . sanitize_html_class( 'b-' . $post_type ) . '">' . $text_part[0] . '</td>
+			<td class="t ' . sanitize_html_class( $post_type ) . '">' . $text_part[1] . '</td>
 		</tr>';
 	}
 }
