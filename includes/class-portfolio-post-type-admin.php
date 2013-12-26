@@ -39,6 +39,7 @@ class Portfolio_Post_Type_Admin {
 
 		// Show post counts in the dashboard
 		add_action( 'right_now_content_table_end', array( $this, 'add_right_now_counts' ) );
+		add_action( 'dashboard_glance_items', array( $this, 'add_glance_counts' ) );
 
 		// Give the post type menu item a unique icon
 		add_action( 'admin_head', array( $this, 'add_icon' ) );
@@ -156,6 +157,16 @@ class Portfolio_Post_Type_Admin {
 			);
 		}
 		return $options;
+	}
+
+	/**
+	 * Add counts to "At a Glance" dashboard widget in WP 3.8+
+	 *
+	 * @since Unknown
+	 */
+	public function add_glance_counts() {
+		$glancer = new Gamajo_Dashboard_Glancer;
+		$glancer->add( $this->registration_handler->post_type, array( 'publish', 'pending' ) );
 	}
 
 	/**
