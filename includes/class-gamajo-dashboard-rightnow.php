@@ -62,7 +62,7 @@ class Gamajo_Dashboard_RightNow extends Gamajo_Dashboard_Glancer {
 	 * @param string  $text   Text to display. May be wrapped in a link.
 	 */
 	protected function get_markup( $text, $post_type ) {
-		$text_parts = explode( '|', $text);
+		$text_parts = explode( '|', $text );
 		return '<tr>
 			<td class="first b ' . sanitize_html_class( 'b-' . $post_type ) . '">' . $text_part[0] . '</td>
 			<td class="t ' . sanitize_html_class( $post_type ) . '">' . $text_part[1] . '</td>
