@@ -82,7 +82,7 @@ class Portfolio_Post_Type_Registrations {
 			'capability_type' => 'post',
 			'rewrite'         => array( 'slug' => 'portfolio', ), // Permalinks format
 			'menu_position'   => 5,
-			'menu_icon'       => ( version_compare( $GLOBALS['wp_version'], '3.8-alpha', '>' ) ) ? 'dashicons-portfolio' : '',
+			'menu_icon'       => ( version_compare( $GLOBALS['wp_version'], '3.8', '>=' ) ) ? 'dashicons-portfolio' : '',
 			'has_archive'     => true,
 		);
 

@@ -41,8 +41,8 @@ class Portfolio_Post_Type_Admin {
 		add_action( 'right_now_content_table_end', array( $this, 'add_rightnow_counts' ) );
 		add_action( 'dashboard_glance_items', array( $this, 'add_glance_counts' ) );
 
-		// Give the post type menu item a unique icon
-		add_action( 'admin_head', array( $this, 'add_icon' ) );
+		// Adds menu icons for 3.7 and below, glance icons for 3.8 and up
+		add_action( 'admin_head', array( $this, 'add_icons' ) );
 
 	}
 
@@ -180,27 +180,44 @@ class Portfolio_Post_Type_Admin {
 	}
 
 	/**
-	 * Display the custom post type icon in the dashboard.
-	 */
-	public function add_icon() {
-		$plugin_dir_url = plugin_dir_url( dirname(__FILE__) );
-		?>
-		<style>
-			#menu-posts-<?php echo $this->registration_handler->post_type; ?> .wp-menu-image {
-				background: url(<?php echo $plugin_dir_url; ?>images/portfolio-icon.png) no-repeat 6px 6px !important;
+	 * Displays the portfolio icon in the glance view for version 3.8 and up.
+     * Displays the custom post type icon in the dashboard for version 3.7 and below.
+     */
+    public function add_icons() {
+
+    	if ( version_compare( $GLOBALS['wp_version'], '3.8', '>=' ) ) {
+    		// Styling only needed on dashboard page
+			$screen = get_current_screen();
+			if ( $screen->id != 'dashboard' ) {
+				return;
 			}
-			#menu-posts-<?php echo $this->registration_handler->post_type; ?>:hover .wp-menu-image,
-			#menu-posts-<?php echo $this->registration_handler->post_type; ?>.wp-has-current-submenu .wp-menu-image {
-				background-position: 6px -16px !important;
-			}
-			#icon-edit.icon32-posts-<?php echo $this->registration_handler->post_type; ?> {
-				background: url(<?php echo $plugin_dir_url; ?>images/portfolio-32x32.png) no-repeat;
-			}
-			#menu-posts-<?php echo $this->registration_handler->post_type; ?> .wp-menu-image.dashicons {
-				background: none;
-			}
-		</style>
-		<?php
-	}
+			?>
+		    <style>
+				#dashboard_right_now .portfolio-count a:before {
+					content: "\f322";
+				}
+		    </style>
+		<?php } else {
+			// For versions 3.7 and lower.
+			// Compatibility code will be removed in a later version.
+	    	$plugin_dir_url = plugin_dir_url( dirname(__FILE__) );
+		    ?>
+	    	<style>
+				#menu-posts-<?php echo $this->registration_handler->post_type; ?> .wp-menu-image {
+					background: url(<?php echo $plugin_dir_url; ?>images/portfolio-icon.png) no-repeat 6px 6px !important;
+				}
+				#menu-posts-<?php echo $this->registration_handler->post_type; ?>:hover .wp-menu-image,
+				#menu-posts-<?php echo $this->registration_handler->post_type; ?>.wp-has-current-submenu .wp-menu-image {
+					background-position: 6px -16px !important;
+				}
+				#icon-edit.icon32-posts-<?php echo $this->registration_handler->post_type; ?> {
+					background: url(<?php echo $plugin_dir_url; ?>images/portfolio-32x32.png) no-repeat;
+				}
+				#menu-posts-<?php echo $this->registration_handler->post_type; ?> .wp-menu-image.dashicons {
+					background: none;
+				}
+			</style>
+    <?php }
+    }
 
 }

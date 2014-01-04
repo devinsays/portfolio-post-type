@@ -2,7 +2,7 @@
 /**
  * Gamajo Dashboard Glancer, for WP 3.7 and earlier.
  *
- * @package   Gamajo_Dashboard_Glancer
+ * @package   Portfolio_Post_Type
  * @author    Gary Jones
  * @link      http://gamajo.com/dashboard-glancer
  * @copyright 2013 Gary Jones, Gamajo Tech
