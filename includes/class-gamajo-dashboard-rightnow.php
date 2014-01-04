@@ -64,8 +64,8 @@ class Gamajo_Dashboard_RightNow extends Gamajo_Dashboard_Glancer {
 	protected function get_markup( $text, $post_type ) {
 		$text_parts = explode( '|', $text );
 		return '<tr>
-			<td class="first b ' . sanitize_html_class( 'b-' . $post_type ) . '">' . $text_part[0] . '</td>
-			<td class="t ' . sanitize_html_class( $post_type ) . '">' . $text_part[1] . '</td>
+			<td class="first b ' . sanitize_html_class( 'b-' . $post_type ) . '">' . $text_parts[0] . '</td>
+			<td class="t ' . sanitize_html_class( $post_type ) . '">' . $text_parts[1] . '</td>
 		</tr>';
 	}
 }
