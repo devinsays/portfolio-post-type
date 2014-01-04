@@ -143,8 +143,13 @@ class Gamajo_Dashboard_Glancer {
 	 * @return string
 	 */
 	protected function get_label( array $item, $count ) {
+
 		$post_type_object = get_post_type_object( $item['type'] );
-		$label = 1 === $count ? $post_type_object->labels->name : $post_type_object->labels->singular_name;
+		if ( 1 === $count ) {
+			$label = $post_type_object->labels->singular_name;
+		} else {
+			$label = $post_type_object->labels->name;
+		}
 
 		// Append status for non-publish statuses for disambiguation
 		if ( 'publish' !== $item['status'] ) {
