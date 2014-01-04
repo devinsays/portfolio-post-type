@@ -38,7 +38,8 @@ class Portfolio_Post_Type_Admin {
 		add_action( 'restrict_manage_posts', array( $this, 'add_taxonomy_filters' ) );
 
 		// Show post counts in the dashboard
-		add_action( 'right_now_content_table_end', array( $this, 'add_right_now_counts' ) );
+		add_action( 'right_now_content_table_end', array( $this, 'add_rightnow_counts' ) );
+		add_action( 'dashboard_glance_items', array( $this, 'add_glance_counts' ) );
 
 		// Give the post type menu item a unique icon
 		add_action( 'admin_head', array( $this, 'add_icon' ) );
@@ -159,71 +160,23 @@ class Portfolio_Post_Type_Admin {
 	}
 
 	/**
-	 * Add counts to "Right Now" dashboard widget.
+	 * Add counts to "At a Glance" dashboard widget in WP 3.8+
 	 *
-	 * @return null Return early if post type does not exist.
+	 * @since Unknown
 	 */
-	public function add_right_now_counts() {
-		if ( ! post_type_exists( $this->registration_handler->post_type ) ) {
-			return;
-		}
-
-		$labels = array(
-			'published' => _n_noop( 'Portfolio Item', 'Portfolio Items', 'portfolio-post-type' ),
-			'pending'   => _n_noop( 'Portfolio Item Pending', 'Portfolio Items Pending', 'portfolio-post-type' ),
-		);
-
-		$num_posts = wp_count_posts( $this->registration_handler->post_type );
-
-		// Published items
-		$href = 'edit.php?post_type=' . $this->registration_handler->post_type;
-		$num  = number_format_i18n( $num_posts->publish );
-		$num  = $this->link_if_can_edit_posts( $num, $href );
-		$text = translate_nooped_plural( $labels['published'], intval( $num_posts->publish ) );
-		$text = $this->link_if_can_edit_posts( $text, $href );
-		$this->display_dashboard_count( $num, $text );
-
-		if ( 0 == $num_posts->pending ) {
-			return;
-		}
-
-		// Pending items
-		$href = 'edit.php?post_status=pending&amp;post_type=' . $this->registration_handler->post_type;
-		$num  = number_format_i18n( $num_posts->pending );
-		$num  = $this->link_if_can_edit_posts( $num, $href );
-		$text = translate_nooped_plural( $labels['pending'], intval( $num_posts->pending ) );
-		$text = $this->link_if_can_edit_posts( $text, $href );
-		$this->display_dashboard_count( $num, $text );
+	public function add_glance_counts() {
+		$glancer = new Gamajo_Dashboard_Glancer;
+		$glancer->add( $this->registration_handler->post_type, array( 'publish', 'pending' ) );
 	}
 
 	/**
-	 * Wrap a dashboard number or text value in a link, if the current user can edit posts.
+	 * Add counts to "Right Now" dashboard widget in WP 3.7-.
 	 *
-	 * @param  string $value Value to potentially wrap in a link.
-	 * @param  string $href  Link target.
-	 *
-	 * @return string        Value wrapped in a link if current user can edit posts, or original value otherwise.
+	 * @since Unknown
 	 */
-	protected function link_if_can_edit_posts( $value, $href ) {
-		if ( current_user_can( 'edit_posts' ) ) {
-			return '<a href="' . esc_url( $href ) . '">' . $value . '</a>';
-		}
-		return $value;
-	}
-
-	/**
-	 * Display a number and text with table row and cell markup for the dashboard counters.
-	 *
-	 * @param  string $number Number to display. May be wrapped in a link.
-	 * @param  string $label  Text to display. May be wrapped in a link.
-	 */
-	protected function display_dashboard_count( $number, $label ) {
-		?>
-		<tr>
-			<td class="first b <?php echo sanitize_html_class( 'b-' . $this->registration_handler->post_type ); ?>"><?php echo $number; ?></td>
-			<td class="t <?php echo sanitize_html_class( $this->registration_handler->post_type ); ?>"><?php echo $label; ?></td>
-		</tr>
-		<?php
+	public function add_rightnow_counts() {
+		$glancer = new Gamajo_Dashboard_RightNow;
+		$glancer->add( $this->registration_handler->post_type, array( 'publish', 'pending' ) );
 	}
 
 	/**

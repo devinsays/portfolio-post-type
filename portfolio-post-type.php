@@ -43,6 +43,8 @@ register_activation_hook( __FILE__, array( $portfolio_post_type, 'activate' ) );
 $portfolio_post_type_registrations->init();
 
 if ( is_admin() ) {
+	require plugin_dir_path( __FILE__ ) . 'includes/class-gamajo-dashboard-glancer.php';  // WP 3.8
+	require plugin_dir_path( __FILE__ ) . 'includes/class-gamajo-dashboard-rightnow.php'; // WP 3.7
 	require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-admin.php';
 	$portfolio_post_type_admin = new Portfolio_Post_Type_Admin( $portfolio_post_type_registrations );
 	$portfolio_post_type_admin->init();
