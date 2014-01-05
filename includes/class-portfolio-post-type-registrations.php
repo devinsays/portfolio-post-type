@@ -24,12 +24,8 @@ class Portfolio_Post_Type_Registrations {
 	public $taxonomies = array( 'portfolio_category', 'portfolio_tag' );
 
 	public function init() {
-
 		// Add the portfolio post type and taxonomies
 		add_action( 'init', array( $this, 'register' ) );
-
-		// Add taxonomy terms as body classes
-		add_filter( 'body_class', array( $this, 'add_body_classes' ) );
 	}
 
 	/**
@@ -175,35 +171,4 @@ class Portfolio_Post_Type_Registrations {
 		register_taxonomy( $this->taxonomies[1], $this->post_type, $args );
 
 	}
-
-	/**
-	 * Add taxonomy terms as body classes.
-	 *
-	 * If the taxonomy doesn't exist (has been unregistered), then get_the_terms() returns WP_Error, which is checked
-	 * for before adding classes.
-	 *
-	 * @param array $classes Existing body classes.
-	 *
-	 * @return array Amended body classes.
-	 */
-	public function add_body_classes( $classes ) {
-
-		// Only single posts should have the taxonomy body classes
-		if ( ! is_single() ) {
-			return;
-		}
-
-		$taxonomies = $this->taxonomies;
-		foreach( $taxonomies as $taxonomy ) {
-			$terms = get_the_terms( get_the_ID(), $taxonomy );
-			if ( $terms && ! is_wp_error( $terms ) ) {
-				foreach( $terms as $term ) {
-					$classes[] = sanitize_html_class( str_replace( '_', '-', $taxonomy ) . '-' . $term->slug );
-				}
-			}
-		}
-
-		return $classes;
-	}
-
 }
