@@ -52,4 +52,8 @@ if ( is_admin() ) {
 	require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-admin.php';
 	$portfolio_post_type_admin = new Portfolio_Post_Type_Admin( $portfolio_post_type_registrations );
 	$portfolio_post_type_admin->init();
+} else {
+	require plugin_dir_path( __FILE__ ) . 'includes/class-gamajo-single-entry-term-body-classes.php';
+	$portfolio_post_type_body_classes = new Gamajo_Single_Entry_Term_Body_Classes;
+	$portfolio_post_type_body_classes->init( 'portfolio' );
 }
