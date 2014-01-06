@@ -53,7 +53,7 @@ class Gamajo_Single_Entry_Term_Body_Classes {
 	 * @return array Amended body classes.
 	 */
 	public function body_class( $classes ) {
-		// Only single entries of a ceretain post type should have the taxonomy body classes
+		// Only single entries of a certain post type should have the taxonomy body classes
 		if ( ! is_singular( $this->post_type ) ) {
 			return $classes;
 		}
@@ -74,8 +74,11 @@ class Gamajo_Single_Entry_Term_Body_Classes {
 	protected function get_taxonomy_term_classes( $taxonomies ) {
 		$classes = array();
 		foreach ( (array) $taxonomies as $taxonomy ) {
-			foreach ( $this->get_terms( $taxonomy ) as $term ) {
-				$classes[] = $this->get_taxonomy_term_class( $taxonomy, $term->slug );
+			$terms = $this->get_terms( $taxonomy );
+			if ( is_array( $terms ) ) {
+				foreach (  $terms as $term ) {
+					$classes[] = $this->get_taxonomy_term_class( $taxonomy, $term->slug );
+				}
 			}
 		}
 
