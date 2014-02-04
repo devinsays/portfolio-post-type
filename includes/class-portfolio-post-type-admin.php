@@ -28,7 +28,7 @@ class Portfolio_Post_Type_Admin {
 	public function init() {
 
 		// Add thumbnail support for this post type
-		add_theme_support( 'post-thumbnails', $this->registration_handler->post_type );
+		add_theme_support( 'post-thumbnails', array( $this->registration_handler->post_type ) );
 
 		// Add thumbnails to column view
 		add_filter( 'manage_edit-' . $this->registration_handler->post_type . '_columns', array( $this, 'add_thumbnail_column'), 10, 1 );
