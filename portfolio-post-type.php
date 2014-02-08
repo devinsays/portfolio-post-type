@@ -12,7 +12,7 @@
  * Plugin Name: Portfolio Post Type
  * Plugin URI:  http://wptheming.com/portfolio-post-type/
  * Description: Enables a portfolio post type and taxonomies.
- * Version:     0.8.0
+ * Version:     0.8.1
  * Author:      Devin Price
  * Author URI:  http://www.wptheming.com/
  * Text Domain: portfolioposttype

@@ -32,9 +32,13 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 
 == Changelog ==
 
+= 0.8.1 =
+
+* Fix for developer notices on admin pages
+
 = 0.8.0 =
 
-* Fixes for taxonomy body classes on portfolio posts
+* Fix for taxonomy body classes on portfolio posts
 
 = 0.7.0 =
 
