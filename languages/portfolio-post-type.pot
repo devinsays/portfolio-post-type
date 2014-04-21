@@ -1,182 +1,183 @@
-# Copyright (C) 2013 Portfolio Post Type
+# Copyright (C) 2014 Portfolio Post Type
 # This file is distributed under the same license as the Portfolio Post Type package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Portfolio Post Type 0.6.0\n"
+"Project-Id-Version: Portfolio Post Type 0.8.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/portfolio-post-type\n"
-"POT-Creation-Date: 2013-08-27 22:08:14+00:00\n"
+"POT-Creation-Date: 2014-04-21 23:22:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: portfolio-post-type.php:100
-msgid "Portfolio"
+#: includes/class-gamajo-dashboard-glancer.php:54
+msgid "Trying to add At a Glance items to dashboard widget afterhook already fired"
 msgstr ""
 
-#: portfolio-post-type.php:101 portfolio-post-type.php:333
-msgid "Portfolio Item"
-msgstr ""
-
-#: portfolio-post-type.php:102
-msgid "Add New Item"
-msgstr ""
-
-#: portfolio-post-type.php:103 portfolio-post-type.php:105
-msgid "Add New Portfolio Item"
-msgstr ""
-
-#: portfolio-post-type.php:104
-msgid "Edit Portfolio Item"
-msgstr ""
-
-#: portfolio-post-type.php:106
-msgid "View Item"
-msgstr ""
-
-#: portfolio-post-type.php:107
-msgid "Search Portfolio"
-msgstr ""
-
-#: portfolio-post-type.php:108
-msgid "No portfolio items found"
-msgstr ""
-
-#: portfolio-post-type.php:109
-msgid "No portfolio items found in trash"
-msgstr ""
-
-#: portfolio-post-type.php:143 portfolio-post-type.php:145
-msgid "Portfolio Tags"
-msgstr ""
-
-#: portfolio-post-type.php:144
-msgid "Portfolio Tag"
-msgstr ""
-
-#: portfolio-post-type.php:146
-msgid "Edit Portfolio Tag"
-msgstr ""
-
-#: portfolio-post-type.php:147
-msgid "Update Portfolio Tag"
-msgstr ""
-
-#: portfolio-post-type.php:148
-msgid "Add New Portfolio Tag"
-msgstr ""
-
-#: portfolio-post-type.php:149
-msgid "New Portfolio Tag Name"
-msgstr ""
-
-#: portfolio-post-type.php:150
-msgid "Parent Portfolio Tag"
-msgstr ""
-
-#: portfolio-post-type.php:151
-msgid "Parent Portfolio Tag:"
-msgstr ""
-
-#: portfolio-post-type.php:152
-msgid "All Portfolio Tags"
-msgstr ""
-
-#: portfolio-post-type.php:153
-msgid "Search Portfolio Tags"
-msgstr ""
-
-#: portfolio-post-type.php:154
-msgid "Popular Portfolio Tags"
-msgstr ""
-
-#: portfolio-post-type.php:155
-msgid "Separate portfolio tags with commas"
-msgstr ""
-
-#: portfolio-post-type.php:156
-msgid "Add or remove portfolio tags"
-msgstr ""
-
-#: portfolio-post-type.php:157
-msgid "Choose from the most used portfolio tags"
-msgstr ""
-
-#: portfolio-post-type.php:158
-msgid "No portfolio tags found."
-msgstr ""
-
-#: portfolio-post-type.php:186 portfolio-post-type.php:188
-msgid "Portfolio Categories"
-msgstr ""
-
-#: portfolio-post-type.php:187
-msgid "Portfolio Category"
-msgstr ""
-
-#: portfolio-post-type.php:189
-msgid "Edit Portfolio Category"
-msgstr ""
-
-#: portfolio-post-type.php:190
-msgid "Update Portfolio Category"
-msgstr ""
-
-#: portfolio-post-type.php:191
-msgid "Add New Portfolio Category"
-msgstr ""
-
-#: portfolio-post-type.php:192
-msgid "New Portfolio Category Name"
-msgstr ""
-
-#: portfolio-post-type.php:193
-msgid "Parent Portfolio Category"
-msgstr ""
-
-#: portfolio-post-type.php:194
-msgid "Parent Portfolio Category:"
-msgstr ""
-
-#: portfolio-post-type.php:195
-msgid "All Portfolio Categories"
-msgstr ""
-
-#: portfolio-post-type.php:196
-msgid "Search Portfolio Categories"
-msgstr ""
-
-#: portfolio-post-type.php:197
-msgid "Popular Portfolio Categories"
-msgstr ""
-
-#: portfolio-post-type.php:198
-msgid "Separate portfolio categories with commas"
-msgstr ""
-
-#: portfolio-post-type.php:199
-msgid "Add or remove portfolio categories"
-msgstr ""
-
-#: portfolio-post-type.php:200
-msgid "Choose from the most used portfolio categories"
-msgstr ""
-
-#: portfolio-post-type.php:201
-msgid "No portfolio categories found."
-msgstr ""
-
-#: portfolio-post-type.php:257
+#: includes/class-portfolio-post-type-admin.php:59
 msgid "Thumbnail"
 msgstr ""
 
-#: portfolio-post-type.php:345
-msgid "Portfolio Item Pending"
-msgid_plural "Portfolio Items Pending"
-msgstr[0] ""
-msgstr[1] ""
+#: includes/class-portfolio-post-type-registrations.php:51
+msgid "Portfolio"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:52
+msgid "Portfolio Item"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:53
+msgid "Add New Item"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:54
+#: includes/class-portfolio-post-type-registrations.php:56
+msgid "Add New Portfolio Item"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:55
+msgid "Edit Portfolio Item"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:57
+msgid "View Item"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:58
+msgid "Search Portfolio"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:59
+msgid "No portfolio items found"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:60
+msgid "No portfolio items found in trash"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:97
+#: includes/class-portfolio-post-type-registrations.php:99
+msgid "Portfolio Categories"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:98
+msgid "Portfolio Category"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:100
+msgid "Edit Portfolio Category"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:101
+msgid "Update Portfolio Category"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:102
+msgid "Add New Portfolio Category"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:103
+msgid "New Portfolio Category Name"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:104
+msgid "Parent Portfolio Category"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:105
+msgid "Parent Portfolio Category:"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:106
+msgid "All Portfolio Categories"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:107
+msgid "Search Portfolio Categories"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:108
+msgid "Popular Portfolio Categories"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:109
+msgid "Separate portfolio categories with commas"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:110
+msgid "Add or remove portfolio categories"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:111
+msgid "Choose from the most used portfolio categories"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:112
+msgid "No portfolio categories found."
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:139
+#: includes/class-portfolio-post-type-registrations.php:141
+msgid "Portfolio Tags"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:140
+msgid "Portfolio Tag"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:142
+msgid "Edit Portfolio Tag"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:143
+msgid "Update Portfolio Tag"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:144
+msgid "Add New Portfolio Tag"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:145
+msgid "New Portfolio Tag Name"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:146
+msgid "Parent Portfolio Tag"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:147
+msgid "Parent Portfolio Tag:"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:148
+msgid "All Portfolio Tags"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:149
+msgid "Search Portfolio Tags"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:150
+msgid "Popular Portfolio Tags"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:151
+msgid "Separate portfolio tags with commas"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:152
+msgid "Add or remove portfolio tags"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:153
+msgid "Choose from the most used portfolio tags"
+msgstr ""
+
+#: includes/class-portfolio-post-type-registrations.php:154
+msgid "No portfolio tags found."
+msgstr ""
 #. Plugin Name of the plugin/theme
 msgid "Portfolio Post Type"
 msgstr ""
