@@ -1,0 +1,210 @@
+# Copyright (C) 2013 Portfolio Post Type
+# This file is distributed under the same license as the Portfolio Post Type package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Portfolio Post Type 0.8.1 em português\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/portfolio-post-type\n"
+"POT-Creation-Date: 2014-04-21 23:22:13+00:00\n"
+"PO-Revision-Date: 2014-04-22 19:15-0000\n"
+"Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
+"Language-Team: Pedro Mendonça <ped.gaspar@gmail.com>\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/class-gamajo-dashboard-glancer.php:54
+msgid ""
+"Trying to add At a Glance items to dashboard widget afterhook already fired"
+msgstr ""
+
+#: includes/class-portfolio-post-type-admin.php:59
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: includes/class-portfolio-post-type-registrations.php:51
+msgid "Portfolio"
+msgstr "Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:52
+msgid "Portfolio Item"
+msgstr "Item de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:53
+msgid "Add New Item"
+msgstr "Adicionar novo item"
+
+#: includes/class-portfolio-post-type-registrations.php:54
+#: includes/class-portfolio-post-type-registrations.php:56
+msgid "Add New Portfolio Item"
+msgstr "Adicionar novo item de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:55
+msgid "Edit Portfolio Item"
+msgstr "Editar item de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:57
+msgid "View Item"
+msgstr "Ver item"
+
+#: includes/class-portfolio-post-type-registrations.php:58
+msgid "Search Portfolio"
+msgstr "Procurar no Porftólio"
+
+#: includes/class-portfolio-post-type-registrations.php:59
+msgid "No portfolio items found"
+msgstr "Nenhum item de Portfólio encontrado"
+
+#: includes/class-portfolio-post-type-registrations.php:60
+msgid "No portfolio items found in trash"
+msgstr "Nenhum item de Portfólio encontrado no lixo"
+
+#: includes/class-portfolio-post-type-registrations.php:97
+#: includes/class-portfolio-post-type-registrations.php:99
+msgid "Portfolio Categories"
+msgstr "Categorias de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:98
+msgid "Portfolio Category"
+msgstr "Categoria de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:100
+msgid "Edit Portfolio Category"
+msgstr "Editar categoria de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:101
+msgid "Update Portfolio Category"
+msgstr "Actualizar categoria de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:102
+msgid "Add New Portfolio Category"
+msgstr "Adicionar nova categoria de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:103
+msgid "New Portfolio Category Name"
+msgstr "Nome da nova categoria de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:104
+msgid "Parent Portfolio Category"
+msgstr "Categoria superior de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:105
+msgid "Parent Portfolio Category:"
+msgstr "Categoria superior de Portfólio:"
+
+#: includes/class-portfolio-post-type-registrations.php:106
+msgid "All Portfolio Categories"
+msgstr "Todas as categorias de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:107
+msgid "Search Portfolio Categories"
+msgstr "Procurar categorias de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:108
+msgid "Popular Portfolio Categories"
+msgstr "Categorias populares de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:109
+msgid "Separate portfolio categories with commas"
+msgstr "Categorias de Portfólio separadas por vírgulas"
+
+#: includes/class-portfolio-post-type-registrations.php:110
+msgid "Add or remove portfolio categories"
+msgstr "Adicionar ou remover categorias de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:111
+msgid "Choose from the most used portfolio categories"
+msgstr "Escolha de entre as categorias de Portfólio mais usadas"
+
+#: includes/class-portfolio-post-type-registrations.php:112
+msgid "No portfolio categories found."
+msgstr "Não foram encontradas categorias de Portfólio."
+
+#: includes/class-portfolio-post-type-registrations.php:139
+#: includes/class-portfolio-post-type-registrations.php:141
+msgid "Portfolio Tags"
+msgstr "Etiquetas de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:140
+msgid "Portfolio Tag"
+msgstr "Etiqueta de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:142
+msgid "Edit Portfolio Tag"
+msgstr "Editar etiqueta de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:143
+msgid "Update Portfolio Tag"
+msgstr "Actualizar etiqueta de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:144
+msgid "Add New Portfolio Tag"
+msgstr "Adicionar nova etiqueta de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:145
+msgid "New Portfolio Tag Name"
+msgstr "Nome da nova etiqueta de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:146
+msgid "Parent Portfolio Tag"
+msgstr "Etiqueta superior de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:147
+msgid "Parent Portfolio Tag:"
+msgstr "Etiqueta superior de Portfólio:"
+
+#: includes/class-portfolio-post-type-registrations.php:148
+msgid "All Portfolio Tags"
+msgstr "Todas as etiquetas de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:149
+msgid "Search Portfolio Tags"
+msgstr "Procurar etiquetas de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:150
+msgid "Popular Portfolio Tags"
+msgstr "Etiquetas populares de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:151
+msgid "Separate portfolio tags with commas"
+msgstr "Etiquetas de Portfólio separadas por vírgulas"
+
+#: includes/class-portfolio-post-type-registrations.php:152
+msgid "Add or remove portfolio tags"
+msgstr "Adicionar ou remover etiquetas de Portfólio"
+
+#: includes/class-portfolio-post-type-registrations.php:153
+msgid "Choose from the most used portfolio tags"
+msgstr "Escolha de entre as etiquetas de Portfólio mais usadas"
+
+#: includes/class-portfolio-post-type-registrations.php:154
+msgid "No portfolio tags found."
+msgstr "Não foram encontradas etiquetas de Portfólio."
+
+#. Plugin Name of the plugin/theme
+msgid "Portfolio Post Type"
+msgstr "Tipo de artigo de Portfólio"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wptheming.com/portfolio-post-type/"
+msgstr "http://wptheming.com/portfolio-post-type/"
+
+#. Description of the plugin/theme
+msgid "Enables a portfolio post type and taxonomies."
+msgstr ""
+"Permite acrescentar um tipo de artigo de Porftólio e respectivas taxonomias."
+
+#. Author of the plugin/theme
+msgid "Devin Price"
+msgstr "Devin Price"
+
+#. Author URI of the plugin/theme
+msgid "http://www.wptheming.com/"
+msgstr "http://www.wptheming.com/"
+
+#~ msgid "Portfolio Item Pending"
+#~ msgid_plural "Portfolio Items Pending"
+#~ msgstr[0] "Item de Portfólio pendente"
+#~ msgstr[1] "Itens de Portfólio pendente"
