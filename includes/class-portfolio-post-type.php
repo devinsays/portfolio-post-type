@@ -23,7 +23,7 @@ class Portfolio_Post_Type {
 	 *
 	 * @var    string VERSION Plugin version.
 	 */
-	const VERSION = '0.8.1';
+	const VERSION = '0.8.2';
 
 	/**
 	 * Unique identifier for your plugin.

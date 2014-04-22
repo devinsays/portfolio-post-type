@@ -9,7 +9,7 @@ This plugin registers a custom post type for portfolio items.  It also registers
 This plugin doesn't change how portfolio items are displayed in your theme.  You'll need to add templates for `archive-portfolio.php` and `single-portfolio.php` if you want to customize the display of portfolio items.
 
 ## Requirements
-* WordPress 3.4, tested up to 3.8
+* WordPress 3.4, tested up to 3.9
 
 ## Installation
 
