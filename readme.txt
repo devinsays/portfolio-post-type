@@ -35,7 +35,7 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 = 0.8.2 =
 
 * Updated .pot file for translations
-* Portugese translation by Pedro Mendonca
+* Portuguese translation by Pedro Mendonça
 
 = 0.8.1 =
 
