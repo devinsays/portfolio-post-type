@@ -1,0 +1,24 @@
+<phpunit
+	bootstrap="tests/bootstrap.php"
+	backupGlobals="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	>
+	<testsuites>
+		<testsuite name="unit">
+            <directory suffix="Test.php">tests/unit/</directory>
+        </testsuite>
+        <testsuite name="integration">
+            <directory suffix="Test.php">tests/integration/</directory>
+        </testsuite>
+	</testsuites>
+
+	<filter>
+        <whitelist>
+            <directory>includes/</directory>
+            <file>uninstall.php</file>
+        </whitelist>
+    </filter>
+</phpunit>
