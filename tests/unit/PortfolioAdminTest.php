@@ -2,7 +2,7 @@
 
 class PortfolioAdminTest extends WP_UnitTestCase {
 
-	public $admin;
+	protected $admin;
 
 	public function setUp() {
 		parent::setUp();

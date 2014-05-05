@@ -36,3 +36,9 @@ require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gamajo-dashboar
 require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gamajo-dashboard-rightnow.php';
 require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-portfolio-post-type-admin.php';
 require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gamajo-single-entry-term-body-classes.php';
+require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/interface-gamajo-registerable.php';
+require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gamajo-post-type.php';
+require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gamajo-taxonomy.php';
+require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-portfolio-post-type-post-type.php';
+require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-portfolio-post-type-taxonomy-category.php';
+require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-portfolio-post-type-taxonomy-tag.php';

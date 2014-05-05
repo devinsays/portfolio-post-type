@@ -19,9 +19,9 @@
  */
 class Portfolio_Post_Type_Registrations {
 
-	public $post_type = 'portfolio';
+	public $post_type;
 
-	public $taxonomies = array( 'portfolio_category', 'portfolio_tag' );
+	public $taxonomies;
 
 	public function init() {
 		// Add the portfolio post type and taxonomies
@@ -30,61 +30,44 @@ class Portfolio_Post_Type_Registrations {
 
 	/**
 	 * Initiate registrations of post type and taxonomies.
-	 *
-	 * @uses Portfolio_Post_Type_Registrations::register_post_type()
-	 * @uses Portfolio_Post_Type_Registrations::register_taxonomy_tag()
-	 * @uses Portfolio_Post_Type_Registrations::register_taxonomy_category()
 	 */
 	public function register() {
-		$this->register_post_type();
-		$this->register_taxonomy_category();
-		$this->register_taxonomy_tag();
+		global $portfolio_post_type_post_type, $portfolio_post_type_taxonomy_category, $portfolio_post_type_taxonomy_tag;
+
+		$portfolio_post_type_post_type = new Portfolio_Post_Type_Post_Type;
+		$portfolio_post_type_post_type->register();
+		$this->post_type = $portfolio_post_type_post_type->get_post_type();
+
+		$portfolio_post_type_taxonomy_category = new Portfolio_Post_Type_Taxonomy_Category;
+		$portfolio_post_type_taxonomy_category->register();
+		$this->taxonomies[] = $portfolio_post_type_taxonomy_category->get_taxonomy();
+		register_taxonomy_for_object_type(
+			$portfolio_post_type_taxonomy_category->get_taxonomy(),
+			$portfolio_post_type_post_type->get_post_type()
+		);
+
+		$portfolio_post_type_taxonomy_tag = new Portfolio_Post_Type_Taxonomy_Tag;
+		$portfolio_post_type_taxonomy_tag->register();
+		$this->taxonomies[] = $portfolio_post_type_taxonomy_tag->get_taxonomy();
+		register_taxonomy_for_object_type(
+			$portfolio_post_type_taxonomy_tag->get_taxonomy(),
+			$portfolio_post_type_post_type->get_post_type()
+		);
 	}
 
 	/**
-	 * Register the custom post type.
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/register_post_type
+	 * Unregister post type and taxonomies registrations.
 	 */
-	protected function register_post_type() {
-		$labels = array(
-			'name'               => __( 'Portfolio', 'portfolio-post-type' ),
-			'singular_name'      => __( 'Portfolio Item', 'portfolio-post-type' ),
-			'add_new'            => __( 'Add New Item', 'portfolio-post-type' ),
-			'add_new_item'       => __( 'Add New Portfolio Item', 'portfolio-post-type' ),
-			'edit_item'          => __( 'Edit Portfolio Item', 'portfolio-post-type' ),
-			'new_item'           => __( 'Add New Portfolio Item', 'portfolio-post-type' ),
-			'view_item'          => __( 'View Item', 'portfolio-post-type' ),
-			'search_items'       => __( 'Search Portfolio', 'portfolio-post-type' ),
-			'not_found'          => __( 'No portfolio items found', 'portfolio-post-type' ),
-			'not_found_in_trash' => __( 'No portfolio items found in trash', 'portfolio-post-type' ),
-		);
+	public function unregister() {
+		global $portfolio_post_type_post_type, $portfolio_post_type_taxonomy_category, $portfolio_post_type_taxonomy_tag;
+		$portfolio_post_type_post_type->unregister();
+		$this->post_type = null;
 
-		$supports = array(
-			'title',
-			'editor',
-			'excerpt',
-			'thumbnail',
-			'comments',
-			'author',
-			'custom-fields',
-			'revisions',
-		);
+		$portfolio_post_type_taxonomy_category->unregister();
+		unset( $this->taxonomies[ $portfolio_post_type_taxonomy_category->get_taxonomy() ] );
 
-		$args = array(
-			'labels'          => $labels,
-			'supports'        => $supports,
-			'public'          => true,
-			'capability_type' => 'post',
-			'rewrite'         => array( 'slug' => 'portfolio', ), // Permalinks format
-			'menu_position'   => 5,
-			'menu_icon'       => ( version_compare( $GLOBALS['wp_version'], '3.8', '>=' ) ) ? 'dashicons-portfolio' : '',
-			'has_archive'     => true,
-		);
-
-		$args = apply_filters( 'portfolioposttype_args', $args );
-
-		register_post_type( $this->post_type, $args );
+		$portfolio_post_type_taxonomy_tag->unregister();
+		unset( $this->taxonomies[ $portfolio_post_type_taxonomy_tag->get_taxonomy() ] );
 	}
 
 	/**
@@ -126,7 +109,8 @@ class Portfolio_Post_Type_Registrations {
 
 		$args = apply_filters( 'portfolioposttype_category_args', $args );
 
-		register_taxonomy( $this->taxonomies[0], $this->post_type, $args );
+		register_taxonomy( 'portfolio_category', $this->post_type, $args );
+		$this->taxonomies[] = 'portfolio_category';
 	}
 
 	/**
@@ -168,7 +152,8 @@ class Portfolio_Post_Type_Registrations {
 
 		$args = apply_filters( 'portfolioposttype_tag_args', $args );
 
-		register_taxonomy( $this->taxonomies[1], $this->post_type, $args );
+		register_taxonomy( 'portfolio_tag', $this->post_type, $args );
+		$this->taxonomies[] = 'portfolio_tag';
 
 	}
 }

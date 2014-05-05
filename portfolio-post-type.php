@@ -28,6 +28,12 @@ if ( ! defined( 'WPINC' ) ) {
 
 // Required files for registering the post type and taxonomies.
 require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type.php';
+require plugin_dir_path( __FILE__ ) . 'includes/interface-gamajo-registerable.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-gamajo-post-type.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-gamajo-taxonomy.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-post-type.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-taxonomy-category.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-taxonomy-tag.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-registrations.php';
 
 // Instantiate registration class, so we can add it as a dependency to main plugin class.
