@@ -26,7 +26,6 @@ class Portfolio_Post_Type_Admin {
 	}
 
 	public function init() {
-
 		// Add thumbnail support for this post type
 		add_theme_support( 'post-thumbnails', array( $this->registration_handler->post_type ) );
 
@@ -43,7 +42,6 @@ class Portfolio_Post_Type_Admin {
 
 		// Adds menu icons for 3.7 and below, glance icons for 3.8 and up
 		add_action( 'admin_head', array( $this, 'add_icons' ) );
-
 	}
 
 	/**
@@ -68,11 +66,8 @@ class Portfolio_Post_Type_Admin {
 	 * @param string $column Column ID.
 	 */
 	public function display_thumbnail( $column ) {
-
-		// global $post;
 		switch ( $column ) {
 			case 'thumbnail':
-				// echo get_the_post_thumbnail( $post->ID, array(35, 35) );
 				echo get_the_post_thumbnail( get_the_ID(), array( 35, 35 ) );
 				break;
 		}
