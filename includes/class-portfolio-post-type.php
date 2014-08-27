@@ -6,7 +6,7 @@
  * @author    Devin Price
  * @license   GPL-2.0+
  * @link      http://wptheming.com/portfolio-post-type/
- * @copyright 2011-2013 Devin Price
+ * @copyright 2011 Devin Price, Gary Jones
  */
 
 /**
@@ -23,7 +23,7 @@ class Portfolio_Post_Type {
 	 *
 	 * @var    string VERSION Plugin version.
 	 */
-	const VERSION = '0.8.2';
+	const VERSION = '0.9.0';
 
 	/**
 	 * Unique identifier for your plugin.
