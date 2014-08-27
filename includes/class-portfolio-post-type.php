@@ -66,10 +66,7 @@ class Portfolio_Post_Type {
 	 */
 	public function activate( $network_wide ) {
 		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
-			if ( $network_wide  ) {
-				// Get all blog ids
-				$blog_ids = $this->get_blog_ids();
-
+			if ( $network_wide && $blog_ids = $this->get_blog_ids() ) {
 				foreach ( $blog_ids as $blog_id ) {
 					switch_to_blog( $blog_id );
 					$this->single_activate();
@@ -93,10 +90,7 @@ class Portfolio_Post_Type {
 	 */
 	public function deactivate( $network_wide ) {
 		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
-			if ( $network_wide ) {
-				// Get all blog ids
-				$blog_ids = $this->get_blog_ids();
-
+			if ( $network_wide && $blog_ids = $this->get_blog_ids() ) {
 				foreach ( $blog_ids as $blog_id ) {
 					switch_to_blog( $blog_id );
 					$this->single_deactivate();

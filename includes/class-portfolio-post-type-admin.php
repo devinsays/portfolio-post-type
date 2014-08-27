@@ -7,7 +7,7 @@
  * @author    Gary Jones
  * @license   GPL-2.0+
  * @link      http://wptheming.com/portfolio-post-type/
- * @copyright 2011-2013 Devin Price
+ * @copyright 2011-2014 Devin Price, Gary Jones
  */
 
 /**
@@ -26,7 +26,6 @@ class Portfolio_Post_Type_Admin {
 	}
 
 	public function init() {
-
 		// Add thumbnail support for this post type
 		add_theme_support( 'post-thumbnails', array( $this->registration_handler->post_type ) );
 
@@ -41,9 +40,8 @@ class Portfolio_Post_Type_Admin {
 		add_action( 'right_now_content_table_end', array( $this, 'add_rightnow_counts' ) );
 		add_action( 'dashboard_glance_items', array( $this, 'add_glance_counts' ) );
 
-		// Adds menu icons for 3.7 and below, glance icons for 3.8 and up
+		// Adds menu icons
 		add_action( 'admin_head', array( $this, 'add_icons' ) );
-
 	}
 
 	/**
@@ -68,11 +66,8 @@ class Portfolio_Post_Type_Admin {
 	 * @param string $column Column ID.
 	 */
 	public function display_thumbnail( $column ) {
-
-		// global $post;
 		switch ( $column ) {
 			case 'thumbnail':
-				// echo get_the_post_thumbnail( $post->ID, array(35, 35) );
 				echo get_the_post_thumbnail( get_the_ID(), array( 35, 35 ) );
 				break;
 		}
@@ -152,8 +147,8 @@ class Portfolio_Post_Type_Admin {
 			$options .= sprintf(
 				'<option value="%s"%s />%s</option>',
 				esc_attr( $term->slug ),
-				selected( $current_tax_slug, $term->slug ),
-				esc_html( $term->name . '(' . $term->count . ')' )
+				selected( $current_tax_slug, $term->slug, false ),
+				esc_html( $term->name . ' (' . $term->count . ')' )
 			);
 		}
 		return $options;
@@ -197,27 +192,7 @@ class Portfolio_Post_Type_Admin {
 					content: "\f322";
 				}
 		    </style>
-		<?php } else {
-			// For versions 3.7 and lower.
-			// Compatibility code will be removed in a later version.
-	    	$plugin_dir_url = plugin_dir_url( dirname(__FILE__) );
-		    ?>
-	    	<style>
-				#menu-posts-<?php echo $this->registration_handler->post_type; ?> .wp-menu-image {
-					background: url(<?php echo $plugin_dir_url; ?>images/portfolio-icon.png) no-repeat 6px 6px !important;
-				}
-				#menu-posts-<?php echo $this->registration_handler->post_type; ?>:hover .wp-menu-image,
-				#menu-posts-<?php echo $this->registration_handler->post_type; ?>.wp-has-current-submenu .wp-menu-image {
-					background-position: 6px -16px !important;
-				}
-				#icon-edit.icon32-posts-<?php echo $this->registration_handler->post_type; ?> {
-					background: url(<?php echo $plugin_dir_url; ?>images/portfolio-32x32.png) no-repeat;
-				}
-				#menu-posts-<?php echo $this->registration_handler->post_type; ?> .wp-menu-image.dashicons {
-					background: none;
-				}
-			</style>
-    <?php }
+		<?php }
     }
 
 }
