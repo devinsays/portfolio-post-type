@@ -7,7 +7,7 @@
  * @author    Gary Jones
  * @license   GPL-2.0+
  * @link      http://wptheming.com/portfolio-post-type/
- * @copyright 2011-2013 Devin Price
+ * @copyright 2011-2014 Devin Price, Gary Jones
  */
 
 /**

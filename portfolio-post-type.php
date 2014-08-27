@@ -6,7 +6,7 @@
  * @author    Devin Price
  * @license   GPL-2.0+
  * @link      http://wptheming.com/portfolio-post-type/
- * @copyright 2011-2013 Devin Price
+ * @copyright 2011-2014 Devin Price, Gary Jones
  *
  * @wordpress-plugin
  * Plugin Name: Portfolio Post Type
@@ -63,9 +63,6 @@ function portfolio_post_type_init() {
 		// Loads for users viewing the WordPress dashboard
 		if ( ! class_exists( 'Gamajo_Dashboard_Glancer' ) ) {
 			require plugin_dir_path( __FILE__ ) . 'includes/class-gamajo-dashboard-glancer.php';  // WP 3.8
-		}
-		if ( ! class_exists( 'Gamajo_Dashboard_RightNow' ) ) {
-			require plugin_dir_path( __FILE__ ) . 'includes/class-gamajo-dashboard-rightnow.php'; // WP 3.7
 		}
 		require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-admin.php';
 		$portfolio_post_type_admin = new Portfolio_Post_Type_Admin( $portfolio_post_type_registrations );
