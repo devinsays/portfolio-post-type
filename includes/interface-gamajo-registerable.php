@@ -5,7 +5,7 @@
  * @package   Gamajo_Registerable
  * @author    Gary Jones
  * @link      http://gamajo.com/registerable
- * @copyright 2014 Gary Jones
+ * @copyright 2013 Gary Jones
  * @license   GPL-2.0+
  * @version   1.0.0
  */
