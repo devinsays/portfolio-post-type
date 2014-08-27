@@ -1,7 +1,7 @@
 === Portfolio Post Type ===
 Contributors: downstairsdev, garyj
 Tags: portfolio, post type
-Requires at least: 3.8
+Requires at least: 3.7
 Tested up to: 4.0
 Stable tag: 0.8.2
 License: GPLv2 or later
@@ -35,6 +35,7 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 = 0.9.0 =
 
 * Remove legacy support for icons
+* Gamajo_Registerable interface and classes
 
 = 0.8.2 =
 
