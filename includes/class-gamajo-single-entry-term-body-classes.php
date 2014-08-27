@@ -5,7 +5,7 @@
  * @package   Gamajo_Single_Entry_Term_Body_Classes
  * @author    Gary Jones
  * @license   GPL-2.0+
- * @copyright 2014 Gary Jones, Gamajo Tech
+ * @copyright 2013 Gary Jones, Gamajo Tech
  * @link      http://gamajo.com/single-entry-term-body-classes
  */
 
