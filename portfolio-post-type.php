@@ -48,7 +48,7 @@ register_activation_hook( __FILE__, array( $portfolio_post_type, 'activate' ) );
 // Initialise registrations for post-activation requests.
 $portfolio_post_type_registrations->init();
 
-add_action( 'init', 'portfolio_post_type_init' );
+add_action( 'init', 'portfolio_post_type_init', 100 );
 /**
  * Adds styling to the dashboard for the post type and adds portfolio posts
  * to the "At a Glance" metabox.

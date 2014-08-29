@@ -3,7 +3,7 @@ Contributors: downstairsdev, garyj
 Tags: portfolio, post type
 Requires at least: 3.7
 Tested up to: 4.0
-Stable tag: 0.8.2
+Stable tag: 0.9.0
 License: GPLv2 or later
 
 == Description ==
@@ -31,6 +31,11 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com/devinsays/portfolio-post-type)
 
 == Changelog ==
+
+= 0.9.1 =
+
+* Updated translation file
+* Fixes issue with thumbnail support in some themes
 
 = 0.9.0 =
 
