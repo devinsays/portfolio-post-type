@@ -1,0 +1,8 @@
+# OSX
+.DS_Store
+Icon
+
+# Node.js / Grunt
+node_modules
+.sass-cache
+npm-debug.log

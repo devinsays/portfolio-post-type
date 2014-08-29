@@ -1,183 +1,245 @@
-# Copyright (C) 2014 Portfolio Post Type
-# This file is distributed under the same license as the Portfolio Post Type package.
+# Copyright (C) 2014 Devin Price
+# This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Portfolio Post Type 0.8.1\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/portfolio-post-type\n"
-"POT-Creation-Date: 2014-04-21 23:22:13+00:00\n"
+"Project-Id-Version: Portfolio Post Type 0.9.0\n"
+"Report-Msgid-Bugs-To: "
+"http://wordpress.org/support/plugin/portfolio-post-type\n"
+"POT-Creation-Date: 2014-08-29 16:21:17+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.4.7\n"
 
 #: includes/class-gamajo-dashboard-glancer.php:54
 msgid "Trying to add At a Glance items to dashboard widget afterhook already fired"
 msgstr ""
 
-#: includes/class-portfolio-post-type-admin.php:59
+#: includes/class-portfolio-post-type-admin.php:57
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:51
+#: includes/class-portfolio-post-type-post-type.php:39
 msgid "Portfolio"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:52
+#: includes/class-portfolio-post-type-post-type.php:40
 msgid "Portfolio Item"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:53
+#: includes/class-portfolio-post-type-post-type.php:43
 msgid "Add New Item"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:54
-#: includes/class-portfolio-post-type-registrations.php:56
+#: includes/class-portfolio-post-type-post-type.php:44
+#: includes/class-portfolio-post-type-post-type.php:45
 msgid "Add New Portfolio Item"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:55
+#: includes/class-portfolio-post-type-post-type.php:46
 msgid "Edit Portfolio Item"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:57
+#: includes/class-portfolio-post-type-post-type.php:47
 msgid "View Item"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:58
+#: includes/class-portfolio-post-type-post-type.php:48
+msgid "All Portfolio Items"
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:49
 msgid "Search Portfolio"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:59
+#: includes/class-portfolio-post-type-post-type.php:50
+msgid "Parent Portfolio Item:"
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:51
 msgid "No portfolio items found"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:60
+#: includes/class-portfolio-post-type-post-type.php:52
 msgid "No portfolio items found in trash"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:97
-#: includes/class-portfolio-post-type-registrations.php:99
+#: includes/class-portfolio-post-type-post-type.php:94
+#: includes/class-portfolio-post-type-post-type.php:97
+msgid "Portfolio item updated."
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:95
+msgid "Custom field updated."
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:96
+msgid "Custom field deleted."
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:99
+#. translators: %s: date and time of the revision
+msgid "Portfolio item restored to revision from %s"
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:100
+msgid "Portfolio item published."
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:101
+msgid "Portfolio item saved."
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:102
+msgid "Portfolio item submitted."
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:104
+msgid "Portfolio item scheduled for: <strong>%1$s</strong>."
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:106
+#. translators: Publish box date format, see http:php.net/date
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:108
+msgid "Portfolio item draft updated."
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:115
+msgid "View portfolio item"
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:116
+msgid "Preview portfolio item"
+msgstr ""
+
+#: includes/class-portfolio-post-type-taxonomy-category.php:39
+#: includes/class-portfolio-post-type-taxonomy-category.php:41
 msgid "Portfolio Categories"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:98
+#: includes/class-portfolio-post-type-taxonomy-category.php:40
 msgid "Portfolio Category"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:100
+#: includes/class-portfolio-post-type-taxonomy-category.php:42
 msgid "Edit Portfolio Category"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:101
+#: includes/class-portfolio-post-type-taxonomy-category.php:43
 msgid "Update Portfolio Category"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:102
+#: includes/class-portfolio-post-type-taxonomy-category.php:44
 msgid "Add New Portfolio Category"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:103
+#: includes/class-portfolio-post-type-taxonomy-category.php:45
 msgid "New Portfolio Category Name"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:104
+#: includes/class-portfolio-post-type-taxonomy-category.php:46
 msgid "Parent Portfolio Category"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:105
+#: includes/class-portfolio-post-type-taxonomy-category.php:47
 msgid "Parent Portfolio Category:"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:106
+#: includes/class-portfolio-post-type-taxonomy-category.php:48
 msgid "All Portfolio Categories"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:107
+#: includes/class-portfolio-post-type-taxonomy-category.php:49
 msgid "Search Portfolio Categories"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:108
+#: includes/class-portfolio-post-type-taxonomy-category.php:50
 msgid "Popular Portfolio Categories"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:109
+#: includes/class-portfolio-post-type-taxonomy-category.php:51
 msgid "Separate portfolio categories with commas"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:110
+#: includes/class-portfolio-post-type-taxonomy-category.php:52
 msgid "Add or remove portfolio categories"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:111
+#: includes/class-portfolio-post-type-taxonomy-category.php:53
 msgid "Choose from the most used portfolio categories"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:112
+#: includes/class-portfolio-post-type-taxonomy-category.php:54
 msgid "No portfolio categories found."
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:139
-#: includes/class-portfolio-post-type-registrations.php:141
+#: includes/class-portfolio-post-type-taxonomy-tag.php:39
+#: includes/class-portfolio-post-type-taxonomy-tag.php:41
 msgid "Portfolio Tags"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:140
+#: includes/class-portfolio-post-type-taxonomy-tag.php:40
 msgid "Portfolio Tag"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:142
+#: includes/class-portfolio-post-type-taxonomy-tag.php:42
 msgid "Edit Portfolio Tag"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:143
+#: includes/class-portfolio-post-type-taxonomy-tag.php:43
 msgid "Update Portfolio Tag"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:144
+#: includes/class-portfolio-post-type-taxonomy-tag.php:44
 msgid "Add New Portfolio Tag"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:145
+#: includes/class-portfolio-post-type-taxonomy-tag.php:45
 msgid "New Portfolio Tag Name"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:146
+#: includes/class-portfolio-post-type-taxonomy-tag.php:46
 msgid "Parent Portfolio Tag"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:147
+#: includes/class-portfolio-post-type-taxonomy-tag.php:47
 msgid "Parent Portfolio Tag:"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:148
+#: includes/class-portfolio-post-type-taxonomy-tag.php:48
 msgid "All Portfolio Tags"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:149
+#: includes/class-portfolio-post-type-taxonomy-tag.php:49
 msgid "Search Portfolio Tags"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:150
+#: includes/class-portfolio-post-type-taxonomy-tag.php:50
 msgid "Popular Portfolio Tags"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:151
+#: includes/class-portfolio-post-type-taxonomy-tag.php:51
 msgid "Separate portfolio tags with commas"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:152
+#: includes/class-portfolio-post-type-taxonomy-tag.php:52
 msgid "Add or remove portfolio tags"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:153
+#: includes/class-portfolio-post-type-taxonomy-tag.php:53
 msgid "Choose from the most used portfolio tags"
 msgstr ""
 
-#: includes/class-portfolio-post-type-registrations.php:154
+#: includes/class-portfolio-post-type-taxonomy-tag.php:54
 msgid "No portfolio tags found."
 msgstr ""
+
 #. Plugin Name of the plugin/theme
 msgid "Portfolio Post Type"
 msgstr ""
@@ -196,4 +258,14 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://www.wptheming.com/"
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:41
+msgctxt "admin menu"
+msgid "Portfolio"
+msgstr ""
+
+#: includes/class-portfolio-post-type-post-type.php:42
+msgctxt "add new on admin bar"
+msgid "Portfolio Item"
 msgstr ""
