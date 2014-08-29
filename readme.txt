@@ -32,6 +32,11 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 
 == Changelog ==
 
+= 0.9.1 =
+
+* Updated translation file
+* Fixes issue with thumbnail support in some themes
+
 = 0.9.0 =
 
 * Remove legacy support for icons
