@@ -12,7 +12,8 @@ module.exports = function(grunt) {
 	                domainPath: '/languages/',    // Where to save the POT file.
 	                potFilename: 'portfolio-post-type.pot',   // Name of the POT file.
 	                type: 'wp-plugin',
-	                updateTimestamp: true
+	                updateTimestamp: true,
+	                exclude: [ 'includes/class-gamajo-dashboard-glancer.php' ]
 	            }
 	        }
 	    }
