@@ -52,6 +52,8 @@ class Portfolio_Post_Type_Taxonomy_Tag extends Gamajo_Taxonomy {
 			'add_or_remove_items'        => __( 'Add or remove portfolio tags', 'portfolio-post-type' ),
 			'choose_from_most_used'      => __( 'Choose from the most used portfolio tags', 'portfolio-post-type' ),
 			'not_found'                  => __( 'No portfolio tags found.', 'portfolio-post-type' ),
+			'items_list_navigation'      => __( 'Portfolio tags list navigation', 'portfolio-post-type' ),
+			'items_list'                 => __( 'Portfolio tags list', 'portfolio-post-type' ),
 		);
 
 		$args = array(
