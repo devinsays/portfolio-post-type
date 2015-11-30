@@ -36,20 +36,23 @@ class Portfolio_Post_Type_Post_Type extends Gamajo_Post_Type {
 	 */
 	protected function default_args() {
 		$labels = array(
-			'name'               => __( 'Portfolio', 'portfolio-post-type' ),
-			'singular_name'      => __( 'Portfolio Item', 'portfolio-post-type' ),
-			'menu_name'          => _x( 'Portfolio', 'admin menu', 'portfolio-post-type' ),
-			'name_admin_bar'     => _x( 'Portfolio Item', 'add new on admin bar', 'portfolio-post-type' ),
-			'add_new'            => __( 'Add New Item', 'portfolio-post-type' ),
-			'add_new_item'       => __( 'Add New Portfolio Item', 'portfolio-post-type' ),
-			'new_item'           => __( 'Add New Portfolio Item', 'portfolio-post-type' ),
-			'edit_item'          => __( 'Edit Portfolio Item', 'portfolio-post-type' ),
-			'view_item'          => __( 'View Item', 'portfolio-post-type' ),
-			'all_items'          => __( 'All Portfolio Items', 'portfolio-post-type' ),
-			'search_items'       => __( 'Search Portfolio', 'portfolio-post-type' ),
-			'parent_item_colon'  => __( 'Parent Portfolio Item:', 'portfolio-post-type' ),
-			'not_found'          => __( 'No portfolio items found', 'portfolio-post-type' ),
-			'not_found_in_trash' => __( 'No portfolio items found in trash', 'portfolio-post-type' ),
+			'name'                  => __( 'Portfolio', 'portfolio-post-type' ),
+			'singular_name'         => __( 'Portfolio Item', 'portfolio-post-type' ),
+			'menu_name'             => _x( 'Portfolio', 'admin menu', 'portfolio-post-type' ),
+			'name_admin_bar'        => _x( 'Portfolio Item', 'add new on admin bar', 'portfolio-post-type' ),
+			'add_new'               => __( 'Add New Item', 'portfolio-post-type' ),
+			'add_new_item'          => __( 'Add New Portfolio Item', 'portfolio-post-type' ),
+			'new_item'              => __( 'Add New Portfolio Item', 'portfolio-post-type' ),
+			'edit_item'             => __( 'Edit Portfolio Item', 'portfolio-post-type' ),
+			'view_item'             => __( 'View Item', 'portfolio-post-type' ),
+			'all_items'             => __( 'All Portfolio Items', 'portfolio-post-type' ),
+			'search_items'          => __( 'Search Portfolio', 'portfolio-post-type' ),
+			'parent_item_colon'     => __( 'Parent Portfolio Item:', 'portfolio-post-type' ),
+			'not_found'             => __( 'No portfolio items found', 'portfolio-post-type' ),
+			'not_found_in_trash'    => __( 'No portfolio items found in trash', 'portfolio-post-type' ),
+			'filter_items_list'     => __( 'Filter portfolio items list', 'portfolio-post-type' ),
+			'items_list_navigation' => __( 'Portfolio items list navigation', 'portfolio-post-type' ),
+			'items_list'            => __( 'Portfolio items list', 'portfolio-post-type' ),
 		);
 
 		$supports = array(
