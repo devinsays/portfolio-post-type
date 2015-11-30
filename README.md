@@ -67,7 +67,7 @@ function prefix_change_portfolio_labels( array $args ) {
 
 	// Update project single permalink format, and archive slug as well.
 	$args['rewrite']     = array( 'slug' => 'project' );
-	$args['has_archive'] = 'projects';
+	$args['has_archive'] = true;
 	// Don't forget to visit Settings->Permalinks after changing these to flush the rewrite rules.
 
 	return $args;
