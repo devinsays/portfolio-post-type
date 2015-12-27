@@ -2,11 +2,11 @@
 # This file is distributed under the same license as the Portfolio Post Type package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Portfolio Post Type 0.9.1 em português\n"
+"Project-Id-Version: Portfolio Post Type 0.9.0 em português\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/portfolio-post-"
 "type\n"
-"POT-Creation-Date: 2014-08-31 19:46:14+00:00\n"
-"PO-Revision-Date: 2014-08-31 21:14-0000\n"
+"POT-Creation-Date: 2014-08-29 16:21:17+00:00\n"
+"PO-Revision-Date: 2014-08-31 16:42-0000\n"
 "Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language: pt_PT\n"
@@ -16,7 +16,12 @@ msgstr ""
 "X-Generator: Poedit 1.6.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: includes/class-portfolio-post-type-admin.php:68
+#: includes/class-gamajo-dashboard-glancer.php:54
+msgid ""
+"Trying to add At a Glance items to dashboard widget afterhook already fired"
+msgstr ""
+
+#: includes/class-portfolio-post-type-admin.php:57
 msgid "Thumbnail"
 msgstr "Miniatura"
 
