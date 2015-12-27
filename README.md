@@ -9,7 +9,7 @@ This plugin registers a custom post type for portfolio items.  It also registers
 This plugin doesn't change how portfolio items are displayed in your theme.  You'll need to add templates for `archive-portfolio.php` and `single-portfolio.php` if you want to customize the display of portfolio items.
 
 ## Requirements
-* WordPress 3.7, tested up to 4.0
+* WordPress 3.7, tested up to 4.4
 
 ## Installation
 
@@ -67,7 +67,7 @@ function prefix_change_portfolio_labels( array $args ) {
 
 	// Update project single permalink format, and archive slug as well.
 	$args['rewrite']     = array( 'slug' => 'project' );
-	$args['has_archive'] = 'projects';
+	$args['has_archive'] = true;
 	// Don't forget to visit Settings->Permalinks after changing these to flush the rewrite rules.
 
 	return $args;
@@ -92,4 +92,4 @@ Of course: [http://wordpress.org/plugins/portfolio-post-type/](http://wordpress.
 
 ## Credits
 
-Built by [Devin Price](http://www.wptheming.com/) and [Gary Jones](http://gamajo.com/)
+Built by [Devin Price](http://www.wptheming.com/) and [Gary Jones](https://gamajo.com/)
