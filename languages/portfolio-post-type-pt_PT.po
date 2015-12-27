@@ -2,26 +2,32 @@
 # This file is distributed under the same license as the Portfolio Post Type package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Portfolio Post Type 0.9.0 em português\n"
+"Project-Id-Version: Portfolio Post Type 0.9.1 em português\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/portfolio-post-"
 "type\n"
-"POT-Creation-Date: 2014-08-29 16:21:17+00:00\n"
-"PO-Revision-Date: 2014-08-31 16:42-0000\n"
+"POT-Creation-Date: 2015-11-30 09:20+0000\n"
+"PO-Revision-Date: 2015-11-30 09:31+0000\n"
 "Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.8.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: includes/class-gamajo-dashboard-glancer.php:54
 msgid ""
 "Trying to add At a Glance items to dashboard widget afterhook already fired"
-msgstr ""
+msgstr "Tentar adicionar itens do At a Glance ao widget do painel"
 
-#: includes/class-portfolio-post-type-admin.php:57
+#: includes/class-portfolio-post-type-admin.php:68
 msgid "Thumbnail"
 msgstr "Miniatura"
 
@@ -30,6 +36,16 @@ msgid "Portfolio"
 msgstr "Portfólio"
 
 #: includes/class-portfolio-post-type-post-type.php:40
+msgid "Portfolio Item"
+msgstr "Item de Portfólio"
+
+#: includes/class-portfolio-post-type-post-type.php:41
+msgctxt "admin menu"
+msgid "Portfolio"
+msgstr "Portfólio"
+
+#: includes/class-portfolio-post-type-post-type.php:42
+msgctxt "add new on admin bar"
 msgid "Portfolio Item"
 msgstr "Item de Portfólio"
 
@@ -70,54 +86,68 @@ msgstr "Nenhum item de Portfólio encontrado"
 msgid "No portfolio items found in trash"
 msgstr "Nenhum item de Portfólio encontrado no lixo"
 
-#: includes/class-portfolio-post-type-post-type.php:94
+#: includes/class-portfolio-post-type-post-type.php:53
+msgid "Filter portfolio items list"
+msgstr "Filtrar lista de itens de Portfólio"
+
+#: includes/class-portfolio-post-type-post-type.php:54
+msgid "Portfolio items list navigation"
+msgstr "Navegação da lista de itens de Portfólio"
+
+#: includes/class-portfolio-post-type-post-type.php:55
+msgid "Portfolio items list"
+msgstr "Lista de itens de Porftólio"
+
 #: includes/class-portfolio-post-type-post-type.php:97
+#: includes/class-portfolio-post-type-post-type.php:100
 msgid "Portfolio item updated."
 msgstr "Item de Portfólio actualizado."
 
-#: includes/class-portfolio-post-type-post-type.php:95
+#: includes/class-portfolio-post-type-post-type.php:98
 msgid "Custom field updated."
 msgstr "Campo personalizado actualizado."
 
-#: includes/class-portfolio-post-type-post-type.php:96
+#: includes/class-portfolio-post-type-post-type.php:99
 msgid "Custom field deleted."
 msgstr "Campo personalizado removido."
 
 #. translators: %s: date and time of the revision
-#: includes/class-portfolio-post-type-post-type.php:99
+#: includes/class-portfolio-post-type-post-type.php:102
+#, php-format
 msgid "Portfolio item restored to revision from %s"
 msgstr "Item do Portfólio restaurado para a revisão de %s"
 
-#: includes/class-portfolio-post-type-post-type.php:100
+#: includes/class-portfolio-post-type-post-type.php:103
 msgid "Portfolio item published."
 msgstr "Item de Portfólio publicado."
 
-#: includes/class-portfolio-post-type-post-type.php:101
+#: includes/class-portfolio-post-type-post-type.php:104
 msgid "Portfolio item saved."
 msgstr "Item de Portfólio guardado."
 
-#: includes/class-portfolio-post-type-post-type.php:102
+#: includes/class-portfolio-post-type-post-type.php:105
 msgid "Portfolio item submitted."
 msgstr "Item de Portfólio submetido."
 
-#: includes/class-portfolio-post-type-post-type.php:104
+#: includes/class-portfolio-post-type-post-type.php:107
+#, php-format
 msgid "Portfolio item scheduled for: <strong>%1$s</strong>."
 msgstr "Item de Portfólio agendado para: <strong>%1$s</strong>."
 
-#. translators: Publish box date format, see http:php.net/date
-#: includes/class-portfolio-post-type-post-type.php:106
+#. translators: Publish box date format, see http://php.net/date
+#: includes/class-portfolio-post-type-post-type.php:109
 msgid "M j, Y @ G:i"
 msgstr "j de F de Y @ G:i"
 
-#: includes/class-portfolio-post-type-post-type.php:108
+#: includes/class-portfolio-post-type-post-type.php:111
 msgid "Portfolio item draft updated."
 msgstr "Rascunho do item de Portfólio actualizado."
 
-#: includes/class-portfolio-post-type-post-type.php:115
+#: includes/class-portfolio-post-type-post-type.php:118
 msgid "View portfolio item"
 msgstr "Ver item de Portfólio"
 
-#: includes/class-portfolio-post-type-post-type.php:116
+#: includes/class-portfolio-post-type-post-type.php:119
 msgid "Preview portfolio item"
 msgstr "Previsão de item de Portfólio"
 
@@ -182,6 +212,14 @@ msgstr "Escolha de entre as categorias de Portfólio mais usadas"
 msgid "No portfolio categories found."
 msgstr "Não foram encontradas categorias de Portfólio."
 
+#: includes/class-portfolio-post-type-taxonomy-category.php:55
+msgid "Portfolio categories list navigation"
+msgstr "Navegação da lista de categorias de Portfólio"
+
+#: includes/class-portfolio-post-type-taxonomy-category.php:56
+msgid "Portfolio categories list"
+msgstr "Lista de categorias de Portfólio"
+
 #: includes/class-portfolio-post-type-taxonomy-tag.php:39
 #: includes/class-portfolio-post-type-taxonomy-tag.php:41
 msgid "Portfolio Tags"
@@ -243,9 +281,17 @@ msgstr "Escolha de entre as etiquetas de Portfólio mais usadas"
 msgid "No portfolio tags found."
 msgstr "Não foram encontradas etiquetas de Portfólio."
 
+#: includes/class-portfolio-post-type-taxonomy-tag.php:55
+msgid "Portfolio tags list navigation"
+msgstr "Navegação da lista de etiquetas de Portfólio"
+
+#: includes/class-portfolio-post-type-taxonomy-tag.php:56
+msgid "Portfolio tags list"
+msgstr "Lista de etiquetas de Portfólio"
+
 #. Plugin Name of the plugin/theme
 msgid "Portfolio Post Type"
-msgstr "Tipo de artigo de Portfólio"
+msgstr "Portfolio Post Type"
 
 #. Plugin URI of the plugin/theme
 msgid "http://wptheming.com/portfolio-post-type/"
@@ -254,7 +300,8 @@ msgstr "http://wptheming.com/portfolio-post-type/"
 #. Description of the plugin/theme
 msgid "Enables a portfolio post type and taxonomies."
 msgstr ""
-"Permite acrescentar um tipo de artigo de Porftólio e respectivas taxonomias."
+"Permite acrescentar um tipo de artigo de Porftólio e respectivas "
+"taxonomias."
 
 #. Author of the plugin/theme
 msgid "Devin Price"
@@ -263,13 +310,3 @@ msgstr "Devin Price"
 #. Author URI of the plugin/theme
 msgid "http://www.wptheming.com/"
 msgstr "http://www.wptheming.com/"
-
-#: includes/class-portfolio-post-type-post-type.php:41
-msgctxt "admin menu"
-msgid "Portfolio"
-msgstr "Portfólio"
-
-#: includes/class-portfolio-post-type-post-type.php:42
-msgctxt "add new on admin bar"
-msgid "Portfolio Item"
-msgstr "Item de Portfólio"
