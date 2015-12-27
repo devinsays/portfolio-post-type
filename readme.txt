@@ -32,6 +32,10 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 
 == Changelog ==
 
+= 0.9.2 =
+
+* Update post type messages for WordPress 4.4
+
 = 0.9.1 =
 
 * Updated translation file
