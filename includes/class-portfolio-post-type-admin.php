@@ -194,7 +194,7 @@ class Portfolio_Post_Type_Admin {
     	if ( version_compare( $GLOBALS['wp_version'], '3.8', '>=' ) ) {
     		// Styling only needed on dashboard page
 			$screen = get_current_screen();
-			if ( $screen->id != 'dashboard' ) {
+			if ( ! is_object( $screen ) || $screen->id != 'dashboard' ) {
 				return;
 			}
 			?>
