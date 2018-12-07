@@ -6,10 +6,11 @@ WordPress plugin that adds support for Portfolio entries.
 
 This plugin registers a custom post type for portfolio items.  It also registers separate portfolio taxonomies for tags and categories.  If featured images are selected, they will be displayed in the column view.
 
-This plugin doesn't change how portfolio items are displayed in your theme.  You'll need to add templates for `archive-portfolio.php` and `single-portfolio.php` if you want to customize the display of portfolio items.
+This plugin doesn't change how portfolio items are displayed in your theme.  You will need to add templates for `archive-portfolio.php` and `single-portfolio.php` if you want to customize the display of portfolio items.
 
 ## Requirements
-* WordPress 3.7, tested up to 4.5.2
+
+* WordPress 3.7, tested up to 5.0
 
 ## Installation
 
@@ -39,7 +40,7 @@ Then go to your Plugins screen and click __Activate__.
 
 ## Customization
 
-Since the custom post type and two taxomonies have filterable arguments, it's possible to amend the labels or other arguments via a plugin or a theme. For example, to change the label from _Portfolio_ to _Projects_, you can do:
+Since the custom post type and two taxonomies have filterable arguments, it's possible to amend the labels or other arguments via a plugin or a theme. For example, to change the label from _Portfolio_ to _Projects_, you can do:
 
 ~~~php
 add_filter( 'portfolioposttype_args', 'prefix_change_portfolio_labels' );
@@ -88,8 +89,8 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 
 ### Is this plugin on the WordPress repo?
 
-Of course: [http://wordpress.org/plugins/portfolio-post-type/](http://wordpress.org/plugins/portfolio-post-type/)
+Yes, you can find it here: [https://wordpress.org/plugins/portfolio-post-type/](https://wordpress.org/plugins/portfolio-post-type/)
 
 ## Credits
 
-Built by [Devin Price](http://www.wptheming.com/) and [Gary Jones](https://gamajo.com/)
+Built by [Devin Price](https://www.wptheming.com/) and [Gary Jones](https://gamajo.com/)

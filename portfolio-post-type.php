@@ -5,16 +5,16 @@
  * @package   Portfolio_Post_Type
  * @author    Devin Price
  * @license   GPL-2.0+
- * @link      http://wptheming.com/portfolio-post-type/
+ * @link      https://wptheming.com/portfolio-post-type/
  * @copyright 2011 Devin Price, Gary Jones
  *
  * @wordpress-plugin
  * Plugin Name: Portfolio Post Type
- * Plugin URI:  http://wptheming.com/portfolio-post-type/
+ * Plugin URI:  https://wptheming.com/portfolio-post-type/
  * Description: Enables a portfolio post type and taxonomies.
- * Version:     0.9.3
+ * Version:     1.0.0
  * Author:      Devin Price
- * Author URI:  http://www.wptheming.com/
+ * Author URI:  https://www.wptheming.com/
  * Text Domain: portfolioposttype
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt

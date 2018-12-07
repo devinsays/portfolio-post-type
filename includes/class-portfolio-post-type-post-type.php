@@ -75,6 +75,7 @@ class Portfolio_Post_Type_Post_Type extends Gamajo_Post_Type {
 			'menu_position'   => 5,
 			'menu_icon'       => ( version_compare( $GLOBALS['wp_version'], '3.8', '>=' ) ) ? 'dashicons-portfolio' : false ,
 			'has_archive'     => true,
+			'show_in_rest'    => true,
 		);
 
 		return apply_filters( 'portfolioposttype_args', $args );

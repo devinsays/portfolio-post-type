@@ -2,8 +2,8 @@
 Contributors: downstairsdev, GaryJ
 Tags: portfolio, post type
 Requires at least: 3.7
-Tested up to: 4.5.2
-Stable tag: 0.9.3
+Tested up to: 5.0.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 
 == Description ==
@@ -31,6 +31,11 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com/devinsays/portfolio-post-type)
 
 == Changelog ==
+
+= 1.0.0 =
+
+* Update: WordPress 5.0 Editor Support (props @simube)
+* Update: Use filter rather than action for dashboard glance (props @chesio)
 
 = 0.9.3 =
 
