@@ -6,7 +6,7 @@ WordPress plugin that adds support for Portfolio entries.
 
 This plugin registers a custom post type for portfolio items.  It also registers separate portfolio taxonomies for tags and categories.  If featured images are selected, they will be displayed in the column view.
 
-This plugin doesn't change how portfolio items are displayed in your theme.  You'll need to add templates for `archive-portfolio.php` and `single-portfolio.php` if you want to customize the display of portfolio items.
+This plugin doesn't change how portfolio items are displayed in your theme.  You will need to add templates for `archive-portfolio.php` and `single-portfolio.php` if you want to customize the display of portfolio items.
 
 ## Requirements
 
@@ -89,8 +89,8 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 
 ### Is this plugin on the WordPress repo?
 
-Of course: [http://wordpress.org/plugins/portfolio-post-type/](http://wordpress.org/plugins/portfolio-post-type/)
+Yes, you can find it here: [https://wordpress.org/plugins/portfolio-post-type/](https://wordpress.org/plugins/portfolio-post-type/)
 
 ## Credits
 
-Built by [Devin Price](http://www.wptheming.com/) and [Gary Jones](https://gamajo.com/)
+Built by [Devin Price](https://www.wptheming.com/) and [Gary Jones](https://gamajo.com/)

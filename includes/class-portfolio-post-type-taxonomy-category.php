@@ -66,6 +66,7 @@ class Portfolio_Post_Type_Taxonomy_Category extends Gamajo_Taxonomy {
 			'rewrite'           => array( 'slug' => 'portfolio_category' ),
 			'show_admin_column' => true,
 			'query_var'         => true,
+			'show_in_rest'      => true,
 		);
 
 		return apply_filters( 'portfolioposttype_category_args', $args );
