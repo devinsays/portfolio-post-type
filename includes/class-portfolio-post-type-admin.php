@@ -49,7 +49,7 @@ class Portfolio_Post_Type_Admin {
 
 		// Show post counts in the dashboard
 		add_action( 'right_now_content_table_end', array( $this, 'add_rightnow_counts' ) );
-		add_action( 'dashboard_glance_items', array( $this, 'add_glance_counts' ) );
+		add_filter( 'dashboard_glance_items', array( $this, 'add_glance_counts' ), 10, 1 );
 
 		// Adds menu icons
 		add_action( 'admin_head', array( $this, 'add_icons' ) );
@@ -170,9 +170,11 @@ class Portfolio_Post_Type_Admin {
 	 *
 	 * @since Unknown
 	 */
-	public function add_glance_counts() {
+	public function add_glance_counts( array $items ) {
 		$glancer = new Gamajo_Dashboard_Glancer;
 		$glancer->add( $this->registration_handler->post_type, array( 'publish', 'pending' ) );
+
+		return $items;
 	}
 
 	/**
@@ -199,7 +201,7 @@ class Portfolio_Post_Type_Admin {
 			}
 			?>
 		    <style>
-				#dashboard_right_now .portfolio-count a:before {
+				#dashboard_right_now .portfolio-count:before {
 					content: "\f322";
 				}
 		    </style>

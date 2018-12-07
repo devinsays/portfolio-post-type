@@ -35,7 +35,7 @@ class Gamajo_Dashboard_Glancer {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-		add_action( 'dashboard_glance_items', array( $this, 'show' ), 20 );
+		add_filter( 'dashboard_glance_items', array( $this, 'show' ), 20, 1 );
 	}
 
 	/**
@@ -77,13 +77,22 @@ class Gamajo_Dashboard_Glancer {
 	 * Show the items on the dashboard widget.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @param array $items Existing "At a Glance" items.
+	 *
+	 * @return array Filtered "At a Glance" items.
 	 */
-	public function show() {
+	public function show( array $items ) {
 		foreach ( $this->items as $item ) {
-			echo $this->get_single_item( $item );
+			$item_markup = $this->get_single_item( $item );
+			if ( $item_markup ) {
+				$items[] = $item_markup;
+			}
 		}
 		// Reset items, so items aren't shown again if show() is re-called
 		unset( $this->items );
+
+		return $items;
 	}
 
 	/**
@@ -127,9 +136,8 @@ class Gamajo_Dashboard_Glancer {
 
 		$href  = $this->get_link_url( $item );
 		$text  = number_format_i18n( $count ) . ' ' . $this->get_label( $item, $count );
-		$text  = $this->maybe_link( $text, $href );
-
-		return $this->get_markup( $text, $item['type'] );
+		$class = $item['type'] . '-count';
+		return $this->maybe_link( $text, $href, $class );
 	}
 
 	/**
@@ -182,22 +190,11 @@ class Gamajo_Dashboard_Glancer {
 	 *
 	 * @return string       Text wrapped in a link if current user can edit posts, or original text otherwise.
 	 */
-	protected function maybe_link( $text, $href ) {
+	protected function maybe_link( $text, $href, $class ) {
 		if ( current_user_can( 'edit_posts' ) ) {
-			return '<a href="' . esc_url( $href ) . '">' . $text . '</a>';
+			return '<a class="' . sanitize_html_class( $class ) . '" href="' . esc_url( $href ) . '">' . esc_html( $text ) . '</a>';
+		} else {
+			return '<span class="' . sanitize_html_class( $class ) . '">' . esc_html( $text ) . '</span>';
 		}
-		return $text;
 	}
-
-	/**
-	 * Wrap number and text within list item markup.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param string  $text  Text to display. May be wrapped in a link.
-	 */
-	protected function get_markup( $text, $post_type ) {
-		return '<li class="' . sanitize_html_class( $post_type . '-count' ) . '">' . $text . '</li>' . "\n";
-	}
-
 }
