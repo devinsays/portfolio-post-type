@@ -32,6 +32,10 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 
 == Changelog ==
 
+= Development =
+
+* Update: Show portfolio icon in dashboard glance. Removed by mistake in v1.0.0, props @chesio for bug report.
+
 = 1.0.0 =
 
 * Update: WordPress 5.0 Editor Support (props @simube)
