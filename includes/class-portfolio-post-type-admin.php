@@ -50,6 +50,9 @@ class Portfolio_Post_Type_Admin {
 		// Show post counts in the dashboard
 		add_action( 'right_now_content_table_end', array( $this, 'add_rightnow_counts' ) );
 		add_filter( 'dashboard_glance_items', array( $this, 'add_glance_counts' ), 10, 1 );
+		
+		// Adds portfolio icon to the dashboard "At a Glance"	
+		add_action( 'admin_head', array( $this, 'add_glance_icon' ) );
 	}
 
 	/**
@@ -182,6 +185,24 @@ class Portfolio_Post_Type_Admin {
 	public function add_rightnow_counts() {
 		$glancer = new Gamajo_Dashboard_RightNow;
 		$glancer->add( $this->registration_handler->post_type, array( 'publish', 'pending' ) );
+	}
+	
+	/**	
+	* Displays the portfolio icon in the glance view in the dashboard.
+	*/	
+	public function add_glance_icon() {	
+			// Styling only needed on dashboard page.
+			$screen = get_current_screen();	
+			if ( ! is_object( $screen ) || $screen->id !== 'dashboard' ) {	
+				return;	
+			}	
+			?>	
+			<style>	
+				#dashboard_right_now .portfolio-count:before {	
+					content: "\f322";	
+				}	
+			</style>	
+			<?php
 	}
 
 }
