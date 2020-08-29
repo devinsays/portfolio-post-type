@@ -32,16 +32,10 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 
 == Changelog ==
 
-<<<<<<< HEAD
-= Development =
-
-* Update: Show portfolio icon in dashboard glance. Removed by mistake in v1.0.0, props @chesio for bug report.
-=======
 = 1.0.1 =
 
 * Update: Show portfolio icon in dashboard glance. Removed by mistake in v1.0.0, props @chesio for bug report.
 * Update: Fix for PHP 7.4.9 notices
->>>>>>> develop
 
 = 1.0.0 =
 
