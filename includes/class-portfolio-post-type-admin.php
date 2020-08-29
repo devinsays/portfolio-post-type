@@ -48,7 +48,6 @@ class Portfolio_Post_Type_Admin {
 		add_action( 'restrict_manage_posts', array( $this, 'add_taxonomy_filters' ) );
 
 		// Show post counts in the dashboard
-		add_action( 'right_now_content_table_end', array( $this, 'add_rightnow_counts' ) );
 		add_filter( 'dashboard_glance_items', array( $this, 'add_glance_counts' ), 10, 1 );
 		
 		// Adds portfolio icon to the dashboard "At a Glance"	
@@ -170,21 +169,11 @@ class Portfolio_Post_Type_Admin {
 	 *
 	 * @since Unknown
 	 */
-	public function add_glance_counts( array $items ) {
+	public function add_glance_counts( $items ) {
 		$glancer = new Gamajo_Dashboard_Glancer;
 		$glancer->add( $this->registration_handler->post_type, array( 'publish', 'pending' ) );
 
 		return $items;
-	}
-
-	/**
-	 * Add counts to "Right Now" dashboard widget in WP 3.7-.
-	 *
-	 * @since Unknown
-	 */
-	public function add_rightnow_counts() {
-		$glancer = new Gamajo_Dashboard_RightNow;
-		$glancer->add( $this->registration_handler->post_type, array( 'publish', 'pending' ) );
 	}
 	
 	/**	

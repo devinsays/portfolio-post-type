@@ -1,6 +1,6 @@
 {
   "name": "portfolio-post-type",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-wp-i18n": "^1.0.0",
