@@ -32,6 +32,10 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 
 == Changelog ==
 
+= Development =
+
+* Update: GraphQL support. Props @gabacode.
+
 = 1.0.1 =
 
 * Update: Show portfolio icon in dashboard glance. Removed by mistake in v1.0.0, props @chesio for bug report.
