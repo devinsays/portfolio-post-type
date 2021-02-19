@@ -34,7 +34,7 @@ Check out the Codex for more information about [installing plugins manually](htt
 
 Using git, browse to your `/wp-content/plugins/` directory and clone this repository:
 
-`git clone git@github.com:devinsays/portfolio-post-type.git`
+`git clone https://github.com/devinsays/portfolio-post-type.git`
 
 Then go to your Plugins screen and click __Activate__.
 
