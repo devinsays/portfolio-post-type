@@ -2,7 +2,7 @@
   "name": "portfolio-post-type",
   "version": "1.0.1",
   "devDependencies": {
-    "grunt": "^1.0.1",
+    "grunt": "^1.5.3",
     "grunt-wp-i18n": "^1.0.0",
     "load-grunt-tasks": "^3.5.2"
   },
