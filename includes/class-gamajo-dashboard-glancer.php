@@ -63,7 +63,7 @@ class Gamajo_Dashboard_Glancer {
 		}
 
 		// Register each combination of given post type and status
-		foreach( $post_types as $post_type ) {
+		foreach ( $post_types as $post_type ) {
 			foreach ( (array) $statuses as $status ) {
 				$this->items[] = array(
 					'type'   => $post_type,
@@ -105,7 +105,7 @@ class Gamajo_Dashboard_Glancer {
 	 * @return array List of the given post types that are valid.
 	 */
 	protected function unset_invalid_post_types( array $post_types ) {
-		foreach( $post_types as $index => $post_type ) {
+		foreach ( $post_types as $index => $post_type ) {
 			$post_type_object = get_post_type_object( $post_type );
 			if ( is_null( $post_type_object ) ) {
 				unset( $post_types[ $index ] );
@@ -128,7 +128,7 @@ class Gamajo_Dashboard_Glancer {
 	 */
 	protected function get_single_item( array $item ) {
 		$num_posts = wp_count_posts( $item['type'] );
-		$count = (int) $num_posts->{$item['status']};
+		$count     = (int) $num_posts->{$item['status']};
 
 		if ( ! $count ) {
 			return '';

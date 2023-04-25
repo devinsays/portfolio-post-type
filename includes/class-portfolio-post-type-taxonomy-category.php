@@ -57,19 +57,19 @@ class Portfolio_Post_Type_Taxonomy_Category extends Gamajo_Taxonomy {
 		);
 
 		$args = array(
-			'labels'            => $labels,
-			'public'            => true,
-			'show_in_nav_menus' => true,
-			'show_ui'           => true,
-			'show_tagcloud'     => true,
-			'hierarchical'      => true,
-			'rewrite'           => array( 'slug' => 'portfolio_category' ),
-			'show_admin_column' => true,
-			'query_var'         => true,
-			'show_in_rest'      => true,
-			'show_in_graphql' => true,
-    			'graphql_single_name' => 'portfolio_category',
-    			'graphql_plural_name' => 'portfolio_categories',
+			'labels'              => $labels,
+			'public'              => true,
+			'show_in_nav_menus'   => true,
+			'show_ui'             => true,
+			'show_tagcloud'       => true,
+			'hierarchical'        => true,
+			'rewrite'             => array( 'slug' => 'portfolio_category' ),
+			'show_admin_column'   => true,
+			'query_var'           => true,
+			'show_in_rest'        => true,
+			'show_in_graphql'     => true,
+			'graphql_single_name' => 'portfolio_category',
+			'graphql_plural_name' => 'portfolio_categories',
 			
 		);
 

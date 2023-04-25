@@ -32,9 +32,10 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 
 == Changelog ==
 
-= Development =
+= 1.1 =
 
 * Update: GraphQL support. Props @gabacode.
+* Update: Bump WordPress support versions.
 
 = 1.0.1 =
 

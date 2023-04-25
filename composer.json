@@ -1,0 +1,31 @@
+{
+    "name": "devinsays/portfolio-post-type",
+    "description": "",
+    "keywords": [ "wordpress" ],
+    "type": "wordpress-plugin",
+    "homepage": "https://github.com/devinsays/portfolio-post-type",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Devin Price",
+            "homepage": "https://devpress.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/devinsays/portfolio-post-type/issues",
+        "source": "https://github.com/devinsays/portfolio-post-type"
+    },
+    "require-dev": {
+        "automattic/vipwpcs": "^2.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+        "wp-cli/i18n-command": "^2.2.5"
+    },
+    "scripts": {
+        "make-pot": "wp i18n make-pot . languages/portfolio-post-type.pot"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

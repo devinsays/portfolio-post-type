@@ -34,11 +34,11 @@ class Portfolio_Post_Type_Registrations {
 	public function register() {
 		global $portfolio_post_type_post_type, $portfolio_post_type_taxonomy_category, $portfolio_post_type_taxonomy_tag;
 
-		$portfolio_post_type_post_type = new Portfolio_Post_Type_Post_Type;
+		$portfolio_post_type_post_type = new Portfolio_Post_Type_Post_Type();
 		$portfolio_post_type_post_type->register();
 		$this->post_type = $portfolio_post_type_post_type->get_post_type();
 
-		$portfolio_post_type_taxonomy_category = new Portfolio_Post_Type_Taxonomy_Category;
+		$portfolio_post_type_taxonomy_category = new Portfolio_Post_Type_Taxonomy_Category();
 		$portfolio_post_type_taxonomy_category->register();
 		$this->taxonomies[] = $portfolio_post_type_taxonomy_category->get_taxonomy();
 		register_taxonomy_for_object_type(
@@ -46,7 +46,7 @@ class Portfolio_Post_Type_Registrations {
 			$portfolio_post_type_post_type->get_post_type()
 		);
 
-		$portfolio_post_type_taxonomy_tag = new Portfolio_Post_Type_Taxonomy_Tag;
+		$portfolio_post_type_taxonomy_tag = new Portfolio_Post_Type_Taxonomy_Tag();
 		$portfolio_post_type_taxonomy_tag->register();
 		$this->taxonomies[] = $portfolio_post_type_taxonomy_tag->get_taxonomy();
 		register_taxonomy_for_object_type(

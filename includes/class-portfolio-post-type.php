@@ -53,7 +53,6 @@ class Portfolio_Post_Type {
 
 		// Activate plugin when new blog is added
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
-
 	}
 
 	/**
@@ -109,11 +108,12 @@ class Portfolio_Post_Type {
 	 *
 	 * @since    0.7.0
 	 *
-	 * @param	int	$blog_id ID of the new blog.
+	 * @param   int $blog_id ID of the new blog.
 	 */
 	public function activate_new_site( $blog_id ) {
-		if ( 1 !== did_action( 'wpmu_new_blog' ) )
+		if ( 1 !== did_action( 'wpmu_new_blog' ) ) {
 			return;
+		}
 
 		switch_to_blog( $blog_id );
 		$this->single_activate();
@@ -128,7 +128,7 @@ class Portfolio_Post_Type {
 	 *
 	 * @since    0.7.0
 	 *
-	 * @return	array|false	The blog ids, false if no matches.
+	 * @return  array|false The blog ids, false if no matches.
 	 */
 	private function get_blog_ids() {
 		global $wpdb;
@@ -169,7 +169,7 @@ class Portfolio_Post_Type {
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
 		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-		load_plugin_textdomain( $domain, FALSE, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages' );
+		load_plugin_textdomain( $domain, false, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages' );
 	}
 
 }

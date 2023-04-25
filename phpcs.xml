@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ruleset>
+	<arg name="basepath" value="."/>
+	<arg name="extensions" value="php"/>
+	<arg name="severity" value="4"/>
+	<arg name="tab-width" value="4"/>
+	<arg name="parallel" value="80"/>
+	<arg name="cache" value=".phpcs-cache"/>
+	<arg name="colors"/>
+
+	<exclude-pattern>*/.git/*</exclude-pattern>
+	<exclude-pattern>.github/</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/tests/*</exclude-pattern>
+	<exclude-pattern>*/bin/*</exclude-pattern>
+
+	<config name="testVersion" value="7.4"/>
+	<config name="php_version" value="70407"/>
+
+	<!-- Ignore warnings, show progress of the run and show sniff names. -->
+	<arg value="nps"/>
+
+	<!-- Directories to be checked. -->
+	<file>.</file>
+
+	<!-- WordPress -->
+	<rule ref="WordPressVIPMinimum"/>
+	<rule ref="WordPress-Extra"/>
+	<rule ref="PSR2.Methods.FunctionClosingBrace"/>
+
+	<!-- Exclusions to bove rulesets. -->
+	<rule ref="WordPress-Extra">
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+    </rule>
+
+</ruleset>

@@ -15,20 +15,6 @@ class PortfolioTaxonomiesTest extends WP_UnitTestCase {
 		$this->assertArrayHasKey( $this->reg->taxonomies[0], get_taxonomies(), 'portfolio_category not registered.' );
 		$this->assertArrayHasKey( $this->reg->taxonomies[1], get_taxonomies(), 'portfolio_tag not registered.' );
 	}
-
-	// public function testGetPortfolioItem() {
-	// 	$this->reg->register();
-
-	// 	$item_args = array(
-	// 		'post_type' => $this->reg->post_type,
-	// 		'post_title' => 'Test',
-	// 	);
-
-	// 	$item = $this->factory->post->create_and_get( $item_args );
-
-	// 	$this->assertEquals( $this->reg->post_type, $item->post_type );
-	// 	$this->assertEquals( 'Test', $item->post_title );
-	// }
 	
 	public function tearDown() {
 		$this->reg->unregister();

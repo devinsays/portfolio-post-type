@@ -41,7 +41,7 @@ class Portfolio_Post_Type_Admin {
 		}
 
 		// Add thumbnails to column view
-		add_filter( 'manage_edit-' . $this->registration_handler->post_type . '_columns', array( $this, 'add_thumbnail_column'), 10, 1 );
+		add_filter( 'manage_edit-' . $this->registration_handler->post_type . '_columns', array( $this, 'add_thumbnail_column' ), 10, 1 );
 		add_action( 'manage_posts_custom_column', array( $this, 'display_thumbnail' ), 10, 1 );
 
 		// Allow filtering of posts by taxonomy in the admin view
@@ -117,10 +117,10 @@ class Portfolio_Post_Type_Admin {
 		}
 
 		$tax_name         = $this->get_taxonomy_name_from_slug( $tax_slug );
-		$current_tax_slug = isset( $_GET[$tax_slug] ) ? $_GET[$tax_slug] : false;
+		$current_tax_slug = isset( $_GET[ $tax_slug ] ) ? $_GET[ $tax_slug ] : false;
 
 		$filter  = '<select name="' . esc_attr( $tax_slug ) . '" id="' . esc_attr( $tax_slug ) . '" class="postform">';
-		$filter .= '<option value="0">' . esc_html( $tax_name ) .'</option>';
+		$filter .= '<option value="0">' . esc_html( $tax_name ) . '</option>';
 		$filter .= $this->build_term_options( $terms, $current_tax_slug );
 		$filter .= '</select>';
 
@@ -136,8 +136,9 @@ class Portfolio_Post_Type_Admin {
 	 */
 	protected function get_taxonomy_name_from_slug( $tax_slug ) {
 		$tax_obj = get_taxonomy( $tax_slug );
-		if ( ! $tax_obj )
+		if ( ! $tax_obj ) {
 			return '';
+		}
 		return $tax_obj->labels->name;
 	}
 
@@ -170,22 +171,22 @@ class Portfolio_Post_Type_Admin {
 	 * @since Unknown
 	 */
 	public function add_glance_counts( $items ) {
-		$glancer = new Gamajo_Dashboard_Glancer;
+		$glancer = new Gamajo_Dashboard_Glancer();
 		$glancer->add( $this->registration_handler->post_type, array( 'publish', 'pending' ) );
 
 		return $items;
 	}
 	
-	/**	
+	/** 
 	* Displays the portfolio icon in the glance view in the dashboard.
-	*/	
-	public function add_glance_icon() {	
+	*/  
+	public function add_glance_icon() { 
 			// Styling only needed on dashboard page.
-			$screen = get_current_screen();	
-			if ( ! is_object( $screen ) || $screen->id !== 'dashboard' ) {	
-				return;	
-			}	
-			?>	
+			$screen = get_current_screen(); 
+		if ( ! is_object( $screen ) || $screen->id !== 'dashboard' ) {  
+			return; 
+		}   
+		?>	
 			<style>	
 				#dashboard_right_now .portfolio-count:before {	
 					content: "\f322";	
