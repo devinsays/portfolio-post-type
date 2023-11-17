@@ -32,6 +32,10 @@ Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com
 
 == Changelog ==
 
+= 1.1.1 =
+
+* Update: Tested to version.
+
 = 1.1 =
 
 * Update: GraphQL support. Props @gabacode.
