@@ -10,7 +10,8 @@ This plugin doesn't change how portfolio items are displayed in your theme. You 
 
 ## Requirements
 
-- WordPress 3.8, tested up to 6.4.1
+- WordPress 5.1+, tested up to 7.1
+- PHP 7.0+
 
 ## Installation
 
@@ -76,6 +77,18 @@ function prefix_change_portfolio_labels( array $args ) {
 ```
 
 You'd likely want to do something similar with the labels for portfolio tag and portfolio category taxonomies as well.
+
+## Running the tests
+
+Requires composer, MySQL and SVN. The WordPress test suite is installed into `tests/tmp`.
+
+```
+composer install
+bash tests/bin/install-wp-tests.sh portfolio_test root root
+vendor/bin/phpunit
+```
+
+Run `WP_MULTISITE=1 vendor/bin/phpunit` to test multisite. GitHub Actions runs both on every push.
 
 ## Frequently Asked Questions
 

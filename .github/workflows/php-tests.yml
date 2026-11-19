@@ -1,0 +1,54 @@
+name: PHPUnit Tests
+
+on: [push]
+
+jobs:
+  test:
+    name: PHP ${{ matrix.php_ver }} / WP ${{ matrix.wp_ver }}${{ matrix.multisite == '1' && ' / multisite' || '' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        php_ver: ["7.4", "8.3", "8.4"]
+        wp_ver: ["latest"]
+        multisite: ["0"]
+        include:
+          - php_ver: "8.4"
+            wp_ver: "latest"
+            multisite: "1"
+
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping -proot" --health-interval=5s --health-timeout=5s --health-retries=10
+
+    steps:
+      - name: Checkout the files
+        uses: actions/checkout@v4
+
+      - name: Install SVN
+        run: sudo apt-get update && sudo apt-get install -y subversion
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php_ver }}
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress
+
+      # The MySQL service creates the database, so skip creation (last arg).
+      - name: Install WordPress test suite
+        run: bash tests/bin/install-wp-tests.sh wordpress_test root root 127.0.0.1 ${{ matrix.wp_ver }} true
+
+      - name: Run phpunit
+        run: vendor/bin/phpunit
+        env:
+          WP_MULTISITE: ${{ matrix.multisite }}

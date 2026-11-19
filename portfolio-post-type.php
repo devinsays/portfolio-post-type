@@ -12,13 +12,13 @@
  * Plugin Name: Portfolio Post Type
  * Plugin URI:  https://wptheming.com/portfolio-post-type/
  * Description: Enables a portfolio post type and taxonomies.
- * Version:     1.1.1
- * Requires at least: 3.8
+ * Version:     1.1.2
+ * Requires at least: 5.1
  * Requires PHP: 7.0
- * Tested up to: 6.4.1
+ * Tested up to: 7.1
  * Author:      Devin Price
  * Author URI:  https://www.wptheming.com/
- * Text Domain: portfolioposttype
+ * Text Domain: portfolio-post-type
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path: /languages
@@ -38,6 +38,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-post-t
 require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-taxonomy-category.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-taxonomy-tag.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-registrations.php';
+
+// Declared global so they're reachable when this file is included from inside a function (e.g. WP-CLI, tests).
+global $portfolio_post_type, $portfolio_post_type_registrations;
 
 // Instantiate registration class, so we can add it as a dependency to main plugin class.
 $portfolio_post_type_registrations = new Portfolio_Post_Type_Registrations();
