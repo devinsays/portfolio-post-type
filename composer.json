@@ -16,16 +16,22 @@
         "source": "https://github.com/devinsays/portfolio-post-type"
     },
     "require-dev": {
-        "automattic/vipwpcs": "^2.3",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
-        "wp-cli/i18n-command": "^2.2.5"
+        "automattic/vipwpcs": "^3.0.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
+        "wp-cli/i18n-command": "^2.6.0",
+        "phpunit/phpunit": "^9",
+        "yoast/phpunit-polyfills": "^2.0.0"
     },
     "scripts": {
-        "make-pot": "wp i18n make-pot . languages/portfolio-post-type.pot"
+        "make-pot": "wp i18n make-pot . languages/portfolio-post-type.pot",
+        "test": "phpunit"
     },
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "platform": {
+            "php": "7.4.99"
         }
     }
 }

@@ -39,6 +39,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-taxono
 require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-taxonomy-tag.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-registrations.php';
 
+// Declared global so they're reachable when this file is included from inside a function (e.g. WP-CLI, tests).
+global $portfolio_post_type, $portfolio_post_type_registrations;
+
 // Instantiate registration class, so we can add it as a dependency to main plugin class.
 $portfolio_post_type_registrations = new Portfolio_Post_Type_Registrations();
 

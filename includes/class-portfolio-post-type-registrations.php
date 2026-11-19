@@ -36,7 +36,8 @@ class Portfolio_Post_Type_Registrations {
 
 		$portfolio_post_type_post_type = new Portfolio_Post_Type_Post_Type();
 		$portfolio_post_type_post_type->register();
-		$this->post_type = $portfolio_post_type_post_type->get_post_type();
+		$this->post_type  = $portfolio_post_type_post_type->get_post_type();
+		$this->taxonomies = array();
 
 		$portfolio_post_type_taxonomy_category = new Portfolio_Post_Type_Taxonomy_Category();
 		$portfolio_post_type_taxonomy_category->register();
@@ -64,9 +65,7 @@ class Portfolio_Post_Type_Registrations {
 		$this->post_type = null;
 
 		$portfolio_post_type_taxonomy_category->unregister();
-		unset( $this->taxonomies[ $portfolio_post_type_taxonomy_category->get_taxonomy() ] );
-
 		$portfolio_post_type_taxonomy_tag->unregister();
-		unset( $this->taxonomies[ $portfolio_post_type_taxonomy_tag->get_taxonomy() ] );
+		$this->taxonomies = array();
 	}
 }
