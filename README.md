@@ -10,7 +10,8 @@ This plugin doesn't change how portfolio items are displayed in your theme. You 
 
 ## Requirements
 
-- WordPress 3.8, tested up to 6.4.1
+- WordPress 5.1+, tested up to 7.1
+- PHP 7.0+
 
 ## Installation
 

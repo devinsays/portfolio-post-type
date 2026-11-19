@@ -24,7 +24,7 @@ class Gamajo_Dashboard_Glancer {
 	 *
 	 * @type array
 	 */
-	protected $items;
+	protected $items = array();
 
 	/**
 	 * Automatically show any registered items.
@@ -51,7 +51,7 @@ class Gamajo_Dashboard_Glancer {
 	public function add( $post_types, $statuses = 'publish' ) {
 		// If relevant output action hook has already passed, then no point in proceeding.
 		if ( did_action( 'dashboard_glance_items' ) ) {
-			_doing_it_wrong( __CLASS__, __( 'Trying to add At a Glance items to dashboard widget afterhook already fired', 'gamajo-dashboard-glancer' ), '1.0.0' );
+			_doing_it_wrong( __CLASS__, __( 'Trying to add At a Glance items to dashboard widget afterhook already fired', 'portfolio-post-type' ), '1.0.0' );
 			return;
 		}
 
@@ -90,7 +90,7 @@ class Gamajo_Dashboard_Glancer {
 			}
 		}
 		// Reset items, so items aren't shown again if show() is re-called
-		unset( $this->items );
+		$this->items = array();
 
 		return $items;
 	}

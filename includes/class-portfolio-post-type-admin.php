@@ -42,7 +42,7 @@ class Portfolio_Post_Type_Admin {
 
 		// Add thumbnails to column view
 		add_filter( 'manage_edit-' . $this->registration_handler->post_type . '_columns', array( $this, 'add_thumbnail_column' ), 10, 1 );
-		add_action( 'manage_posts_custom_column', array( $this, 'display_thumbnail' ), 10, 1 );
+		add_action( 'manage_' . $this->registration_handler->post_type . '_posts_custom_column', array( $this, 'display_thumbnail' ), 10, 1 );
 
 		// Allow filtering of posts by taxonomy in the admin view
 		add_action( 'restrict_manage_posts', array( $this, 'add_taxonomy_filters' ) );
@@ -111,8 +111,8 @@ class Portfolio_Post_Type_Admin {
 	 * @return string Markup, or empty string if taxonomy has no terms.
 	 */
 	protected function build_taxonomy_filter( $tax_slug ) {
-		$terms = get_terms( $tax_slug );
-		if ( 0 == count( $terms ) ) {
+		$terms = get_terms( array( 'taxonomy' => $tax_slug ) );
+		if ( is_wp_error( $terms ) || empty( $terms ) ) {
 			return '';
 		}
 
@@ -156,7 +156,7 @@ class Portfolio_Post_Type_Admin {
 		$options = '';
 		foreach ( $terms as $term ) {
 			$options .= sprintf(
-				'<option value="%s"%s />%s</option>',
+				'<option value="%s"%s>%s</option>',
 				esc_attr( $term->slug ),
 				selected( $current_tax_slug, $term->slug, false ),
 				esc_html( $term->name . ' (' . $term->count . ')' )

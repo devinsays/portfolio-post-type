@@ -1,9 +1,10 @@
 === Portfolio Post Type ===
 Contributors: downstairsdev, GaryJ
 Tags: portfolio, post type
-Requires at least: 3.8
-Tested up to: 5.5
-Stable tag: 1.0.1
+Requires at least: 5.1
+Tested up to: 7.1
+Requires PHP: 7.0
+Stable tag: 1.1.2
 License: GPLv2 or later
 
 == Description ==
@@ -31,6 +32,16 @@ To allow users of Portfolio Press to more easily migrate to a new theme.  And ho
 Of course: [https://github.com/devinsays/portfolio-post-type](https://github.com/devinsays/portfolio-post-type)
 
 == Changelog ==
+
+= 1.1.2 =
+
+* Fix: Stable tag so WordPress.org serves the latest version.
+* Fix: Possible fatal error on PHP 8 in the portfolio list taxonomy filters.
+* Fix: PHP warning in the dashboard "At a Glance" widget.
+* Fix: Thumbnail column callback now only runs for portfolio items.
+* Update: Use wp_initialize_site instead of the deprecated wpmu_new_blog hook.
+* Update: Text domain header matches the plugin slug.
+* Update: Tested up to WordPress 7.1. Requires WordPress 5.1+.
 
 = 1.1.1 =
 
